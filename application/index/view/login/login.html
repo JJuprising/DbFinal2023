@@ -1,0 +1,42 @@
+{include  file="./public/common/top.html"/}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<center>
+
+<!-- action关联了dologin方法 -->
+<form action="{:url('login/dologin')}" method="post" name=f>
+<table style="width:480px; border-width:3px; border-style:dotted;">
+<tr><td colspan=2 style="text-align:center;height:60px;">请登录医院管理信息系统</td></tr>
+<tr>
+ <td style="text-align:right;height:30px;">工号：</td>
+<td align=left><input type=text name="No" ></td>
+</tr>
+<tr>
+<td style="text-align:right;height:30px;">密码：</td>
+<td align=left><input type=password name="Password"></td>
+</tr>
+<tr>
+<td style="text-align:right;height:30px;">身份：</td>
+<td style="">
+<input type="radio" id="doctor" name="job" value="doctor"><label for="doctor">医生</label>
+<input type="radio" id="patient" name="job" value="patient"  checked><label for="patient">病人</label>
+<input type="radio" id="administrator" name="job" value="administrator"><label for="administrator">管理员</label>
+</td>
+
+</tr>
+
+<tr><td colspan=2 style="text-align:center;height:60px;">
+<input type=submit name=s value="登录">
+</td></tr>
+</table>
+</form>
+
+
+</center>
+</body>
+</html>
