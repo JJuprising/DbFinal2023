@@ -37,8 +37,9 @@ class Login extends Controller
         }
         
         //如果用户名和密码正确，则将登录的工号存入 session
-        session('No',$rs['docNo']);
+        
         session('job',input('post.job'));
+        session('No',$rs['docNo']);
         //跳转到主页
         $this->redirect(url('index/index'));   
 //         return view('index/index',[
