@@ -3,7 +3,7 @@ Create database hospital;
 Use hospital;
 drop table if exists doctor;
 Create table doctor(
-    docNo int(11) NOT NULL auto_increment,
+    docNo char(10) NOT NULL,
     docPassword char(80),
     docName varchar(10),
     sex char(2),
@@ -14,12 +14,35 @@ Create table doctor(
     )ENGINE=InnoDB DEFAULT CHARSET=utf8;
     set names utf8;
         Delete from doctor;
-    insert into doctor values(null, md5('123456'),'李四','男','主任医师','13765876477', '101');
-    insert into doctor values(null, md5('123456'),'王五','男','副主任医师','13458493871', '101');
-    insert into doctor values(null, md5('123456'),'李梅','女','主治医师','13675849582', '101');
-    insert into doctor values(null, md5('123456'),'王芳','女','主治医师','16685768948', '102');
-    insert into doctor values(null, md5('123456'),'刘强','男','住院医师','13458295069', '102');
-    insert into doctor values(null, md5('123456'),'赵娟','女','主任医师','13908574832', '102');
+    insert into doctor values("D202301001", md5('123456'),'李四','男','主任医师','13765876477', '101');
+    insert into doctor values("D202305001", md5('123456'),'王五','男','副主任医师','13458493871', '101');
+    insert into doctor values("D202301002", md5('123456'),'李梅','女','主治医师','13675849582', '101');
+    insert into doctor values("D202303001", md5('123456'),'王芳','女','主治医师','16685768948', '102');
+    insert into doctor values("D202305002", md5('123456'),'刘强','男','住院医师','13458295069', '102');
+    insert into doctor values("D202303002", md5('123456'),'赵娟','女','主任医师','13908574832', '102');
 
 select * from doctor;
 
+drop table if exists medicine;
+Create table medicine(
+    medicineNo char(10) NOT NULL,
+    medName varchar(30),
+    price numeric,
+    medLeft INT,
+    medUsage varchar(10),
+    Primary Key(medicineNo)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+set names utf8;
+Delete from medicine;
+insert into medicine values('YP202301', '阿司匹林', 2.5, 200, '口服，每次1片，每天3次');
+insert into medicine values('YP202302', '对乙酰氨基酚', 3.0, 150, '口服，每次1片，每天2次');
+insert into medicine values('YP202303', '维生素C片', 1.0, 300, '口服，每次1片，每天1次');
+insert into medicine values('YP202304', '罗红霉素', 12.0, 50, '口服，每次2片，每天3次');
+insert into medicine values('YP202305', '氯雷他定', 8.0, 100, '口服，每次1片，每天2次');
+insert into medicine values('YP202306', '葡萄糖注射液', 5.0, 80, '静脉注射，每次500毫升，每天1次');
+insert into medicine values('YP202307', '盐酸氨溴索胶囊', 6.0, 120, '口服，每次1-2粒，每天3次');
+insert into medicine values('YP202308', '头孢克洛', 15.0, 30, '静脉注射，每次1克，每天2次');
+insert into medicine values('YP202309', '氯化钠注射液', 2.0, 500, '静脉注射，每次500毫升，根据需要使用');
+insert into medicine values('YP202310', '头孢呋辛酯片', 10.0, 80, '口服，每次1片，每天2次');
+
+select * from medicine;
