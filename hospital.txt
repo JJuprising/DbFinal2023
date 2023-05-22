@@ -46,3 +46,26 @@ insert into medicine values('YP202309', '氯化钠注射液', 2.0, 500, '静脉�
 insert into medicine values('YP202310', '头孢呋辛酯片', 10.0, 80, '口服，每次1片，每天2次');
 
 select * from medicine;
+
+drop table if exists patient;
+CREATE TABLE patient(
+ patNo char(13) PRIMARY KEY,
+ patPassword char(20) NOT NULL DEFAULT '123456',
+ patName varchar(10) NOT NULL,
+ sex char(2) CHECK(sex IN ('男','女')),
+ telephone char(11),
+ address varchar(100) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+set names utf8;
+Delete from patient;
+INSERT INTO patient VALUES('P202205210001','123456','杨开放','男','13966491259','广东省佛山市南海区华南师范大学南海校园');
+INSERT INTO patient VALUES('P202205210002','123456','林兰','女','13570963254','广东省佛山市顺德区大良街道顺德大学');
+INSERT INTO patient VALUES('P202205210003','123456','陈明','男','13876025692','广东省佛山市高明区东平街道高明学院');
+INSERT INTO patient VALUES('P202205210004','123456','黄艾琳','女','15827048963','广东省佛山市南海区桂城街道南海医学院');
+INSERT INTO patient VALUES('P202205210005','123456','张三','男','13123869574','广东省佛山市三水区大塘街道华南理工大学三水校区');
+INSERT INTO patient VALUES('P20220521006','123456','李四','女','13726954123','广东省佛山市南海区西樵街道西樵中学'); 
+INSERT INTO patient VALUES('P20220521007','123456','王五','男','15674839012','广东省佛山市顺德区培正街道培正高级中学'); 
+INSERT INTO patient VALUES('P20220521008','123456','赵六','女','13589632547','广东省佛山市高明区黄阁街道广东高明黄阁中学'); 
+INSERT INTO patient VALUES('P20220521009','123456','孙七','男','13986274591','广东省佛山市三水区梅林街道广东三水梅林街小学');
+
+select * from patient;
