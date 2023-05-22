@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:77:"D:\Tools\php\AppServ\www\dbFinalcode./application/index\view\login\login.html";i:1684771759;s:24:"./public/common/top.html";i:1684773160;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:83:"D:\Tools\php\AppServ\www\dbFinalcode./application/index\view\schedule\schedule.html";i:1684773321;s:24:"./public/common/top.html";i:1684773160;}*/ ?>
 <meta charset="utf-8">
 <center>
 <table width=999px border=0>
@@ -75,53 +75,11 @@
 <body>
 <center>
 
-<!-- action关联了dologin方法 -->
-<form action="<?php echo url('login/dologin'); ?>" method="post" name=f>
-<table style="width:480px; border-width:3px; border-style:dotted;">
-<tr><td colspan=2 style="text-align:center;height:60px;">请登录医院管理信息系统</td></tr>
-<tr>
- <td style="text-align:right;height:30px;"><label id="NoLabel">病案号：</label></td>
-<td align=left><input type=text name="No" id="No" placeholder = "请输入病人病案号"></td>
-</tr>
-<tr>
-<td style="text-align:right;height:30px;">密码：</td>
-<td align=left><input type=password name="Password"></td>
-</tr>
-<tr>
-<td style="text-align:right;height:30px;">身份：</td>
-<td style="">
-<input type="radio" id="doctor" name="job" value="doctor"><label for="doctor" onclick="showNo('doctor')">医生</label>
-<input type="radio" id="patient" name="job" value="patient"  checked onclick="showNo('patient')"><label for="patient">病人</label>
-<input type="radio" id="administrator" name="job" value="administrator" onclick="showNo('administrator')"><label for="administrator">管理员</label>
-</td>
-
-</tr>
-
-<tr><td colspan=2 style="text-align:center;height:60px;">
-<input type=submit name=s value="登录">
-</td></tr>
-</table>
-</form>
+医生-排班treat
 
 
 </center>
 
 </body>
-<script>
-//添加一个showNo()函数，根据用户类型修改label标签和input输入框
-function showNo(jobType) {
-	console.log(1)
-  var NoLabel = document.getElementById("NoLabel");
-  if (jobType == "doctor") {
-    NoLabel.innerHTML = "工号：";
-    document.getElementById("No").placeholder = "请输入医生工号";
-  } else if (jobType == "patient") {
-    NoLabel.innerHTML = "病案号：";
-    document.getElementById("No").placeholder = "请输入病人病案号";
-  } else if (jobType == "administrator") {
-    NoLabel.innerHTML = "管理员编号：";
-    document.getElementById("No").placeholder = "请输入管理员编号";
-  }
-}
-</script>
+
 </html>

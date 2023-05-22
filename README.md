@@ -1,6 +1,34 @@
+## 控制器命名规则
+
+### 医生
+
+index/index 主页
+
+schedule/schedule 排班
+
+treat/treat 接诊
+
+recipet/recipet 处方
+
+### 病人
+
+index/Index 主页
+
+book/book 挂号
+
+gettreat/gettreat 就诊
+
+pay/pay 缴费
+
+consult/consult 查询
+
+### 管理员
+
 ## 数据库文件
 
 根目录下的hospital.txt
+
+
 
 ThinkPHP 5.0
 ---------------
