@@ -29,9 +29,18 @@ class Login extends Controller
             if($rs['docPassword'] != md5(input('post.Password'))){
                 $this->error('密码错误');
             }
+            session('No',$rs['docNo']);
         }else if (input('post.job')=="patient"){
             //查询patient表
-            
+            $rs = db('patient')->where('patNo', input('post.No'))->find();
+            if(empty($rs)){
+                $this->error('账号错误');
+            }
+            //如果 工号 存在，则判断密码是否匹配
+            if($rs['patPassword'] != md5(input('post.Password'))){
+                $this->error('密码错误');
+            }
+            session('No',$rs['patNo']);
         }else if (input('post.job')=="administrator"){
             //查询administrator表
         }
@@ -39,7 +48,7 @@ class Login extends Controller
         //如果用户名和密码正确，则将登录的工号存入 session
         
         session('job',input('post.job'));
-        session('No',$rs['docNo']);
+        
         //跳转到主页
         $this->redirect(url('index/index'));   
 //         return view('index/index',[
@@ -48,7 +57,8 @@ class Login extends Controller
 //         ]);
     }
     public function logOut(){
-        session('No',"");
+        session('No',null);
+        session('job',null);
         //跳转到主页
         $this->redirect(url('index/index'));
     }
