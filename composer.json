@@ -1,33 +1,27 @@
 {
-    "name": "topthink/think",
-    "description": "the new thinkphp framework",
-    "type": "project",
-    "keywords": [
-        "framework",
-        "thinkphp",
-        "ORM"
-    ],
-    "homepage": "http://thinkphp.cn/",
-    "license": "Apache-2.0",
-    "authors": [
-        {
-            "name": "liu21st",
-            "email": "liu21st@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=5.4.0",
-        "topthink/framework": "5.0.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "app\\": "application"
-        }
-    },
-    "extra": {
-        "think-path": "thinkphp"
-    },
-    "config": {
-        "preferred-install": "dist"
+  "name" : "DbFinal2023",
+  "description" : "the new thinkphp framework",
+  "require" : {
+    "php" : ">=5.4.0",
+    "topthink/framework" : "5.0.*"
+  },
+  "license" : "Apache-2.0",
+  "keywords" : [ "framework", "thinkphp", "ORM" ],
+  "extra" : {
+    "think-path" : "thinkphp"
+  },
+  "autoload" : {
+    "psr-4" : {
+      "app\\" : "application"
     }
+  },
+  "type" : "project",
+  "config" : {
+    "preferred-install" : "dist"
+  },
+  "homepage" : "http://thinkphp.cn/",
+  "authors" : [ {
+    "name" : "liu21st",
+    "email" : "liu21st@gmail.com"
+  } ]
 }
