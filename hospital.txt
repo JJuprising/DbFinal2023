@@ -154,10 +154,10 @@ insert into ward values("C312", "三楼C区", 110, "102");
 select * from ward;
 
 drop table if exists bed;
-CREATE TABLE patient(
+CREATE TABLE bed(
     bedNo char(3) NOT NULL,
     wardNo char(4) NOT NULL,
-    bedStand char(4) CHECK(bedStand IN ('有人','空闲')),
+    bedStand char(4) CHECK(bedStand IN ('有人','空闲'))
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from bed;
