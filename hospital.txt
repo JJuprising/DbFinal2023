@@ -11,17 +11,18 @@ Create table doctor(
     telephone char(13),
     officeNo varchar(3),
     Primary Key(docNo)
-    )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-    set names utf8;
-        Delete from doctor;
-    insert into doctor values("D202301001", md5('123456'),'李四','男','主任医师','13765876477', '101');
-    insert into doctor values("D202305001", md5('123456'),'王五','男','副主任医师','13458493871', '101');
-    insert into doctor values("D202301002", md5('123456'),'李梅','女','主治医师','13675849582', '101');
-    insert into doctor values("D202303001", md5('123456'),'王芳','女','主治医师','16685768948', '102');
-    insert into doctor values("D202305002", md5('123456'),'刘强','男','住院医师','13458295069', '102');
-    insert into doctor values("D202303002", md5('123456'),'赵娟','女','主任医师','13908574832', '102');
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+set names utf8;
+Delete from doctor;
+insert into doctor values("D202301001", md5('123456'),'李四','男','主任医师','13765876477', '101');
+insert into doctor values("D202305001", md5('123456'),'王五','男','副主任医师','13458493871', '101');
+insert into doctor values("D202301002", md5('123456'),'李梅','女','主治医师','13675849582', '101');
+insert into doctor values("D202303001", md5('123456'),'王芳','女','主治医师','16685768948', '102');
+insert into doctor values("D202305002", md5('123456'),'刘强','男','住院医师','13458295069', '102');
+insert into doctor values("D202303002", md5('123456'),'赵娟','女','主任医师','13908574832', '102');
 
 select * from doctor;
+
 
 drop table if exists medicine;
 Create table medicine(
@@ -47,91 +48,124 @@ insert into medicine values('YP202310', '头孢呋辛酯片', 10.0, 80, '口服�
 
 select * from medicine;
 
+
 drop table if exists patient;
 CREATE TABLE patient(
- patNo char(13) PRIMARY KEY,
- patPassword char(80) NOT NULL DEFAULT '123456',
- patName varchar(10) NOT NULL,
- sex char(2) CHECK(sex IN ('男','女')),
- telephone char(11),
- address varchar(100) NOT NULL
+    patNo char(13) PRIMARY KEY,
+    patPassword char(80) NOT NULL DEFAULT '123456',
+    patName varchar(10) NOT NULL,
+    sex char(2) CHECK(sex IN ('男','女')),
+    telephone char(11),
+    address varchar(100) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from patient;
-INSERT INTO patient VALUES('P202205210001',md5('123456'),'杨开放','男','13966491259','广东省佛山市南海区华南师范大学南海校园');
-INSERT INTO patient VALUES('P202205210002',md5('123456'),'林兰','女','13570963254','广东省佛山市顺德区大良街道顺德大学');
-INSERT INTO patient VALUES('P202205210003',md5('123456'),'陈明','男','13876025692','广东省佛山市高明区东平街道高明学院');
-INSERT INTO patient VALUES('P202205210004',md5('123456'),'黄艾琳','女','15827048963','广东省佛山市南海区桂城街道南海医学院');
-INSERT INTO patient VALUES('P202205210005',md5('123456'),'张三','男','13123869574','广东省佛山市三水区大塘街道华南理工大学三水校区');
-INSERT INTO patient VALUES('P20220521006',md5('123456'),'李四','女','13726954123','广东省佛山市南海区西樵街道西樵中学'); 
-INSERT INTO patient VALUES('P20220521007',md5('123456'),'王五','男','15674839012','广东省佛山市顺德区培正街道培正高级中学'); 
-INSERT INTO patient VALUES('P20220521008',md5('123456'),'赵六','女','13589632547','广东省佛山市高明区黄阁街道广东高明黄阁中学'); 
-INSERT INTO patient VALUES('P20220521009',md5('123456'),'孙七','男','13986274591','广东省佛山市三水区梅林街道广东三水梅林街小学');
+insert into patient values('P202205210001',md5('123456'),'杨开放','男','13966491259','广东省佛山市南海区华南师范大学南海校园');
+insert into patient values('P202205210002',md5('123456'),'林兰','女','13570963254','广东省佛山市顺德区大良街道顺德大学');
+insert into patient values('P202205210003',md5('123456'),'陈明','男','13876025692','广东省佛山市高明区东平街道高明学院');
+insert into patient values('P202205210004',md5('123456'),'黄艾琳','女','15827048963','广东省佛山市南海区桂城街道南海医学院');
+insert into patient values('P202205210005',md5('123456'),'张三','男','13123869574','广东省佛山市三水区大塘街道华南理工大学三水校区');
+insert into patient values('P20220521006',md5('123456'),'李四','女','13726954123','广东省佛山市南海区西樵街道西樵中学'); 
+insert into patient values('P20220521007',md5('123456'),'王五','男','15674839012','广东省佛山市顺德区培正街道培正高级中学'); 
+insert into patient values('P20220521008',md5('123456'),'赵六','女','13589632547','广东省佛山市高明区黄阁街道广东高明黄阁中学'); 
+insert into patient values('P20220521009',md5('123456'),'孙七','男','13986274591','广东省佛山市三水区梅林街道广东三水梅林街小学');
 
 select * from patient;
 
 
-
 drop table if exists departDocument;
 CREATE TABLE departDocument(
- departNo char(16) PRIMARY KEY,
- patientNo char(16) NOT NULL ,
- indepartDate date NOT NULL,
- outdepartDate date 
-
+    departNo char(16) PRIMARY KEY,
+    patNo char(16) NOT NULL ,
+    indepartDate date NOT NULL,
+    outdepartDate date 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from departDocument;
-INSERT INTO departDocument VALUES('D202205120000001','P202205210001','2022-05-12','2022-05-15');
--- INSERT INTO departDocument VALUES('D202205210000001','P202205210001','2022-05-21',NULL);
-INSERT INTO departDocument VALUES('D202205130000001','P202205210002','2022-05-13','2022-05-14');
-INSERT INTO departDocument VALUES('D202205140000001','P202205210004','2022-05-14','2022-05-16');
+insert into departDocument values('D202205120000001','P202205210001','2022-05-12','2022-05-15');
+-- insert into departDocument values('D202205210000001','P202205210001','2022-05-21',NULL);
+insert into departDocument values('D202205130000001','P202205210002','2022-05-13','2022-05-14');
+insert into departDocument values('D202205140000001','P202205210004','2022-05-14','2022-05-16');
 
 select * from departDocument;
 
 
 drop table if exists departRecord;
 CREATE TABLE departRecord(
- departNo char(16) ,
- aidNo int(3) NOT NULL ,
- aidPlan varchar(100) NOT NULL,
- recipeNo char(13) 
-
+    departNo char(16) ,
+    aidNo int(3) NOT NULL ,
+    aidPlan varchar(100) ,
+    patSymptom varchar(100) 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from departRecord;
-INSERT INTO departRecord VALUES('D202205120000001',001,'医疗计划1','R202205120001');
-INSERT INTO departRecord VALUES('D202205120000001',002,'医疗计划2','R202205130001');
-INSERT INTO departRecord VALUES('D202205120000001',003,'医疗计划3','R202205140001');
-INSERT INTO departRecord VALUES('D202205120000001',004,'医疗计划4','R202205150001');
-INSERT INTO departRecord VALUES('D202205130000001',001,'医疗计划1','R202205130002');
-INSERT INTO departRecord VALUES('D202205130000001',002,'医疗计划2','R202205140002');
-INSERT INTO departRecord VALUES('D202205140000001',001,'医疗计划1','R202205140003');
-INSERT INTO departRecord VALUES('D202205140000001',002,'医疗计划2','R202205150002');
-INSERT INTO departRecord VALUES('D202205140000001',003,'医疗计划3','R202205160001');
+insert into departRecord values('D202205120000001',001,'医疗计划1','病人症状1');
+insert into departRecord values('D202205120000001',002,'医疗计划2','病人症状1');
+insert into departRecord values('D202205120000001',003,'医疗计划3','病人症状1');
+insert into departRecord values('D202205120000001',004,'医疗计划4','病人症状1');
+insert into departRecord values('D202205130000001',001,'医疗计划1','病人症状2');
+insert into departRecord values('D202205130000001',002,'医疗计划2','病人症状2');
+insert into departRecord values('D202205140000001',001,'医疗计划1','病人症状3');
+insert into departRecord values('D202205140000001',002,'医疗计划2','病人症状3');
+insert into departRecord values('D202205140000001',003,'医疗计划3','病人症状3');
 
 select * from departRecord;
 
 
 drop table if exists payment;
 CREATE TABLE payment(
- paymentNo char(16) PRIMARY KEY,
- recipeNo char(13) NOT NULL,
- fee float NOT NULL 
-
+    paymentNo char(16) PRIMARY KEY,
+    patNo char(13) NOT NULL,
+    fee float NOT NULL ,
+    paymentState char(6) CHECK(paymentState IN ('已缴费','未缴费')),
+    paymentDate date
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from payment;
-INSERT INTO payment VALUES('P202205120000001','R202205120001',59.00);
-INSERT INTO payment VALUES('P202205120000001','R202205130001',49.80);
-INSERT INTO payment VALUES('P202205120000001','R202205140001',31.20);
-INSERT INTO payment VALUES('P202205120000001','R202205150001',98.40);
-INSERT INTO payment VALUES('P202205130000002','R202205130002',13.20);
-INSERT INTO payment VALUES('P202205130000002','R202205140002',19.30);
-INSERT INTO payment VALUES('P202205140000003','R202205140003',35.70);
-INSERT INTO payment VALUES('P202205140000002','R202205150002',37.20);
-INSERT INTO payment VALUES('P202205140000001','R202205160001',59.10);
+insert into payment values('PM20220512000001','P202205210001',200.00,'已缴费',2022-05-12);
+insert into payment values('PM20220513000001','P202205210001',300.00,'已缴费',2022-05-13);
+insert into payment values('PM20220514000001','P202205210001',450.00,'已缴费',2022-05-14);
+insert into payment values('PM20220515000001','P202205210001',150.00,'已缴费',2022-05-15);
+insert into payment values('PM20220513000002','P202205210002',350.00,'已缴费',2022-05-13);
+insert into payment values('PM20220514000002','P202205210002',100.00,'已缴费',2022-05-14);
+insert into payment values('PM20220514000003','P202205210004',500.00,'已缴费',2022-05-14);
+insert into payment values('PM20220515000002','P202205210004',600.00,'已缴费',2022-05-15);
+insert into payment values('PM20220516000001','P202205210004',550.00,'未缴费',NULL);
 
 select * from payment;
 
 
+drop table if exists ward;
+CREATE TABLE ward(
+    wardNo char(4) PRIMARY KEY,
+    address varchar(10) NOT NULL,
+    chargeStand INT NOT NULL,
+    officeNo varchar(3) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+set names utf8;
+Delete from ward;
+insert into ward values("A101", "一楼A区", 110, "101");
+insert into ward values("A204", "二楼A区", 120, "101");
+insert into ward values("B305", "三楼B区", 100, "102");
+insert into ward values("B108", "一楼B区", 90, "101");
+insert into ward values("C409", "四楼C区", 100, "102");
+insert into ward values("C312", "三楼C区", 110, "102");
+
+select * from ward;
+
+drop table if exists bed;
+CREATE TABLE patient(
+    bedNo char(3) NOT NULL,
+    wardNo char(4) NOT NULL,
+    bedStand char(4) CHECK(bedStand IN ('有人','空闲')),
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+set names utf8;
+Delete from bed;
+insert into bed values("001", "A101", "有人");
+insert into bed values("002", "A101", "有人");
+insert into bed values("003", "A101", "空闲");
+insert into bed values("001", "B108", "有人");
+insert into bed values("003", "C409", "空闲");
+insert into bed values("001", "C312", "空闲");
+
+select * from bed;
