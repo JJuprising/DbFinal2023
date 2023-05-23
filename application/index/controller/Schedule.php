@@ -12,9 +12,9 @@ class Schedule extends Controller
         if(empty(session('No'))){
             $this->error('请先登录!','login/login');
         }
-        //2查找登录用户的信息
-        $table=session('job');
-        $data = Db::table($table)->where('docNo',session('No'))->select();
+        //2查找所有医生排班的信息
+//         $data = Db::table('schedule')->where('docNo',session('No'))->select();
+        $data = Db::table('schedule')->select();
         $this->assign('result',$data);
 
         return $this->fetch();//执行完此方法后返回到视图view

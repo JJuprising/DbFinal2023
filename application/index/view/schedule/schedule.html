@@ -2,8 +2,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <title>医院管理系统 - 排班功能</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .schedule-table {
+      width: 80%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    .schedule-table th,
+    .schedule-table td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    .schedule-table th {
+      background-color: #f0f0f0;
+    }
+    
+    .schedule-table td.highlight {
+      background-color: #e0e0e0;
+    }
+    
+    .form-section {
+      margin-top: 20px;
+    }
+    
+    .form-section label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .form-section input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .form-section input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 
 <body>
@@ -11,10 +61,63 @@
 
 医生-排班treat
 
-{volist name="result" id="doctor"}
 
-	<td>{$doctor.docNo}</td>
-{/volist}
+
+
+
+<!-- 排班表格 -->
+  <table class="schedule-table">
+    <tr>
+      <th></th>
+      <th>早班</th>
+      <th>中班</th>
+      <th>晚班</th>
+    </tr>
+    <!-- 假设一周有7天，从周一到周日 -->
+    <tr>
+      <th>日期</th>
+      <td>诊室号 / 上班时间</td>
+      <td>诊室号 / 上班时间</td>
+      <td>诊室号 / 上班时间</td>
+    </tr>
+    <!-- 使用循环生成表格内容 -->
+    <!-- 假设有变量 $schedule 表示排班数据，$schedule 是一个包含日期和班次信息的数组 -->
+    <!-- 根据需要修改循环的逻辑 -->
+    {volist name="result" id="schedule"}
+    {$schedule.docNo}
+      <tr>
+        <th>{$schedule.dutyDate}</th>
+        <td class="{$schedule.dutyShift}=='morning' ? 'highlight' : ''">诊室：{$schedule.RoomNo}</td>
+        <td class="{$schedule.dutyShift}=='afternoon'? 'highlight' : '';">诊室：{$schedule.RoomNo}</td>
+        <td class="{$schedule.dutyShift}=='evening' ? 'highlight' : '';">诊室：{$schedule.RoomNo}</td>
+      </tr>
+      {/volist}
+  </table>
+ 	
+  <!-- 排班表单 -->
+  <div class="form-section">
+    <h2>排班表单</h2>
+    <form>
+      <label for="office">科室号:</label>
+      <input type="text" id="office" name="office" value="" readonly>
+      
+      <label for="date">日期:</label>
+      <input type="date" id="date" name="date">
+      
+      <label for="shift">班次:</label>
+      <select id="shift" name="shift">
+        <option value="morning">早班</option>
+        <option value="afternoon">中班</option>
+        <option value="evening">晚班</option>
+      </select>
+      
+      <label for="room">诊室号:</label>
+      <input type="text" id="room" name="room">
+      
+      <input type="submit" value="提交">
+    </form>
+  </div>
+
 </center>
 
 </body>
