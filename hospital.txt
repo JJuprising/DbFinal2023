@@ -169,3 +169,24 @@ insert into bed values("003", "C409", "空闲");
 insert into bed values("001", "C312", "空闲");
 
 select * from bed;
+
+drop table if exists Schedule;
+CREATE TABLE Schedule (
+  docNo char(10),
+  officeNo varchar(3),
+  dutyDate DATE,
+  dutyShift ENUM('morning', 'afternoon', 'evening'),
+  RoomNo varchar(4),
+  PRIMARY KEY (docNo, dutyTime),
+  FOREIGN KEY (docNo) REFERENCES Doctor (docNo)
+);
+INSERT INTO Schedule (docNo, officeNo, dutyDate, dutyShift, RoomNo)
+VALUES
+('D202301001', 101, '2023-05-24', 'morning', 1),
+('D202305001', 101, '2023-05-24', 'afternoon', 2),
+('D202301002', 101, '2023-05-25', 'morning', 3),
+('D202303001', 102, '2023-05-25', 'afternoon', 1),
+('D202305002', 102, '2023-05-26', 'morning', 2),
+('D202303002', 102, '2023-05-26', 'afternoon', 3);
+
+
