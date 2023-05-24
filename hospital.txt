@@ -241,7 +241,7 @@ Delete from office;
 
 INSERT INTO office(officeNo, officeName, telephone, chiefDoc)
 VALUES
-    (101, '脑科', '555-1234', '李四'),
-    (102, '意识障碍科', '555-5678', '赵娟');
+    (101, '神经科', '555-1234', '李四'),
+    (102, '骨科', '555-5678', '赵娟');
 
 select * from office;
