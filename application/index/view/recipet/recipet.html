@@ -5,9 +5,98 @@
 <meta charset="UTF-8">
 <link href="__ROOT__/public/static/css/recipet.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
+<script type="text/javascript"
+	src="__ROOT__/public/static/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+
+var list = {}
+var medicInfoArray
+
+$(document).ready(function() {
+	// 将medicInfo存入JavaScript数组
+	  var string = '<?php echo json_encode($medicInfo); ?>';
+	  medicInfoArray = JSON.parse(string)
+  });
+function add(id, num) {
+  if (id in list) {
+    if (num == 1) {
+      list[id]++
+    } else if (list[id] == 1 && num==-1) {
+      delete list[id]
+    }else{
+    	list[id]--
+    }
+
+  } else {
+    if (num == 1) {
+      list[id] = 1
+    }
+  }
+  creatTable()
+  
+
+}
+function del(id){
+	if (id in list) {
+		delete list[id]
+	}
+	creatTable()
+	
+}
+
+
+function creatTable() {
+
+  // 获取表格的 tbody 元素
+  var tableBody = $("#cart")
+  tableBody.empty()
+  var head = "<tr><th>编号</th><th>名称</th><th>单价</th><th>用法</th><th>数量</th><th>操作</th></tr>"
+  tableBody.append(head)
+
+  Object.keys(list).forEach(function(key) {
+	  var value = list[key];
+	  var i=0
+	  for (i = 0; i < medicInfoArray.length; i++) {
+		    var row = medicInfoArray[i];
+		    if (row.medicineNo === key) { // 替换为你要匹配的属性和条件
+		      break;
+		    }
+		  }
+	  
+	  
+	  var row = "<tr><td>"+medicInfoArray[i].medicineNo+"</td><td>"+medicInfoArray[i].medName+"</td><td>"+medicInfoArray[i].price+"</td><td>"+medicInfoArray[i].medUsage+"</td><td>"+value+"</td>"
+	  +"<td><button id='move_button' onclick = 'add(\""+medicInfoArray[i].medicineNo+"\",1)' >增加</button><button id='move_button' onclick = 'add(\""+medicInfoArray[i].medicineNo+"\",-1)'>减少</button><button id='move_button' onclick = 'del(\""+medicInfoArray[i].medicineNo+"\")'>移除</button></td></tr>"
+	  
+	  tableBody.append(row)
+	});
+}
+
+function postMedicInfo(){
+	console.log(list);
+	console.log(typeof(list));
+	console.log(JSON.stringify(list))
+	$.ajax({
+		  url: 'dealMedicList',
+		  method: 'POST', // 根据需要选择请求方法，如 POST 或 GET
+		  //dataType:'json',
+		  data: { data: JSON.stringify(list) }, 
+		  success: function(response) {
+		    // 处理成功响应
+		    console.log('数据已成功传输到 Controller');
+		    console.log('响应数据:', response);
+		    
+		  },
+		  error: function(xhr, status, error) {
+		    // 处理错误响应
+		    console.error('发生错误:', error);
+		  }
+		});
+}
+</script>
 </head>
 
 <body>
+
 <center>
 
 <div id="info_content">
@@ -39,7 +128,7 @@
 
 <div id="recipet_content">
 	<div id="recipet_left_block">
-		<table>
+		<table id = "cart">
 			<tr>
 				<th>编号</th>
 				<th>名称</th>
@@ -47,39 +136,8 @@
 				<th>用法</th>
 				<th>数量</th>
 				<th>操作</th>
-			</tr>
-			<tr>
-				<td>YP202301</td>
-				<td>阿司匹林</td>
-				<td>3</td>
-				<td>口服，每次一片，每天</td>
-				<td><input type="text" name="num" value="1"></td>
-				<td><button id="move_button">移除</button></td>
-			</tr>
-			<tr>
-				<td>YP202301</td>
-				<td>阿司匹林</td>
-				<td>3</td>
-				<td>口服，每次一片，每天</td>
-				<td><input type="text" name="num" value="1"></td>
-				<td><button id="move_button">移除</button></td>
-			</tr>
-			<tr>
-				<td>YP202301</td>
-				<td>阿司匹林</td>
-				<td>3</td>
-				<td>口服，每次一片，每天</td>
-				<td><input type="text" name="num" value="1"></td>
-				<td><button id="move_button">移除</button></td>
-			</tr>
-			<tr>
-				<td>YP202301</td>
-				<td>阿司匹林</td>
-				<td>3</td>
-				<td>口服，每次一片，每天</td>
-				<td><input type="text" name="num" value="1"></td>
-				<td><button id="move_button">移除</button></td>
-			</tr>
+			</tr>		
+
 		</table>
 	</div>
 	
@@ -97,25 +155,25 @@
 					<th>库存</th>
 					<th>操作</th>
 				</tr>
+				{volist name="medicInfo" id="data"}
 				<tr>
-					<td>YP202301</td>
-					<td>阿司匹林</td>
-					<td>3</td>
-					<td>200</td>
-					<td><button id="add_btn">添加</button></td>
+<!-- 				<form action="{:url('Recipet/addCart')}" method="post">
+					<input type=text name="No" id="No" value="{$data.medicineNo}" style="display: none;" > -->
+					<td>{$data.medicineNo}</td>
+					<td>{$data.medName}</td>
+					<td>{$data.price}</td>
+					<td>{$data.medLeft}</td>
+					<td>
+					<button id="add_btn" type="submit" onclick = "add('{$data.medicineNo}',1)">添加</button>
+					</td>
+<!-- 				</form> -->
 				</tr>
-				<tr>
-					<td>YP202301</td>
-					<td>阿司匹林</td>
-					<td>3</td>
-					<td>200</td>
-					<td><button id="add_btn">添加</button></td>
-				</tr>
+				{/volist}
 			</table>
 		</div>
 	</div>
 	<div id="bottom_button">
-		<button id="save_btn">保存</button>
+		<button id="save_btn" onclick="postMedicInfo()">保存</button>
 		<button id="apply_btn">申请住院</button>
 		<button id="over_btn">结束就诊</button>
 	</div>
