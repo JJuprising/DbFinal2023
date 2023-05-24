@@ -81,6 +81,7 @@ body{
 	float:left;
 }
 #recipet_content #recipet_left_block table{
+	font-size:16px;
 	width:640px;
 }
 #recipet_content #recipet_left_block table th{
@@ -94,11 +95,35 @@ body{
 #recipet_content #recipet_left_block table td input{
 	width:30px;
 }
+#recipet_content #recipet_left_block #add_button{
+	color:#fff;
+	background-color:#408080;
+	border: none;
+	border-radius:3px;
+	cursor:pointer;
+}
+#recipet_content #recipet_left_block #add_button:hover{
+	background-color:#316464;
+}
+#recipet_content #recipet_left_block #reduce_button{
+	color:#fff;
+	background-color:#ff8040;
+	border: none;
+	border-radius:3px;
+	cursor:pointer;
+}
+#recipet_content #recipet_left_block #reduce_button:hover{
+	background-color:#ff6215;
+}
 #recipet_content #recipet_left_block #move_button{
 	color:#fff;
 	background-color:#ff0000;
 	border: none;
 	border-radius:3px;
+	cursor:pointer;
+}
+#recipet_content #recipet_left_block #move_button:hover{
+	background-color:#d50000;
 }
 #recipet_content #recipet_right_block{
 	width:330px;
@@ -125,9 +150,13 @@ body{
 }
 #recipet_content #recipet_right_block #add_btn{
 	color:#fff;
-	background-color:#008000;
+	background-color:#408080;
 	border: none;
 	border-radius:3px;
+	cursor:pointer;
+}
+#recipet_content #recipet_right_block #add_btn:hover{
+	background-color:#326363;
 }
 #recipet_content #bottom_button{
 	width:400px;
@@ -144,6 +173,10 @@ body{
 	background-color:#1E90FF;
 	border: none;
 	border-radius:10px;
+	cursor:pointer;
+}
+#recipet_content #bottom_button #save_btn:hover{
+	background-color:#0079f2;
 }
 #recipet_content #bottom_button #apply_btn{
 	float:center;
@@ -154,6 +187,10 @@ body{
 	background-color:#1E90FF;
 	border: none;
 	border-radius:10px;
+	cursor:pointer;
+}
+#recipet_content #bottom_button #apply_btn:hover{
+	background-color:#0079f2;
 }
 #recipet_content #bottom_button #over_btn{
 	float:right;
@@ -164,4 +201,8 @@ body{
 	background-color:#FFA500;
 	border: none;
 	border-radius:10px;
+	cursor:pointer;
+}
+#recipet_content #bottom_button #over_btn:hover{
+	background-color:#d58a00;
 }

@@ -65,7 +65,7 @@ function creatTable() {
 	  
 	  
 	  var row = "<tr><td>"+medicInfoArray[i].medicineNo+"</td><td>"+medicInfoArray[i].medName+"</td><td>"+medicInfoArray[i].price+"</td><td>"+medicInfoArray[i].medUsage+"</td><td>"+value+"</td>"
-	  +"<td><button id='move_button' onclick = 'add(\""+medicInfoArray[i].medicineNo+"\",1)' >增加</button><button id='move_button' onclick = 'add(\""+medicInfoArray[i].medicineNo+"\",-1)'>减少</button><button id='move_button' onclick = 'del(\""+medicInfoArray[i].medicineNo+"\")'>移除</button></td></tr>"
+	  +"<td><button id='add_button' onclick = 'add(\""+medicInfoArray[i].medicineNo+"\",1)' >添加</button><button id='reduce_button' onclick = 'add(\""+medicInfoArray[i].medicineNo+"\",-1)'>减少</button><button id='move_button' onclick = 'del(\""+medicInfoArray[i].medicineNo+"\")'>移除</button></td></tr>"
 	  
 	  tableBody.append(row)
 	});
