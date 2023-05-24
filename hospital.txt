@@ -227,5 +227,20 @@ VALUES
 
 select * from bookingform;
 
+drop table if exists department;
+CREATE TABLE department (
+    dept_id INT NOT NULL,
+    dept_name VARCHAR(50) NOT NULL,
+    phone_number VARCHAR(20),
+    chief_physician VARCHAR(50),
+    PRIMARY KEY (dept_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+set names utf8;
+Delete from department;
 
+INSERT INTO department(dept_id, dept_name, phone_number, chief_physician)
+VALUES
+    (101, '脑科', '555-1234', '李四'),
+    (102, '意识障碍科', '555-5678', '赵娟');
 
+select * from department;
