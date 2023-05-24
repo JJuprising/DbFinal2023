@@ -1,5 +1,6 @@
 .idea
 composer.lock
 *.log
-runtime/temp/7e793e666e461c303155be3b0a0e03e3.php
-runtime/temp/a3ac196edbd514c062c1a48546510c7f.php
+application/database.php
+runtime/temp/
+.settings/org.eclipse.php.server.core.phpServersPrefs.prefs

@@ -2,12 +2,26 @@
 namespace app\index\controller;
 
 use think\Controller;
+use think\Db;
+use think\Session;
+
 class Treat extends Controller
 {
     public function treat(){
-        //         $data=Db::table('doctor')->select();
-        //         $this->assign("result",$data);
+        
+        $this->getPatientList();
         return $this->fetch();//执行完此方法后返回到视图view
+    }
+    public function recipe(){
+        redirect('recipet/recipet');
+        //return $this->fetch();
+    }
+    public function getPatientList(){
+        $bookingData = db('bookingform')->where('docNo',Session::get('No'))->select();
+        if(!empty($bookingData)){
+            session('bookingData',$bookingData);
+            $this->assign('bookingData',$bookingData);
+        }
     }
 }
 
