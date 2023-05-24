@@ -11,28 +11,30 @@
 
 <!-- action关联了dologin方法 -->
 <form action="{:url('login/dologin')}" method="post" name=f>
-<table style="width:480px; border-width:3px; border-style:dotted;">
+<table style="width:480px; border-width:3px; border-style:dotted;margin-top:40px;">
 <tr><td colspan=2 style="text-align:center;height:60px;">请登录医院管理信息系统</td></tr>
 <tr>
- <td style="text-align:right;height:30px;"><label id="NoLabel">病案号：</label></td>
-<td align=left><input type=text name="No" id="No" placeholder = "请输入病人病案号"></td>
+	<td style="text-align:left;height:30px;"><label id="NoLabel" style="margin-left:60px;">病案号：</label></td>
+	<td align=left><input type=text name="No" id="No" placeholder = "请输入病人病案号" style="width:200px; float:right; margin-right:60px;"></td>
 </tr>
 <tr>
-<td style="text-align:right;height:30px;">密码：</td>
-<td align=left><input type=password name="Password"></td>
+	<td style="text-align:left;height:30px;"><label id="psw" style="margin-left:60px;">密码：</label></td>
+	<td align=left><input type=password name="Password" style="width:200px; float:right; margin-right:60px;"></td>
 </tr>
 <tr>
-<td style="text-align:right;height:30px;">身份：</td>
-<td style="">
-<input type="radio" id="doctor" name="job" value="doctor"><label for="doctor" onclick="showNo('doctor')">医生</label>
-<input type="radio" id="patient" name="job" value="patient"  checked onclick="showNo('patient')"><label for="patient">病人</label>
-<input type="radio" id="administrator" name="job" value="administrator" onclick="showNo('administrator')"><label for="administrator">管理员</label>
-</td>
+	<td style="text-align:left;height:30px;"><label id="iden" style="margin-left:60px;">身份：</label></td>
+	<td align=left style="float:center;">
+	<div style="float:right;margin-right:60px;">
+	<input type="radio" id="doctor" name="job" value="doctor"><label for="doctor" onclick="showNo('doctor')">医生</label>
+	<input type="radio" id="patient" name="job" value="patient"  checked onclick="showNo('patient')"><label for="patient">病人</label>
+	<input type="radio" id="administrator" name="job" value="administrator" onclick="showNo('administrator')"><label for="administrator">管理员</label>
+	</div>
+	</td>
 
 </tr>
 
 <tr><td colspan=2 style="text-align:center;height:60px;">
-<input type=submit name=s value="登录">
+<input type=submit name=s value="登录" style="width:120px;height:40px;color:#fff;background-color:#1E90FF;border:none;border-radius:10px;">
 </td></tr>
 </table>
 </form>

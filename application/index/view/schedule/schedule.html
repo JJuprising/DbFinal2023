@@ -14,7 +14,7 @@ h1 {
 }
 
 .schedule-table {
-	width: 80%;
+	width: 999px;
 	border-collapse: collapse;
 	margin-top: 20px;
 }
@@ -33,21 +33,20 @@ h1 {
 	background-color: #e0e0e0;
 }
 
-.form-section {
-	margin-top: 20px;
-}
-
 .form-section label {
 	display: block;
 	margin-bottom: 5px;
 }
 
 .form-section input[type="submit"] {
+	width:120px;
+	height:40px;
 	padding: 10px 20px;
 	background-color: #4CAF50;
 	color: white;
 	border: none;
 	cursor: pointer;
+	border-radius:5px;
 }
 
 .form-section input[type="submit"]:hover {
@@ -108,11 +107,11 @@ function updateDoctorNo() {
 
 		<!-- 医生排班表单 -->
 		<div class="form-section">
-			<h2>医生排班表单</h2>
-			<form action="{:url('schedule/setschedule')}" method="post">
-			<table style="width:800px; border-width:3px; border-style:dotted;">
+			<h3>医生排班表单</h3>
+			<form action="{:url('schedule/setschedule')}" method="post" style="margin-bottom:20px;">
+			<table style="width:999px; border-width:3px; border-style:dotted;">
 			<tr>
-			<td style="text-align:right;height:30px;"><label for="doctor">医生姓名:</label></td>
+			<td style="text-align:right;height:30px;width:450px;"><label for="doctor">医生姓名:</label></td>
 			<td><select id="doctor" name="doctor" onchange="updateDoctorNo()">
 					{volist name="docdata" id="doctor"}
 						<option value="{$doctor.docNo}" data-doctor-office="{$doctor.officeNo}">{$doctor.docName}</option>
