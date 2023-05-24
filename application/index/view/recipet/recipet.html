@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="__ROOT__/public/static/css/treat.css" rel="stylesheet" type="text/css">
+<link href="__ROOT__/public/static/css/recipet.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
 </head>
 
@@ -13,33 +13,112 @@
 <div id="info_content">
 	<div id="info_block">
 		<div>姓名:</div>
-		<div><input type="text" name="text" value="张三"></div>
+		<div><input type="text" name="patName" value="张三"></div>
 	</div>
 	<div id="info_block">
 		<div>性别:</div>
-		<div><input type="text" name="text" value="男"></div>
+		<div><input type="text" name="sex" value="男"></div>
 	</div>
 	<div id="info_block">
 		<div>电话号码:</div>
-		<div><input type="text" name="text" value="13812345678"></div>
+		<div><input type="text" name="telephone" value="13812345678"></div>
 	</div>
 	<div id="info_block">
 		<div>病案号:</div>
-		<div><input type="text" name="text" value="13812345678"></div>
+		<div><input type="text" name="patNo" value="13812345678"></div>
 	</div>
 	<div id="info_long_block">
 		<div>住址:</div>
-		<div><input type="text" name="text" value="13812345678"></div>
+		<div><input type="text" name="address" value="13812345678"></div>
 	</div>
 	<div id="symptom_block">
 		<div>症状:</div>
-		<div><input type="text" name="text" value="13812345678"></div>
+		<div><textarea rows="3" cols="80"></textarea></div>
 	</div>
 </div>
 
-
-<div>
-<h1>处方</h1>
+<div id="recipet_content">
+	<div id="recipet_left_block">
+		<table>
+			<tr>
+				<th>编号</th>
+				<th>名称</th>
+				<th>单价</th>
+				<th>用法</th>
+				<th>数量</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td>YP202301</td>
+				<td>阿司匹林</td>
+				<td>3</td>
+				<td>口服，每次一片，每天</td>
+				<td><input type="text" name="num" value="1"></td>
+				<td><button id="move_button">移除</button></td>
+			</tr>
+			<tr>
+				<td>YP202301</td>
+				<td>阿司匹林</td>
+				<td>3</td>
+				<td>口服，每次一片，每天</td>
+				<td><input type="text" name="num" value="1"></td>
+				<td><button id="move_button">移除</button></td>
+			</tr>
+			<tr>
+				<td>YP202301</td>
+				<td>阿司匹林</td>
+				<td>3</td>
+				<td>口服，每次一片，每天</td>
+				<td><input type="text" name="num" value="1"></td>
+				<td><button id="move_button">移除</button></td>
+			</tr>
+			<tr>
+				<td>YP202301</td>
+				<td>阿司匹林</td>
+				<td>3</td>
+				<td>口服，每次一片，每天</td>
+				<td><input type="text" name="num" value="1"></td>
+				<td><button id="move_button">移除</button></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="recipet_right_block">
+		<div id="search_bar">
+			<input type="text" name="search" placeholder="输入药品名称">
+			<button>搜索</button>
+		</div>
+		<div>
+			<table>
+				<tr>
+					<th>编号</th>
+					<th>名称</th>
+					<th>价格</th>
+					<th>库存</th>
+					<th>操作</th>
+				</tr>
+				<tr>
+					<td>YP202301</td>
+					<td>阿司匹林</td>
+					<td>3</td>
+					<td>200</td>
+					<td><button id="add_btn">添加</button></td>
+				</tr>
+				<tr>
+					<td>YP202301</td>
+					<td>阿司匹林</td>
+					<td>3</td>
+					<td>200</td>
+					<td><button id="add_btn">添加</button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id="bottom_button">
+		<button id="save_btn">保存</button>
+		<button id="apply_btn">申请住院</button>
+		<button id="over_btn">结束就诊</button>
+	</div>
 </div>
 
 
