@@ -30,6 +30,8 @@ class Treat extends Controller
                 $count++;
             }
             $this->assign('patInfo',$info);
+        }else{
+            $this->error('bookingform表不存在');
         }
     }
 }
