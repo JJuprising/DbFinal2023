@@ -1,0 +1,66 @@
+@CHARSET "UTF-8";
+body{
+	margin:0px;
+	padding:0px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color:#666666;
+}
+#info_content{
+	width:999px;
+	height:400px;
+}
+#info_content #info_block{
+	width:300px;
+	height:80px;
+	float:left;
+	font-size: 22px;
+	text-align: left;
+	margin-left:10px;
+	margin-top:10px;
+}
+#info_content #info_block div{
+	width:290px;
+	height:40px;
+}
+#info_content #info_block div input{
+	width:290px;
+	height:35px;
+	font-size: 22px;
+}
+#info_content #info_long_block{
+	width:600px;
+	height:80px;
+	float:left;
+	font-size: 22px;
+	text-align: left;
+	margin-left:10px;
+	margin-top:10px;
+}
+#info_content #info_long_block div{
+	width:600px;
+	height:40px;
+}
+#info_content #info_long_block div input{
+	width:600px;
+	height:35px;
+	font-size: 22px;
+}
+#info_content #symptom_block{
+	width:980px;
+	height:100px;
+	float:left;
+	font-size: 22px;
+	text-align: left;
+	margin-left:10px;
+	margin-top:10px;
+}
+#info_content #symptom_block div{
+	width:910px;
+	height:40px;
+}
+#info_content #symptom_block div input{
+	width:910px;
+	height:55px;
+	font-size: 22px;
+}

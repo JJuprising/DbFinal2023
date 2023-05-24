@@ -62,15 +62,15 @@ body{
 }
 
 #pat_content .pat_div img{
-	height: 150px;
-    width: 150px; 
+	height: 100px;
+    width: 100px; 
 	margin-top:15px;
 	margin-left:15px;
 	float:left;
 }
 #pat_content #pat_title_div{
 	margin-top:25px;
-	margin-left:165px;
+	margin-left:115px;
 	text-align: left;
 }
 #pat_content #pat_title_div a{
@@ -80,23 +80,23 @@ body{
 #pat_content #pat_infm_div{
 	font-size:18px;
 	margin-top:5px;
-	margin-left:190px;
+	margin-left:140px;
 	text-align: left;
 	color:#808080;
 }
 #pat_content #treat_div{
 	float:left;
-	width:120px;
+	width:150px;
 	height:32px;
 	margin-top:25px;
-	margin-left:25px;
+	margin-left:140px;
 	text-align: center;
 	line-height:32px;
 	border-top: 2px solid #D4D4D4;
 }
 #treat_div a{
 	display: block;
-	width:130px;
+	width:150px;
 	height:32px;
 	font-size:22px;
 	color:#4169E1;
@@ -108,7 +108,7 @@ body{
 }
 #infm_div a{
 	display: block;
-	width:130px;
+	width:150px;
 	height:32px;
 	float:left;
 	margin-top:25px;

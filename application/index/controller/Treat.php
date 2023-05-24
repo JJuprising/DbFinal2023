@@ -19,8 +19,17 @@ class Treat extends Controller
     public function getPatientList(){
         $bookingData = db('bookingform')->where('docNo',Session::get('No'))->select();
         if(!empty($bookingData)){
-            session('bookingData',$bookingData);
-            $this->assign('bookingData',$bookingData);
+//             session('bookingData',$bookingData);
+//             $this->assign('bookingData',$bookingData);
+
+                $count = 0;
+                $info = array();
+            foreach ($bookingData as $data){
+                $rs = db('patient')->where('patNo',$data['patNo'])->find();
+                $info[$count] = $rs+$data;
+                $count++;
+            }
+            $this->assign('patInfo',$info);
         }
     }
 }
