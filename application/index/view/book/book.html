@@ -1,60 +1,85 @@
-{include  file="./public/common/top.html"/}
+{include file="./public/common/top.html"/}
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="__ROOT__/public/static/css/book.css" rel="stylesheet" type="text/css">
+<link href="__ROOT__/public/static/css/book.css" rel="stylesheet"
+	type="text/css">
 <title>Insert title here</title>
 </head>
 
 <body>
-<center>
+	<center>
+		<form action="{:url('book/postbook')}" method="post">
+			<div id="info_content">
 
-<div id="info_content">
-	<div id="info_block">
-		<div>患者姓名:</div>
-		<div><input type="text" name="patName" value="{$patInfo.patName}" disabled="disabled"></div>
-	</div>
-	<div id="info_block">
-		<div>病案号:</div>
-		<div><input type="text" name="patNo" value="{$patInfo.patNo}" disabled="disabled"></div>
-	</div>
-	<div id="info_block">
-		<div>性别:</div>
-		<div><input type="text" name="sex" value="{$patInfo.sex}" disabled="disabled"></div>
-	</div>
-	<div id="info_block">
-		<div>手机号码:</div>
-		<div><input type="text" name="telephone" value="{$patInfo.telephone}" disabled="disabled"></div>
-	</div>
-	<div id="info_long_block">
-		<div>住址:</div>
-		<div><input type="text" name="address" value="{$patInfo.address}" disabled="disabled"></div>
-	</div>
-</div>
-<div id="book_block">
-	<div id="info_block">
-		<div>挂号日期:</div>
-		<div><input type="text" name="bookNo" value=""></div>
-	</div>
-	<div id="info_block">
-		<div>科室:</div>
-		<div><input type="text" name="office" value=""></div>
-	</div>
-	<div id="info_block">
-		<div>接诊医生:</div>
-		<div><input type="text" name="doctor" value=""></div>
-	</div>
-	<div id="info_block">
-		<div>挂号单号:</div>
-		<div><input type="text" name="bookDate" value=""></div>
-	</div>
-</div>
-<div id="submit_btn">
-	<button>挂号</button>
-</div>
-
-</center>
+				<div id="info_block">
+					<div>患者姓名:</div>
+					<div>
+						<input type="text" name="patName" value="{$patInfo.patName}"
+							disabled="disabled">
+					</div>
+				</div>
+				<div id="info_block">
+					<div>病案号:</div>
+					<div>
+						<input type="text" name="patNo" value="{$patInfo.patNo}"
+							disabled="disabled">
+					</div>
+				</div>
+				<div id="info_block">
+					<div>性别:</div>
+					<div>
+						<input type="text" name="sex" value="{$patInfo.sex}"
+							disabled="disabled">
+					</div>
+				</div>
+				<div id="info_block">
+					<div>手机号码:</div>
+					<div>
+						<input type="text" name="telephone" value="{$patInfo.telephone}"
+							disabled="disabled">
+					</div>
+				</div>
+				<div id="info_long_block">
+					<div>住址:</div>
+					<div>
+						<input type="text" name="address" value="{$patInfo.address}"
+							disabled="disabled">
+					</div>
+				</div>
+			</div>
+			<div id="book_block">
+				<div id="info_block">
+					<div>挂号日期:</div>
+					<div>
+						<input type="date" name="bookDate" value="">
+					</div>
+				</div>
+				<div id="info_block">
+					<div>科室:</div>
+					<div>
+						<input type="text" name="office" value="">
+					</div>
+				</div>
+				<div id="info_block">
+					<div>接诊医生:</div>
+					<div>
+						<input type="text" name="doctor" value="">
+					</div>
+				</div>
+				<div id="info_block">
+					<div>挂号单号:</div>
+					<div>
+						<input type="text" name="bookNo" value="">
+					</div>
+				</div>
+			</div>
+			<div type="submit" id="submit_btn">
+				<button>挂号</button>
+			</div>
+			<form action="{:url('schedule/setschedule')}" method="post">
+	</center>
 
 </body>
 

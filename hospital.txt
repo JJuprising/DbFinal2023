@@ -208,10 +208,11 @@ select * from schedule;
 
 drop table if exists bookingform;
 CREATE TABLE bookingform (
-  bookingNo CHAR(13) PRIMARY KEY,
+  bookingNo CHAR(13) NOT NULL auto_increment,
   bookingTime DATETIME,
   docNo CHAR(10),
-  patNo CHAR(13)
+  patNo CHAR(13),
+  PRIMARY KEY(bookingNo)
 );
 
 INSERT INTO bookingform (bookingNo, bookingTime, docNo, patNo)
