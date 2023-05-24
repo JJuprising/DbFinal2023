@@ -49,6 +49,21 @@ insert into medicine values('YP202310', '头孢呋辛酯片', 10.0, 80, '口服�
 select * from medicine;
 
 
+drop table if exists medicationlist;
+Create table medicationlist(
+    recipeNo char(13) NOT NULL,
+    medicineNo char(10) NOT NULL,
+    medQuantity int,
+
+    Primary Key('recipeNo','medicineNo')
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+set names utf8;
+Delete from medicationlist;
+
+select * from medicationlist;
+
+
+
 drop table if exists patient;
 CREATE TABLE patient(
     patNo char(13) PRIMARY KEY,
