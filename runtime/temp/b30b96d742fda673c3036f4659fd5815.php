@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\AppServ\www\DbFinal2023/application/index\view\login\login.html";i:1684773795;s:24:"./public/common/top.html";i:1684912657;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:66:"D:\AppServ\www\DbFinal2023/application/index\view\login\login.html";i:1684773795;s:24:"./public/common/top.html";i:1684903389;}*/ ?>
 <meta charset="utf-8">
 <center>
 <table width=999px border=0>
@@ -35,7 +35,7 @@
      &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
     <a href="<?php echo url('treat/treat'); ?>"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑">接诊</span></a>
      &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
-	<a href="<?php echo url('recipet/recipet'); ?>"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑">处方</span></a>
+	<a href="<?php echo url('recipet/recipet'); ?>"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:宋体">处方</span></a>
      &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
  	<?php endif; ?>
  	<!-- 病人导航栏 -->

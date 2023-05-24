@@ -2,26 +2,27 @@
 <center>
 <table width=999px border=0>
 <tr>
-	<td rowspan=2><img src="__ROOT__/public/static/pic/logo.jpg" style="width:250px; height:68px"> </td>
-	<td style="font-size:24px; float:right; font-family:微软雅黑">{$Think.session.No}欢迎使用医院管理系统</td>
-	<td style="text-align:right;"><img src="__ROOT__/public/static/image/ttel.jpg"></td>
-	<!-- <td style="background:url('__ROOT__/public/static/image/topxmenubg.jpg'); font-size:x-small;text-align:center;">
-	<a href="member.php" style="text-decoration:none;">我的帐户</a>|
-	<a href="{:url('order/showorder')}" style="text-decoration:none;">我的订单</a>|
-	<a href="{:url('cart/index')}" style="text-decoration:none;">购物车</a>|
-	</td> -->
+<td rowspan=2><img src="__ROOT__/public/static/pic/logo.jpg" style="width:250px; height:68px"> </td>
+
+<td style="font-size:16px; float:center;">{$Think.session.No}欢迎使用医院管理系统</td>
+
+<!-- <td style="background:url('__ROOT__/public/static/image/topxmenubg.jpg'); font-size:x-small;text-align:center;">
+<a href="member.php" style="text-decoration:none;">我的帐户</a>|
+<a href="{:url('order/showorder')}" style="text-decoration:none;">我的订单</a>|
+<a href="{:url('cart/index')}" style="text-decoration:none;">购物车</a>|
+</td> -->
 </tr>
 
 <tr>
-	<td></td>
-	<td style="float:right;">
+	<td>
 	{if condition="$Think.session.No eq ''"}
-	<a href="{:url('login/login')}" style="font-size:16px;text-decoration:none;">登录</a>&nbsp;&nbsp;
+	<a href="{:url('login/login')}" style="font-size:x-small;text-decoration:none;">登录</a>&nbsp;&nbsp;
 	{else}
-	<a href="{:url('login/logOut')}" style="font-size:16px;text-decoration:none;">退出</a>&nbsp;&nbsp;
+	<a href="{:url('login/logOut')}" style="font-size:x-small;text-decoration:none;">退出</a>&nbsp;&nbsp;
 	{/if}
-	<a href="{:url('register/register')}" style="font-size:16px;text-decoration:none;">注册</a>&nbsp;&nbsp;
-	<a href="{:url('admin/adminlogin/login')}" style="font-size:16px;text-decoration:none;">后台登录</a>&nbsp;&nbsp;</td>
+	<a href="{:url('register/register')}" style="font-size:x-small;text-decoration:none;">注册</a>&nbsp;&nbsp;
+	<a href="{:url('admin/adminlogin/login')}" style="font-size:x-small;text-decoration:none;">后台登录</a>&nbsp;&nbsp;</td>
+	<td style="text-align:right;"><img src="__ROOT__/public/static/image/ttel.jpg"></td>
 </tr>
 
 <tr><td colspan=3 style="background-color:#1E90FF; font-size: small;text-align:center; width:999px;height:40px">
