@@ -15,7 +15,9 @@ class Book extends Controller
     }
     public function postbook(){
         //提交挂号信息
-        
+//         $result = Db::execute("INSERT INTO bookingform (bookingNo, bookingTime, docNo, patNo) VALUES(?,?,?,?)"
+//             ,[NULL,input('post.date'),input('post.doctor'),input('post.patNo')]);
+    
     }
 }
 
