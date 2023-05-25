@@ -72,11 +72,25 @@ body{
 	border: 2px solid #D4D4D4;
 	margin-top:10px;
 }
+#recipet_content #recipet_top_block{
+	width:995px;
+	height:40px;
+	font-size:22px;
+	text-align:left;
+	padding-left:10px;
+}
+#recipet_content #recipet_top_block input{
+	width:290px;
+	height:35px;
+	font-size: 22px;
+	margin-top:5px;
+	margin-left:5px;
+}
 #recipet_content #recipet_left_block{
 	width:640px;
 	height:500px;
 	border: 1px solid #D4D4D4;
-	margin-top:50px;
+	margin-top:10px;
 	margin-left:10px;
 	float:left;
 }
@@ -129,7 +143,7 @@ body{
 	width:330px;
 	height:500px;
 	border: 1px solid #D4D4D4;
-	margin-top:50px;
+	margin-top:10px;
 	margin-right:10px;
 	float:right;
 }
