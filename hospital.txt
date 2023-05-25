@@ -51,11 +51,10 @@ select * from medicine;
 
 drop table if exists medicationlist;
 Create table medicationlist(
-    recipeNo char(13) NOT NULL,
+    recipeNo char(7) NOT NULL,
     medicineNo char(10) NOT NULL,
     medQuantity int,
-
-    Primary Key('recipeNo','medicineNo')
+    Primary Key(recipeNo,medicineNo)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from medicationlist;
@@ -248,7 +247,7 @@ select * from office;
 
 drop table if exists recipe;
 CREATE TABLE recipe (
-    recipeNo CHAR(13) PRIMARY KEY,
+    recipeNo char(7) PRIMARY KEY,
     symptom VARCHAR(100),
     money DECIMAL(10, 2),
     docNo CHAR(10),
@@ -257,11 +256,8 @@ CREATE TABLE recipe (
 
 INSERT INTO recipe (recipeNo, symptom, money, docNo, patNo)
 VALUES
-    ('RCP0001', '过敏性鼻炎', 50.00, 'D202301001', 'P202205210001'),
-    ('RCP0002', '鼻出血', 30.00, 'D202301002', 'P202205210007'),
-    ('RCP0003', '喉炎', 40.00, 'D202301001', 'P202205210006'),
-    ('RCP0004', '骨折', 60.00, 'D202301002', 'P202205210002'),
-    ('RCP0005', '关节炎', 25.00, 'D202301001', 'P202205210003'),
-    ('RCP0006', '骨质疏松', 75.00, 'D202301001', 'P202205210004');
+    ('1000001', '过敏性鼻炎', 50.00, 'D202301001', 'P202205210001'),
+    ('1000003', '上呼吸道感染', 38.00, 'D202301001', 'P202205210002'),
+    ('1000002', '急性肠胃炎', 72.00, 'D202301001', 'P202205210003');
 
 select * from recipe;
