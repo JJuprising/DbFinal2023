@@ -41,26 +41,42 @@ class Recipet extends Controller
     public function dealRecipe($medicineList,$symptom){ 
         
         if(Session::get('job')=='doctor'){
-            $docNo = Session::get('No');
+            $docNo = Session::get('No');//医生编号
         }
-        $patNo = Session::get('patNo');
-        $recipeNo = Session::get('recipeNo');
-        if(empty($docNo)||empty($patNo)||empty($recipeNo)){
+        $patNo = Session::get('patNo');//病人编号
+        $recipeNo = Session::get('recipeNo');//处方编号
+        if(empty($docNo)||empty($patNo)||empty($recipeNo)){//三者缺一不可
             return 'dataMissing';
         }
-         $medicineList = json_decode($medicineList,true);
-         $money = 0;
-          foreach ($medicineList as $key =>$value){
-             $medicine = db('medicine')->where('medicineNo',$key)->find();
+         $medicineList = json_decode($medicineList,true);//json转数组
+         
+         
+         $docInfo = db('doctor')->where('docNo',$docNo)->find();//找医生信息
+         if(!empty($docInfo)){
+             $degree = $docInfo['degree'];//找职称
+             $charge = db('charge')->where('degree',$degree)->find();//找诊疗价格
+             if(!empty($charge)){
+                 $money = $charge['price'];
+             }else{
+                 $money = 5;
+                 return 'No chargeInfo';
+             }
+         }else{
+             $money = 5;
+             return 'No docInfo';
+         }
+         
+          foreach ($medicineList as $key =>$value){//键值对为 药品编号 - 数量
+             /* $medicine = db('medicine')->where('medicineNo',$key)->find();//算药品价格
              if(!empty($medicine)){
                  $money+=$medicine['price']*$value;
-             }
+             } */
              $data = [
                     'recipeNo' => $recipeNo,
                     'medicineNo' => $key,
                     'medQuantity' => $value
                     ];
-             db('medicationlist')->insert($data);
+             db('medicationlist')->insert($data);//插入数据
          }
          
          $data = [
@@ -71,8 +87,9 @@ class Recipet extends Controller
                 'patNo' => $patNo
                  ];
          
-         db('recipe')->insert($data);
-/*          return 'success'; */   
+         db('recipe')->insert($data);//插入数据
+         return 'success'; 
     }
+
 }
 

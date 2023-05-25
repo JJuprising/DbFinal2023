@@ -18,11 +18,24 @@ insert into doctor values("D202301001", md5('123456'),'李四','男','主任医�
 insert into doctor values("D202305001", md5('123456'),'王五','男','副主任医师','13458493871', '101');
 insert into doctor values("D202301002", md5('123456'),'李梅','女','主治医师','13675849582', '101');
 insert into doctor values("D202303001", md5('123456'),'王芳','女','主治医师','16685768948', '102');
-insert into doctor values("D202305002", md5('123456'),'刘强','男','住院医师','13458295069', '102');
+insert into doctor values("D202305002", md5('123456'),'刘强','男','副主任医师','13458295069', '102');
 insert into doctor values("D202303002", md5('123456'),'赵娟','女','主任医师','13908574832', '102');
 
 select * from doctor;
 
+drop table if exists charge;
+Create table charge(
+    degree varchar(20),
+    price numeric NOT NULL,
+    Primary Key(degree)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+set names utf8;
+Delete from charge;
+insert into charge values("主任医师",20.0);
+insert into charge values("副主任医师",15.0);
+insert into charge values("主治医师",10.0);
+
+select * from charge;
 
 drop table if exists medicine;
 Create table medicine(
