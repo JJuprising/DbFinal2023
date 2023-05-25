@@ -2,59 +2,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="__ROOT__/public/static/css/gettreat.css" rel="stylesheet" type="text/css">
 <title>显示不同界面</title>
-<style>
-.page {
-	display: none; /* 默认隐藏所有界面 */
-}
-
-.active {
-	display: block; /* 显示当前活动界面 */
-}
-
-.card {
-	width:60%;
-	background-color: #f0f0f0;
-	border: 1px solid #ccc;
-	padding: 10px;
-	margin-bottom: 20px;
-	cursor: pointer;
-	border-radius:20px;
-}
-
-.card:hover {
-	background-color: #e0e0e0;
-}
-
-.card-details {
-	display: none;
-	margin-top: 10px;
-	padding: 10px;
-	background-color: #f0f0f0;
-	border: 1px solid #ccc;
-}
-
-.card.active .card-details {
-	display: block;
-}
-</style>
 </head>
 <body>
 	<center>
-	<div>
+<div id="gettreat">
+	<div id="btn_block">
 		<button id="btnPrescriptions">用药清单</button>
 		<button id="btnMedicalRecords">就诊记录</button>
 	</div>
-	
-
-		<div class="page" id="pagePrescriptions">
-			<h2>处方药品</h2>
-			<input placeholder="输入处方单号">
-			<div class="prescription-list">
+		<div class="page" id="pagePrescriptions" style="margin-top:50px;">
+			<div style="font-size:26px;font-weight:bold;">处方药品</div>
+			<div id="search_bar">
+			<input id="search" placeholder="输入处方单号">
+			<button id="search_btn">搜索</button>
+			</div>
+			<div class="prescription-list" style="margin-top:50px;" >
 				<div class="card">
-					<h3>处方单号: RX12345</h3>
+					<div id="No">处方单号: RX12345</div>
+					<div id="info">
 					<p>药品1: 药品A</p>
 					<p>药品2: 药品B</p>
+					</div>
 					<div class="card-details">
 						<h4>处方单详情</h4>
 						<p>药品A的用量、用法等详细信息</p>
@@ -62,10 +32,12 @@
 					</div>
 				</div>
 				<div class="card">
-					<h3>处方单号: RX67890</h3>
+					<div id="No">处方单号: RX67890</div>
+					<div id="info">
 					<p>药品1: 药品C</p>
 					<p>药品2: 药品D</p>
 					<p>药品3: 药品E</p>
+					</div>
 					<div class="card-details">
 						<h4>处方单详情</h4>
 						<p>药品C的用量、用法等详细信息</p>
@@ -76,14 +48,16 @@
 			</div>
 		</div>
 
-		<div class="page" id="pageMedicalRecords">
-			<h2>就诊记录</h2>
+		<div class="page" id="pageMedicalRecords" style="margin-top:50px;">
+			<div style="font-size:26px;font-weight:bold;">就诊记录</div>
 			<div class="medical-record-list">
 				<div class="card">
-					<h3>就诊记录编号: MR123</h3>
+					<div id="No">就诊记录编号: MR123</div>
+					<div id="info">
 					<p>病症描述: 感冒</p>
 					<p>诊断结果: 上呼吸道感染</p>
 					<p>处方药品: RX12345</p>
+					</div>
 					<div class="card-details">
 						<h4>就诊记录详情</h4>
 						<p>就诊日期: 2023-05-24</p>
@@ -95,10 +69,12 @@
 					</div>
 				</div>
 				<div class="card">
-					<h3>就诊记录编号: MR456</h3>
+					<div id="No">就诊记录编号: MR456</div>
+					<div id="info">
 					<p>病症描述: 胃痛</p>
 					<p>诊断结果: 胃炎</p>
 					<p>处方药品: RX67890</p>
+					</div>
 					<div class="card-details">
 						<h4>就诊记录详情</h4>
 						<p>就诊日期: 2023-05-25</p>
@@ -111,7 +87,7 @@
 				</div>
 			</div>
 		</div>
-
+</div>
 		<script>
         // 获取按钮和页面元素
         var btnPrescriptions = document.getElementById("btnPrescriptions");
@@ -126,8 +102,8 @@
             pageMedicalRecords.style.display = "none";
             
             // 设置按钮样式
-            btnPrescriptions.classList.add("active");
-            btnMedicalRecords.classList.remove("active");
+            btnPrescriptions.style.backgroundColor="#FF9800";
+            btnMedicalRecords.style.backgroundColor="#1E90FF";
         });
         
         // 点击就诊记录按钮显示就诊记录界面
@@ -137,8 +113,8 @@
             pageMedicalRecords.style.display = "block";
             
             // 设置按钮样式
-            btnPrescriptions.classList.remove("active");
-            btnMedicalRecords.classList.add("active");
+            btnPrescriptions.style.backgroundColor="#1E90FF";
+            btnMedicalRecords.style.backgroundColor="#FF9800";
         });
         
         // 初始化，默认显示处方药品界面

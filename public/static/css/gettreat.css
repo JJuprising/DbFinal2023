@@ -1,0 +1,135 @@
+@CHARSET "UTF-8";
+.page {
+	display: none; /* 默认隐藏所有界面 */
+}
+
+.active {
+	display: block; /* 显示当前活动界面 */
+}
+
+.card {
+	width:80%;
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	margin-bottom: 20px;
+	cursor: pointer;
+	border-radius:10px;
+}
+
+.card:hover {
+	background-color: #e0e0e0;
+}
+.card h3{
+	text-align:left;
+	padding-left:20px;
+}
+.card-details {
+	display: none;
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+}
+
+.card.active .card-details {
+	display: block;
+}
+#gettreat{
+	border: 2px solid #D4D4D4;
+	width:999px;
+	height:650px;
+	margin-top:20px;
+}
+#gettreat #btn_block{
+	width:250px;
+	height:40px;
+	float:left;
+	margin-left:20px;
+	margin-top:10px;
+}
+#gettreat #btn_block  #btnPrescriptions{
+	float:left;
+	width:120px;
+	height:40px;
+	font-size:20px;
+	color:#fff;
+	background-color:#1E90FF;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}
+#gettreat #btn_block #btnPrescriptions:hover{
+	background-color:#0079f2;
+}
+#gettreat #btn_block #btnPrescriptions:active{
+	background-color:#0079f2;
+}
+#gettreat #btn_block  #btnMedicalRecords{
+	float:right;
+	width:120px;
+	height:40px;
+	font-size:20px;
+	color:#fff;
+	background-color:#1E90FF;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}
+#gettreat #btn_block #btnMedicalRecords:hover{
+	background-color:#0079f2;
+}
+#gettreat #pagePrescriptions #search_bar{
+	float:right;
+	margin-right:20px;
+	width:350px;
+	height:40px;
+}
+#gettreat #pagePrescriptions #search_bar #search{
+	float:left;
+	width:280px;
+	height:35px;
+	margin-top:3px;
+}
+#gettreat #pagePrescriptions #search_bar #search_btn{
+	float:right;
+	width:65px;
+	height:35px;
+	margin-top:3px;
+	font-size:16px;
+	color:#fff;
+	background-color:#1E90FF;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}
+#gettreat #pagePrescriptions #search_bar #search_btn:hover{
+	background-color:#0079f2;
+}
+#gettreat #pagePrescriptions #No{
+	width:250px;
+    float:left;
+    padding: 5px 10px;
+    border-radius: 10px 0 10px 0;
+    color: #fff;
+    font-weight: bold;
+	background-color:#1E90FF;
+}
+#gettreat #pagePrescriptions #info{
+	width:80%;
+    float:center;
+	margin-top:50px;
+}
+#gettreat #pageMedicalRecords #No{
+	width:250px;
+    float:left;
+    padding: 5px 10px;
+    border-radius: 10px 0 10px 0;
+    color: #fff;
+    font-weight: bold;
+	background-color:#1E90FF;
+}
+#gettreat #pageMedicalRecords #info{
+	width:80%;
+    float:center;
+	margin-top:50px;
+}
