@@ -1,19 +1,148 @@
-{include  file="./public/common/top.html"/}
+{include file="./public/common/top.html"/}
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>显示不同界面</title>
+<style>
+.page {
+	display: none; /* 默认隐藏所有界面 */
+}
+
+.active {
+	display: block; /* 显示当前活动界面 */
+}
+
+.card {
+	width:60%;
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+.card:hover {
+	background-color: #e0e0e0;
+}
+
+.card-details {
+	display: none;
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #f0f0f0;
+	border: 1px solid #ccc;
+}
+
+.card.active .card-details {
+	display: block;
+}
+</style>
 </head>
-
 <body>
-<center>
+	<center>
+	<div>
+		<button id="btnPrescriptions">处方药品</button>
+		<button id="btnMedicalRecords">就诊记录</button>
+	</div>
+	
 
-病人-gettreat 就诊
+		<div class="page" id="pagePrescriptions">
+			<h2>处方药品</h2>
+			<div class="prescription-list">
+				<div class="card">
+					<h3>处方单号: RX12345</h3>
+					<p>药品1: 药品A</p>
+					<p>药品2: 药品B</p>
+					<div class="card-details">
+						<h4>处方单详情</h4>
+						<p>药品A的用量、用法等详细信息</p>
+						<p>药品B的用量、用法等详细信息</p>
+					</div>
+				</div>
+				<div class="card">
+					<h3>处方单号: RX67890</h3>
+					<p>药品1: 药品C</p>
+					<p>药品2: 药品D</p>
+					<p>药品3: 药品E</p>
+					<div class="card-details">
+						<h4>处方单详情</h4>
+						<p>药品C的用量、用法等详细信息</p>
+						<p>药品D的用量、用法等详细信息</p>
+						<p>药品E的用量、用法等详细信息</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
+		<div class="page" id="pageMedicalRecords">
+			<h2>就诊记录</h2>
+			<div class="medical-record-list">
+				<div class="card">
+					<h3>就诊记录编号: MR123</h3>
+					<p>病症描述: 感冒</p>
+					<p>诊断结果: 上呼吸道感染</p>
+					<p>处方药品: RX12345</p>
+					<div class="card-details">
+						<h4>就诊记录详情</h4>
+						<p>就诊日期: 2023-05-24</p>
+						<p>医生姓名: 张医生</p>
+						<p>就诊科室: 内科</p>
+						<p>病症描述: 感冒</p>
+						<p>诊断结果: 上呼吸道感染</p>
+						<p>处方药品: RX12345</p>
+					</div>
+				</div>
+				<div class="card">
+					<h3>就诊记录编号: MR456</h3>
+					<p>病症描述: 胃痛</p>
+					<p>诊断结果: 胃炎</p>
+					<p>处方药品: RX67890</p>
+					<div class="card-details">
+						<h4>就诊记录详情</h4>
+						<p>就诊日期: 2023-05-25</p>
+						<p>医生姓名: 李医生</p>
+						<p>就诊科室: 消化内科</p>
+						<p>病症描述: 胃痛</p>
+						<p>诊断结果: 胃炎</p>
+						<p>处方药品: RX67890</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
-</center>
-
+		<script>
+        // 获取按钮和页面元素
+        var btnPrescriptions = document.getElementById("btnPrescriptions");
+        var btnMedicalRecords = document.getElementById("btnMedicalRecords");
+        var pagePrescriptions = document.getElementById("pagePrescriptions");
+        var pageMedicalRecords = document.getElementById("pageMedicalRecords");
+        
+        // 点击处方药品按钮显示处方药品界面
+        btnPrescriptions.addEventListener("click", function() {
+            // 显示处方药品页面，隐藏就诊记录页面
+            pagePrescriptions.style.display = "block";
+            pageMedicalRecords.style.display = "none";
+            
+            // 设置按钮样式
+            btnPrescriptions.classList.add("active");
+            btnMedicalRecords.classList.remove("active");
+        });
+        
+        // 点击就诊记录按钮显示就诊记录界面
+        btnMedicalRecords.addEventListener("click", function() {
+            // 显示就诊记录页面，隐藏处方药品页面
+            pagePrescriptions.style.display = "none";
+            pageMedicalRecords.style.display = "block";
+            
+            // 设置按钮样式
+            btnPrescriptions.classList.remove("active");
+            btnMedicalRecords.classList.add("active");
+        });
+        
+        // 初始化，默认显示处方药品界面
+        btnPrescriptions.click();
+    </script>
+	</center>
 </body>
-
 </html>
+
