@@ -30,6 +30,7 @@ class Recipet extends Controller
             $max = $max['recipeNo']+1;
         }
         session('recipeNo',$max);
+        $this->assign('recipeNo',$max);
     }
     public function getMedicineInfo(){
         $rs = db('medicine')->select();
