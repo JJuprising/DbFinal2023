@@ -104,39 +104,39 @@ select * from patient;
 
 drop table if exists departDocument;
 CREATE TABLE departDocument(
-    departNo char(16) PRIMARY KEY,
+    departNo char(8) PRIMARY KEY,
     patNo char(16) NOT NULL ,
     indepartDate date NOT NULL,
     outdepartDate date 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from departDocument;
-insert into departDocument values('D202205120000001','P202205210001','2022-05-12','2022-05-15');
-insert into departDocument values('D202205210000001','P202205210001','2022-05-21',NULL);
-insert into departDocument values('D202205130000001','P202205210002','2022-05-13','2022-05-14');
-insert into departDocument values('D202205140000001','P202205210004','2022-05-14','2022-05-16');
+insert into departDocument values('10000001','P202205210001','2022-05-12','2022-05-15');
+insert into departDocument values('10000002','P202205210001','2022-05-21',NULL);
+insert into departDocument values('10000003','P202205210002','2022-05-13','2022-05-14');
+insert into departDocument values('10000004','P202205210004','2022-05-14','2022-05-16');
 
 select * from departDocument;
 
 
 drop table if exists departRecord;
 CREATE TABLE departRecord(
-    departNo char(16) ,
+    departNo char(8) ,
     aidNo int(3) NOT NULL ,
     aidPlan varchar(100) ,
     patSymptom varchar(100) 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from departRecord;
-insert into departRecord values('D202205120000001',001,'医疗计划1','病人症状1');
-insert into departRecord values('D202205120000001',002,'医疗计划2','病人症状1');
-insert into departRecord values('D202205120000001',003,'医疗计划3','病人症状1');
-insert into departRecord values('D202205120000001',004,'医疗计划4','病人症状1');
-insert into departRecord values('D202205130000001',001,'医疗计划1','病人症状2');
-insert into departRecord values('D202205130000001',002,'医疗计划2','病人症状2');
-insert into departRecord values('D202205140000001',001,'医疗计划1','病人症状3');
-insert into departRecord values('D202205140000001',002,'医疗计划2','病人症状3');
-insert into departRecord values('D202205140000001',003,'医疗计划3','病人症状3');
+insert into departRecord values('10000001',001,'医疗计划1','病人症状1');
+insert into departRecord values('10000001',002,'医疗计划2','病人症状1');
+insert into departRecord values('10000001',003,'医疗计划3','病人症状1');
+insert into departRecord values('10000001',004,'医疗计划4','病人症状1');
+insert into departRecord values('10000002',001,'医疗计划1','病人症状2');
+insert into departRecord values('10000002',002,'医疗计划2','病人症状2');
+insert into departRecord values('10000003',001,'医疗计划1','病人症状3');
+insert into departRecord values('10000003',002,'医疗计划2','病人症状3');
+insert into departRecord values('10000003',003,'医疗计划3','病人症状3');
 
 select * from departRecord;
 
