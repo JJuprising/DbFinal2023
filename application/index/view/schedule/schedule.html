@@ -84,9 +84,10 @@ function updateDoctorNo() {
 	
 		<!-- 医生排班表单 -->
 		<div class="form-section">
-			<h3>医生排班表单</h3>
+			<div style="font-weight:bold;font-size:24px;margin-top:10px;margin-bottom:10px;">医生排班表单</div>
 			<form action="{:url('schedule/setschedule')}" method="post" style="margin-bottom:20px;">
-			<table style="width:999px; border-width:3px; border-style:dotted;">
+			<table style="width:999px; border:2px solid #ccc;">
+			<tr><td><div style="height:10px;"></div></td><td></td></tr>
 			<tr>
 			<td style="text-align:right;height:30px;width:450px;"><label for="doctor">医生姓名:</label></td>
 			<td><select class="select" id="doctor" name="doctor" onchange="updateDoctorNo()">
