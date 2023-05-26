@@ -16,9 +16,11 @@ class Recipet extends Controller
         $patNo = $_GET['patNo'];
         if(!empty($patNo)){
             $rs = db('patient')->where('patNo',$patNo)->find();
-            session('patNo',$patNo);
+            
             if(!empty($rs)){
                 $this->assign('patInfo',$rs);
+                session('patNo',$patNo);
+                session('patInfo',$rs);
             }
         }
     }
