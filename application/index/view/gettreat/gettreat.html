@@ -51,16 +51,32 @@
 			<h2>处方药品</h2>
 			<input placeholder="输入处方单号">
 			<div class="prescription-list">
-				<div class="card">
-					<h3>处方单号: RX12345</h3>
-					<p>药品1: 药品A</p>
-					<p>药品2: 药品B</p>
-					<div class="card-details">
-						<h4>处方单详情</h4>
-						<p>药品A的用量、用法等详细信息</p>
-						<p>药品B的用量、用法等详细信息</p>
-					</div>
-				</div>
+<!-- 循环遍历清单数据 -->
+    {volist name="medicationList" id="medlist"}
+        {if $medlist.recipeNo != $prevRecipeNo}
+            <!-- 当处方单号不同时，显示下一个卡片 -->
+            <div class="card">
+                <h3>处方单号: {$medlist.recipeNo}</h3>
+                {volist name="medicationList" id="med"}
+                    {if $med.recipeNo == $medlist.recipeNo}
+                        <!-- 根据处方单号匹配药品信息 -->
+                        {volist name="medicinetable" id='medtable'}
+                            {if $medtable.medicineNo == $med.medicineNo}
+                                <p>药品: {$medtable.medName}</p>
+                            {/if}
+                        {/volist}
+                    {/if}
+                {/volist}
+                <div class="card-details">
+                    <h4>处方单详情1</h4>
+                    <!-- 这里可以显示药品的用量、用法等详细信息 -->
+                </div>
+            </div>
+            <lable hidden>{$prevRecipeNo = $medlist.recipeNo}</lable>
+        {/if}
+    {/volist}
+			
+				
 				<div class="card">
 					<h3>处方单号: RX67890</h3>
 					<p>药品1: 药品C</p>
@@ -74,6 +90,7 @@
 					</div>
 				</div>
 			</div>
+			
 		</div>
 
 		<div class="page" id="pageMedicalRecords">

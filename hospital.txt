@@ -71,7 +71,9 @@ Create table medicationlist(
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from medicationlist;
-
+insert into medicationlist values
+('1000004','YP202308',2),
+('1000004','YP202310',1);
 select * from medicationlist;
 
 
@@ -110,7 +112,7 @@ CREATE TABLE departDocument(
 set names utf8;
 Delete from departDocument;
 insert into departDocument values('D202205120000001','P202205210001','2022-05-12','2022-05-15');
--- insert into departDocument values('D202205210000001','P202205210001','2022-05-21',NULL);
+insert into departDocument values('D202205210000001','P202205210001','2022-05-21',NULL);
 insert into departDocument values('D202205130000001','P202205210002','2022-05-13','2022-05-14');
 insert into departDocument values('D202205140000001','P202205210004','2022-05-14','2022-05-16');
 

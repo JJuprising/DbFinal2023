@@ -83,11 +83,12 @@
 					</div>
 				</div>
 			</div>
-			<div type="submit" id="submit_btn">
-				<button onclick="showbookNo()"><input style="background:none;border:none;color:white;font-size:20px;" type="submit" value="挂号"></button>
-				<button>取消</button>
+			<div  id="submit_btn">
+				<button  onclick="showbookNo()"><input style="background:none;border:none;color:white;font-size:20px;" type="submit" value="挂号"></button>
+				</form>
+				<button type="button" onclick="location.href='{:url('index/index')}'">取消</button>
 			</div>
-			<form action="{:url('schedule/setschedule')}" method="post">
+			
 	</center>
 
 </body>
