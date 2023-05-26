@@ -19,12 +19,22 @@ class Gettreat extends Controller
         ->whereIn('recipeNo', $recipeNos)
         ->select();
 
+     //查询处方单
+     $recipedata=Db::table('recipe')
+        ->where('patNo', $userId)->select();
+     
      //获取药品信息
      $medicine= Db::table('medicine')->select();
+     
+     //医生表
+     $doctordata=Db::table('doctor')->select();
+     
     // 将数据传递到视图
     $this->assign('medicationList', $medicationList); //用药清单表
     $this->assign('medicinetable',$medicine);//药品表
     $this->assign('prevRecipeNo', 1);//用于前端存放上一个处方表单号
+    $this->assign('recipelist', $recipedata);//处方单
+    $this->assign('doctorlist',$doctordata);//医生表
     // 渲染视图
     return $this->fetch();
     }
