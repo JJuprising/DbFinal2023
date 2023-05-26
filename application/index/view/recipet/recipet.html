@@ -90,13 +90,17 @@ function postInfo(){
 		    // 处理成功响应
 		    console.log('数据已成功传输到 Controller');
 		    console.log('响应数据:', response);
+		    alert("已保存")
 		    
 		  },
 		  error: function(xhr, status, error) {
 		    // 处理错误响应
 		    console.error('发生错误:', error);
+		    alert("保存失败，请不要重复提交")
 		  }
 		});
+	//location.href='{:url('index/index')}'
+	
 }
 </script>
 </head>
@@ -180,8 +184,8 @@ function postInfo(){
 	</div>
 	<div id="bottom_button">
 		<button id="save_btn" onclick="postInfo()">保存</button>
-		<button id="apply_btn">申请住院</button>
-		<button id="over_btn">结束就诊</button>
+		<button id="apply_btn" onclick="location.href='{:url('index/index')}'">申请住院</button>
+		<button id="over_btn" onclick="location.href='{:url('depart/depart')}'">结束就诊</button>
 	</div>
 </div>
 
