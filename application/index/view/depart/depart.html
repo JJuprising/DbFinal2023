@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="__ROOT__/public/static/css/recipet.css" rel="stylesheet" type="text/css">
+<link href="__ROOT__/public/static/css/depart.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
 <script type="text/javascript"
 	src="__ROOT__/public/static/js/jquery-1.8.3.min.js">
@@ -36,10 +36,41 @@
 		<div>住址:</div>
 		<div><input type="text" name="address" value="{$patInfo.address}" disabled="disabled"></div>
 	</div>
-	<div id="symptom_block">
-		<div>症状:</div>
-		<div><textarea rows="3" cols="80" id = "symptom"></textarea></div>
+	<div id="info_block">
+		<div>主治医生:</div>
+		<div><input type="text" name="DocNo" value="" disabled="disabled"></div>
 	</div>
+	<div id="info_block">
+		<div>入院日期:</div>
+		<div><input type="text" name="indepartDate" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_block">
+		<div>科室:</div>
+		<div><input type="text" name="office" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_block">
+		<div>病房：</div>
+		<div id="select">
+			<select>
+			<option>病房1</option>
+			<option>病房2</option>
+			<option>病房3</option>
+			</select>
+		</div>
+	</div>
+	<div id="info_block">
+		<div>病床：</div>
+		<div id="select">
+			<select>
+				<option>病床1</option>
+				<option>病床2</option>
+				<option>病床3</option>
+			</select>
+		</div>
+	</div>
+</div>
+<div id="bottom_button">
+	<button id="save_btn">保存</button>
 </div>
 
 </center>

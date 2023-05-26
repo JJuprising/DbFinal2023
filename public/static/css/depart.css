@@ -1,0 +1,86 @@
+@CHARSET "UTF-8";
+body{
+	margin:0px;
+	padding:0px;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	color:#666666;
+}
+#info_content{
+	width:995px;
+	height:400px;
+	border: 2px solid #D4D4D4;
+	margin-top:10px;
+}
+#info_content #info_block{
+	width:300px;
+	height:80px;
+	float:left;
+	font-size: 22px;
+	text-align: left;
+	margin-left:10px;
+	margin-top:10px;
+}
+#info_content #info_block div{
+	width:290px;
+	height:40px;
+}
+#info_content #info_block div input{
+	width:290px;
+	height:35px;
+	font-size: 22px;
+}
+#info_content #info_long_block{
+	width:600px;
+	height:80px;
+	float:left;
+	font-size: 22px;
+	text-align: left;
+	margin-left:10px;
+	margin-top:10px;
+}
+#info_content #info_long_block div{
+	width:600px;
+	height:40px;
+}
+#info_content #info_long_block div input{
+	width:600px;
+	height:35px;
+	font-size: 22px;
+}
+#info_content #info_block #select{
+	width:100%;
+	height:30px;
+	border:1px solid #ccc;
+}
+#info_content #info_block #select select{
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	margin: 0;
+	width: 100%;
+	font-family: inherit;
+	font-size: inherit;
+	cursor: inherit;
+	line-height: inherit;
+}
+#bottom_button{
+	width:250px;
+	float:center;
+	margin-top:5px;
+	margin-right:10px;
+}
+#bottom_button #save_btn{
+	float:center;
+	width:120px;
+	height:40px;
+	font-size:20px;
+	color:#fff;
+	background-color:#1E90FF;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}
+#bottom_button #save_btn:hover{
+	background-color:#0079f2;
+}
