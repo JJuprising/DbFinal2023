@@ -166,14 +166,14 @@ CREATE TABLE payment(
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from payment;
-insert into payment values('PM20220512000001','P202205210001',200.00,'已缴费',2022-05-12);
-insert into payment values('PM20220513000001','P202205210001',300.00,'已缴费',2022-05-13);
-insert into payment values('PM20220514000001','P202205210001',450.00,'已缴费',2022-05-14);
-insert into payment values('PM20220515000001','P202205210001',150.00,'已缴费',2022-05-15);
-insert into payment values('PM20220513000002','P202205210002',350.00,'已缴费',2022-05-13);
-insert into payment values('PM20220514000002','P202205210002',100.00,'已缴费',2022-05-14);
-insert into payment values('PM20220514000003','P202205210004',500.00,'已缴费',2022-05-14);
-insert into payment values('PM20220515000002','P202205210004',600.00,'已缴费',2022-05-15);
+insert into payment values('PM20220512000001','P202205210001',200.00,'已缴费','2022-05-12');
+insert into payment values('PM20220513000001','P202205210001',300.00,'已缴费','2022-05-13');
+insert into payment values('PM20220514000001','P202205210001',450.00,'已缴费','2022-05-14');
+insert into payment values('PM20220515000001','P202205210001',150.00,'已缴费','2022-05-15');
+insert into payment values('PM20220513000002','P202205210002',350.00,'已缴费','2022-05-13');
+insert into payment values('PM20220514000002','P202205210002',100.00,'已缴费','2022-05-14');
+insert into payment values('PM20220514000003','P202205210004',500.00,'已缴费','2022-05-14');
+insert into payment values('PM20220515000002','P202205210004',600.00,'已缴费','2022-05-15');
 insert into payment values('PM20220516000001','P202205210004',550.00,'未缴费',NULL);
 
 select * from payment;
