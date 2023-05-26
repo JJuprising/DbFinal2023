@@ -13,13 +13,13 @@
 }
 
 .card {
-	width:60%;
+	width: 60%;
 	background-color: #f0f0f0;
 	border: 1px solid #ccc;
 	padding: 10px;
 	margin-bottom: 20px;
 	cursor: pointer;
-	border-radius:20px;
+	border-radius: 20px;
 }
 
 .card:hover {
@@ -41,91 +41,69 @@
 </head>
 <body>
 	<center>
-	<div>
-		<button id="btnPrescriptions">用药清单</button>
-		<button id="btnMedicalRecords">就诊记录</button>
-	</div>
-	
+		<div>
+			<button id="btnPrescriptions">用药清单</button>
+			<button id="btnMedicalRecords">就诊记录</button>
+		</div>
+
 
 		<div class="page" id="pagePrescriptions">
 			<h2>处方药品</h2>
 			<input placeholder="输入处方单号">
 			<div class="prescription-list">
-<!-- 循环遍历清单数据 -->
-    {volist name="medicationList" id="medlist"}
-        {if $medlist.recipeNo != $prevRecipeNo}
-            <!-- 当处方单号不同时，显示下一个卡片 -->
-            <div class="card">
-                <h3>处方单号: {$medlist.recipeNo}</h3>
-                {volist name="medicationList" id="med"}
-                    {if $med.recipeNo == $medlist.recipeNo}
-                        <!-- 根据处方单号匹配药品信息 -->
-                        {volist name="medicinetable" id='medtable'}
-                            {if $medtable.medicineNo == $med.medicineNo}
-                                <p>药品: {$medtable.medName}</p>
-                            {/if}
-                        {/volist}
-                    {/if}
-                {/volist}
-                <div class="card-details">
-                    <h4>处方单详情1</h4>
-                    <!-- 这里可以显示药品的用量、用法等详细信息 -->
-                </div>
-            </div>
-            <lable hidden>{$prevRecipeNo = $medlist.recipeNo}</lable>
-        {/if}
-    {/volist}
-			
-				
+				<!-- 循环遍历清单数据 -->
+				{volist name="medicationList" id="medlist"} {if $medlist.recipeNo !=
+				$prevRecipeNo}
+				<!-- 当处方单号不同时，显示下一个卡片 -->
 				<div class="card">
-					<h3>处方单号: RX67890</h3>
-					<p>药品1: 药品C</p>
-					<p>药品2: 药品D</p>
-					<p>药品3: 药品E</p>
+					<h3>处方单号: {$medlist.recipeNo}</h3>
+					{volist name="medicationList" id="med"} {if $med.recipeNo ==
+					$medlist.recipeNo}
+					<!-- 根据处方单号匹配药品信息 -->
+					{volist name="medicinetable" id='medtable'} {if
+					$medtable.medicineNo == $med.medicineNo}
+					<p>药品: {$medtable.medName}</p>
+					{/if} {/volist} {/if} {/volist}
 					<div class="card-details">
-						<h4>处方单详情</h4>
-						<p>药品C的用量、用法等详细信息</p>
-						<p>药品D的用量、用法等详细信息</p>
-						<p>药品E的用量、用法等详细信息</p>
+						<h4>处方单详情1</h4>
+						{volist name="medicationList" id="med"} {if $med.recipeNo ==
+					$medlist.recipeNo}
+					{volist name="medicinetable" id='medtable'} {if
+					$medtable.medicineNo == $med.medicineNo}
+						<!-- 这里可以显示药品的用量、用法等详细信息 -->
+						<p>{$medtable.medName} 数量：{$medlist.medQuantity} 用法：{$medtable.medUsage}</p>
+						{/if} {/volist} {/if} {/volist}
 					</div>
+					
 				</div>
+				<lable hidden>{$prevRecipeNo = $medlist.recipeNo}</lable>
+				{/if} {/volist}
 			</div>
-			
+
 		</div>
 
-		<div class="page" id="pageMedicalRecords">
+		<div class="page2" id="pageMedicalRecords">
 			<h2>就诊记录</h2>
 			<div class="medical-record-list">
+			{volist name="recipelist" id='recipelist'} 
 				<div class="card">
-					<h3>就诊记录编号: MR123</h3>
-					<p>病症描述: 感冒</p>
-					<p>诊断结果: 上呼吸道感染</p>
-					<p>处方药品: RX12345</p>
+					<h3>就诊记录编号: {$recipelist.recipeNo}</h3>
+					<p>病症描述: {$recipelist.symptom}</p>
+					<p>诊断结果: {$recipelist.symptom}</p>
+					<!-- <p>处方药品: {$recipelist.symptom}</p> -->
 					<div class="card-details">
 						<h4>就诊记录详情</h4>
 						<p>就诊日期: 2023-05-24</p>
-						<p>医生姓名: 张医生</p>
-						<p>就诊科室: 内科</p>
-						<p>病症描述: 感冒</p>
-						<p>诊断结果: 上呼吸道感染</p>
-						<p>处方药品: RX12345</p>
+						{volist name='doctorlist' id='doctor'}
+						{if $doctor.docNo==$recipelist.docNo}
+						<p>医生姓名: {$doctor.docName}</p>
+						<p>就诊科室: {$doctor.officeNo}</p>
+						{/if}
+						{/volist}
+						<p>诊疗费用: {$recipelist.money}</p>
 					</div>
 				</div>
-				<div class="card">
-					<h3>就诊记录编号: MR456</h3>
-					<p>病症描述: 胃痛</p>
-					<p>诊断结果: 胃炎</p>
-					<p>处方药品: RX67890</p>
-					<div class="card-details">
-						<h4>就诊记录详情</h4>
-						<p>就诊日期: 2023-05-25</p>
-						<p>医生姓名: 李医生</p>
-						<p>就诊科室: 消化内科</p>
-						<p>病症描述: 胃痛</p>
-						<p>诊断结果: 胃炎</p>
-						<p>处方药品: RX67890</p>
-					</div>
-				</div>
+				{/volist}
 			</div>
 		</div>
 
@@ -135,7 +113,26 @@
         var btnMedicalRecords = document.getElementById("btnMedicalRecords");
         var pagePrescriptions = document.getElementById("pagePrescriptions");
         var pageMedicalRecords = document.getElementById("pageMedicalRecords");
-        
+        // 获取缴费单列表
+        var pageList = document.querySelector(".page");
+        // 获取所有卡片
+        var cards = pageList.querySelectorAll(".card");
+        // 为每个卡片添加点击事件监听器
+        cards.forEach(function(card) {
+            card.addEventListener("click", function() {
+                // 切换卡片的活动状态
+                card.classList.toggle("active");
+            });
+        });
+        var page2List = document.querySelector(".page2");
+        var cards2 = page2List.querySelectorAll(".card");
+        // 为每个卡片添加点击事件监听器
+        cards2.forEach(function(card) {
+            card.addEventListener("click", function() {
+                // 切换卡片的活动状态
+                card.classList.toggle("active");
+            });
+        });
         // 点击处方药品按钮显示处方药品界面
         btnPrescriptions.addEventListener("click", function() {
             // 显示处方药品页面，隐藏就诊记录页面
