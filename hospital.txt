@@ -122,14 +122,16 @@ CREATE TABLE departDocument(
     departNo char(8) PRIMARY KEY,
     patNo char(16) NOT NULL ,
     indepartDate date NOT NULL,
-    outdepartDate date 
+    outdepartDate date,
+    wardNo char(4) NOT NULL,
+    bedNo char(3) NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from departDocument;
-insert into departDocument values('10000001','P202205210001','2022-05-12','2022-05-15');
-insert into departDocument values('10000002','P202205210001','2022-05-21',NULL);
-insert into departDocument values('10000003','P202205210002','2022-05-13','2022-05-14');
-insert into departDocument values('10000004','P202205210004','2022-05-14','2022-05-16');
+insert into departDocument values('10000001','P202205210001','2022-05-12','2022-05-15','A101','001');
+insert into departDocument values('10000002','P202205210001','2022-05-21',NULL,'A101','002');
+insert into departDocument values('10000003','P202205210002','2022-05-13','2022-05-14','A101','003');
+insert into departDocument values('10000004','P202205210004','2022-05-14','2022-05-16','B108','001');
 
 select * from departDocument;
 
