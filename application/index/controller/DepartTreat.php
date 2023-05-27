@@ -3,9 +3,9 @@ namespace app\index\controller;
 
 use think\Controller;
 
-class DepartTreat extends Controller
+class Departtreat extends Controller
 {
-    public function DepartTreat(){
+    public function Departtreat(){
         return $this->fetch();
     }
 }

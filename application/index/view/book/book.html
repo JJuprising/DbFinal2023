@@ -58,7 +58,7 @@
 				</div>
 				<div id="info_block">
 					<div>科室:</div>
-					<div>
+					<div id="select_div">
 						<select id="office" name="office">
 							<!-- 科室选项 -->
 							<option value="">-请选择科室-</option>
@@ -70,7 +70,7 @@
 				</div>
 				<div id="info_block">
 					<div>接诊医生:</div>
-					<div>
+					<div id="select_div">
 						<select id="doctor" name="doctor">
 							<!-- 医生选项由JavaScript动态生成 -->
 						</select>
@@ -83,12 +83,11 @@
 					</div>
 				</div>
 			</div>
-			<div  id="submit_btn">
-				<button  onclick="showbookNo()"><input style="background:none;border:none;color:white;font-size:20px;" type="submit" value="挂号"></button>
-				</form>
-				<button type="button" onclick="location.href='{:url('index/index')}'">取消</button>
+			<div  id="btn_block">
+				<button id="submit_btn" onclick="showbookNo()"><input style="background:none;border:none;color:white;font-size:20px;" type="submit" value="挂号"></button>
+				<button id="cancel_btn" type="button" onclick="location.href='{:url('index/index')}'">取消</button>
 			</div>
-			
+
 	</center>
 
 </body>
