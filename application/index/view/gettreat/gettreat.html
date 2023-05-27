@@ -1,19 +1,136 @@
-{include  file="./public/common/top.html"/}
+{include file="./public/common/top.html"/}
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<link href="__ROOT__/public/static/css/gettreat.css" rel="stylesheet" type="text/css">
+<title>显示不同界面</title>
 </head>
-
 <body>
 <center>
+	<div id="gettreat">
+		<div id="btn_block">
+			<button id="btnPrescriptions">用药清单</button>
+			<button id="btnMedicalRecords">就诊记录</button>
+		</div>
 
-病人-gettreat 就诊
 
+		<div class="page" id="pagePrescriptions">
+			<h2>处方药品</h2>
+			<div id="search_bar">
+				<input id="search" placeholder="输入处方单号">
+				<button id="search_btn">搜索</button>
+			</div>
 
+			<div class="prescription-list">
+				<!-- 循环遍历清单数据 -->
+				{volist name="medicationList" id="medlist"} {if $medlist.recipeNo !=
+				$prevRecipeNo}
+				<!-- 当处方单号不同时，显示下一个卡片 -->
+				<div class="card">
+					<div id="recipeNo">处方单号: {$medlist.recipeNo}</div>
+					{volist name="medicationList" id="med"} {if $med.recipeNo ==
+					$medlist.recipeNo}
+					<!-- 根据处方单号匹配药品信息 -->
+					{volist name="medicinetable" id='medtable'} {if
+					$medtable.medicineNo == $med.medicineNo}
+					<p>药品: {$medtable.medName}</p>
+					{/if} {/volist} {/if} {/volist}
+					<div class="card-details">
+						<h4>处方单详情1</h4>
+						{volist name="medicationList" id="med"} {if $med.recipeNo ==
+					$medlist.recipeNo}
+					{volist name="medicinetable" id='medtable'} {if
+					$medtable.medicineNo == $med.medicineNo}
+						<!-- 这里可以显示药品的用量、用法等详细信息 -->
+						<p>{$medtable.medName} 数量：{$medlist.medQuantity} 用法：{$medtable.medUsage}</p>
+						{/if} {/volist} {/if} {/volist}
+					</div>
+					
+				</div>
+				<lable hidden>{$prevRecipeNo = $medlist.recipeNo}</lable>
+				{/if} {/volist}
+			</div>
+
+		</div>
+
+		<div class="page2" id="pageMedicalRecords">
+			<h2>就诊记录</h2>
+			<div class="medical-record-list">
+			{volist name="recipelist" id='recipelist'} 
+				<div class="card">
+					<div id="treatNo">就诊记录编号: {$recipelist.recipeNo}</div>
+					<p>病症描述: {$recipelist.symptom}</p>
+					<p>诊断结果: {$recipelist.symptom}</p>
+					<!-- <p>处方药品: {$recipelist.symptom}</p> -->
+					<div class="card-details">
+						<h4>就诊记录详情</h4>
+						<p>就诊日期: 2023-05-24</p>
+						{volist name='doctorlist' id='doctor'}
+						{if $doctor.docNo==$recipelist.docNo}
+						<p>医生姓名: {$doctor.docName}</p>
+						<p>就诊科室: {$doctor.officeNo}</p>
+						{/if}
+						{/volist}
+						<p>诊疗费用: {$recipelist.money}</p>
+					</div>
+				</div>
+				{/volist}
+			</div>
+		</div>
+	</div>
+	
+		<script>
+        // 获取按钮和页面元素
+        var btnPrescriptions = document.getElementById("btnPrescriptions");
+        var btnMedicalRecords = document.getElementById("btnMedicalRecords");
+        var pagePrescriptions = document.getElementById("pagePrescriptions");
+        var pageMedicalRecords = document.getElementById("pageMedicalRecords");
+        // 获取缴费单列表
+        var pageList = document.querySelector(".page");
+        // 获取所有卡片
+        var cards = pageList.querySelectorAll(".card");
+        // 为每个卡片添加点击事件监听器
+        cards.forEach(function(card) {
+            card.addEventListener("click", function() {
+                // 切换卡片的活动状态
+                card.classList.toggle("active");
+            });
+        });
+        var page2List = document.querySelector(".page2");
+        var cards2 = page2List.querySelectorAll(".card");
+        // 为每个卡片添加点击事件监听器
+        cards2.forEach(function(card) {
+            card.addEventListener("click", function() {
+                // 切换卡片的活动状态
+                card.classList.toggle("active");
+            });
+        });
+        // 点击处方药品按钮显示处方药品界面
+        btnPrescriptions.addEventListener("click", function() {
+            // 显示处方药品页面，隐藏就诊记录页面
+            pagePrescriptions.style.display = "block";
+            pageMedicalRecords.style.display = "none";
+            
+            // 设置按钮样式
+            btnPrescriptions.style.backgroundColor = "#0079f2";
+            btnMedicalRecords.style.backgroundColor = "#1E90FF";
+        });
+        
+        // 点击就诊记录按钮显示就诊记录界面
+        btnMedicalRecords.addEventListener("click", function() {
+            // 显示就诊记录页面，隐藏处方药品页面
+            pagePrescriptions.style.display = "none";
+            pageMedicalRecords.style.display = "block";
+            
+            // 设置按钮样式
+            btnPrescriptions.style.backgroundColor = "#1E90FF";
+            btnMedicalRecords.style.backgroundColor = "#0079f2";
+        });
+        
+        // 初始化，默认显示处方药品界面
+        btnPrescriptions.click();
+    </script>
 </center>
-
 </body>
-
 </html>
+

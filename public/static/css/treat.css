@@ -51,6 +51,8 @@ body{
 	margin-right:25px;
 	margin-left:25px;
 	float:left;
+	border-radius:5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #pat_content .pat_div:nth-child(2),#pat_content .pat_div:nth-child(4),

@@ -59,28 +59,79 @@
 				<div id="info_block">
 					<div>科室:</div>
 					<div>
-						<input type="text" name="office" value="">
+						<select id="office" name="office">
+							<!-- 科室选项 -->
+							<option value="">-请选择科室-</option>
+							<option value="101">神经科</option>
+							<option value="102">骨科</option>
+							<!-- 其他科室选项 -->
+						</select>
 					</div>
 				</div>
 				<div id="info_block">
 					<div>接诊医生:</div>
 					<div>
-						<input type="text" name="doctor" value="">
+						<select id="doctor" name="doctor">
+							<!-- 医生选项由JavaScript动态生成 -->
+						</select>
 					</div>
 				</div>
 				<div id="info_block">
 					<div>挂号单号:</div>
 					<div>
-						<input type="text" name="bookNo" value="">
+						<input type="text" name="bookNo" value="{$bookNo}" disabled="disabled">
 					</div>
 				</div>
 			</div>
-			<div type="submit" id="submit_btn">
-				<button>挂号</button>
+			<div  id="submit_btn">
+				<button  onclick="showbookNo()"><input style="background:none;border:none;color:white;font-size:20px;" type="submit" value="挂号"></button>
+				</form>
+				<button type="button" onclick="location.href='{:url('index/index')}'">取消</button>
 			</div>
-			<form action="{:url('schedule/setschedule')}" method="post">
+			
 	</center>
 
 </body>
+<script>
+// 医生数据
+var doctors = [
+    { id: 'D202301001', departmentId: "101", name: "李四" },
+    { id: 'D202305001', departmentId: "101", name: "王五" },
+    { id: 'D202301002', departmentId: "101", name: "李梅" },
+    { id: 'D202303001', departmentId: "102", name: "王芳" },
+    { id: 'D202305002', departmentId: "102", name: "刘强" },
+    { id: 'D202303002', departmentId: "102", name: "赵娟" },
+    // 其他医生数据
+  ];
 
+// 监听科室选择事件
+var departmentSelect = document.getElementById("office");
+var doctorSelect = document.getElementById("doctor");
+
+departmentSelect.addEventListener("change", function() {
+  // 清空医生选项
+  doctorSelect.innerHTML = "";
+
+  // 获取选择的科室ID
+  var selectedDepartmentId = departmentSelect.value;
+
+  // 根据科室ID筛选医生数据
+  var filteredDoctors = doctors.filter(function(doctor) {
+    return doctor.departmentId === selectedDepartmentId;
+  });
+
+  // 动态生成医生选项
+  filteredDoctors.forEach(function(doctor) {
+    var option = document.createElement("option");
+    option.value = doctor.id;
+    option.textContent = doctor.name;
+    doctorSelect.appendChild(option);
+  });
+});
+
+//显示挂号单号
+function showbookNo(){
+	
+}
+</script>
 </html>

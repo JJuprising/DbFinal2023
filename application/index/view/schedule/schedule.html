@@ -14,7 +14,7 @@ h1 {
 }
 
 .schedule-table {
-	width: 80%;
+	width: 999px;
 	border-collapse: collapse;
 	margin-top: 20px;
 }
@@ -33,25 +33,37 @@ h1 {
 	background-color: #e0e0e0;
 }
 
-.form-section {
-	margin-top: 20px;
-}
-
 .form-section label {
 	display: block;
 	margin-bottom: 5px;
 }
 
 .form-section input[type="submit"] {
+	width:120px;
+	height:40px;
 	padding: 10px 20px;
 	background-color: #4CAF50;
 	color: white;
 	border: none;
 	cursor: pointer;
+	border-radius:5px;
+	margin-top:5px;
+	margin-bottom:10px;
 }
 
 .form-section input[type="submit"]:hover {
 	background-color: #45a049;
+}
+.select{
+	appearance: none;
+	background-color: transparent;
+	border: 1px solid #000;
+	margin: 0;
+	width: 36%;
+	font-family: inherit;
+	font-size: inherit;
+	cursor: inherit;
+	line-height: inherit;
 }
 </style>
 <script>
@@ -69,6 +81,56 @@ function updateDoctorNo() {
 
 <body>
 	<center>
+	
+		<!-- 医生排班表单 -->
+		<div class="form-section">
+			<div style="font-weight:bold;font-size:24px;margin-top:10px;margin-bottom:10px;">医生排班表单</div>
+			<form action="{:url('schedule/setschedule')}" method="post" style="margin-bottom:20px;">
+			<table style="width:999px; border:2px solid #ccc;">
+			<tr><td><div style="height:10px;"></div></td><td></td></tr>
+			<tr>
+			<td style="text-align:right;height:30px;width:450px;"><label for="doctor">医生姓名:</label></td>
+			<td><select class="select" id="doctor" name="doctor" onchange="updateDoctorNo()">
+					{volist name="docdata" id="doctor"}
+						<option value="{$doctor.docNo}" data-doctor-office="{$doctor.officeNo}">{$doctor.docName}</option>
+					{/volist}
+				</select></td>
+			</tr>
+			<tr>
+			<td style="text-align:right;height:30px;"><label for="doctorNo">医生工号:</label></td>
+			<td><input type="text" id="doctorNo" name="doctorNo" readonly></td>
+			</tr>
+			<tr>
+			<td style="text-align:right;height:30px;"><label for="doctorOffice">所属科室:</label></td>
+			<td><input type="text" id="doctorOffice" name="doctorOffice" readonly></td>
+			</tr>
+			<tr>
+			<td style="text-align:right;height:30px;"><label for="date">日期:</label></td>
+			<td><input type="date" id="date" name="date"></td>
+			</tr>
+			
+			<tr>
+			<td style="text-align:right;height:30px;"><label for="shift">班次:</label></td>
+			<td><select class="select" id="shift" name="shift">
+					<option value="morning">早班</option>
+					<option value="afternoon">中班</option>
+					<option value="evening">晚班</option>
+				</select></td>
+			</tr>
+			
+			<tr>
+			<td style="text-align:right;height:30px;"><label for="room">诊室号:</label></td>
+			<td><input type="text" id="room" name="room">
+				</td>
+			</tr>
+			<tr>
+			<td></td>
+			<td><input type="submit" value="提交"></td>
+			</tr>
+			</table>
+				
+			</form>
+		</div>	
 
 		<!-- 排班表格 -->
 		<table class="schedule-table">
@@ -105,55 +167,6 @@ function updateDoctorNo() {
 			{/volist}
 
 		</table>
-
-		<!-- 医生排班表单 -->
-		<div class="form-section">
-			<h2>医生排班表单</h2>
-			<form action="{:url('schedule/setschedule')}" method="post">
-			<table style="width:800px; border-width:3px; border-style:dotted;">
-			<tr>
-			<td style="text-align:right;height:30px;"><label for="doctor">医生姓名:</label></td>
-			<td><select id="doctor" name="doctor" onchange="updateDoctorNo()">
-					{volist name="docdata" id="doctor"}
-						<option value="{$doctor.docNo}" data-doctor-office="{$doctor.officeNo}">{$doctor.docName}</option>
-					{/volist}
-				</select></td>
-			</tr>
-			<tr>
-			<td style="text-align:right;height:30px;"><label for="doctorNo">医生工号:</label></td>
-			<td><input type="text" id="doctorNo" name="doctorNo" readonly></td>
-			</tr>
-			<tr>
-			<td style="text-align:right;height:30px;"><label for="doctorOffice">所属科室:</label></td>
-			<td><input type="text" id="doctorOffice" name="doctorOffice" readonly></td>
-			</tr>
-			<tr>
-			<td style="text-align:right;height:30px;"><label for="date">日期:</label></td>
-			<td><input type="date" id="date" name="date"></td>
-			</tr>
-			
-			<tr>
-			<td style="text-align:right;height:30px;"><label for="shift">班次:</label></td>
-			<td><select id="shift" name="shift">
-					<option value="morning">早班</option>
-					<option value="afternoon">中班</option>
-					<option value="evening">晚班</option>
-				</select></td>
-			</tr>
-			
-			<tr>
-			<td style="text-align:right;height:30px;"><label for="room">诊室号:</label></td>
-			<td><input type="text" id="room" name="room">
-				</td>
-			</tr>
-			<tr>
-			<td></td>
-			<td><input type="submit" value="提交"></td>
-			</tr>
-			</table>
-				
-			</form>
-		</div>
 
 	</center>
 

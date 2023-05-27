@@ -1,0 +1,152 @@
+@CHARSET "UTF-8";
+.page {
+	display: none; /* 默认隐藏所有界面 */
+}
+.active {
+	display: block; /* 显示当前活动界面 */
+}
+.prescription-list{
+	width:999px;
+	margin-top:70px;
+}
+.card {
+	width: 60%;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 10px;
+	position:relative;
+	cursor: pointer;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card:hover {
+	background-color: #f4f4f4;
+}
+
+.card-details {
+	display: none;
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #f4f4f4;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+}
+
+.card.active .card-details {
+	display: block;
+}
+#gettreat{
+	border: 2px solid #D4D4D4;
+	width:999px;
+	height:650px;
+	margin-top:20px;
+}
+#gettreat #btn_block{
+	width:999px;
+	height:40px;
+	float:left;
+	margin-left:20px;
+	margin-top:10px;
+}
+#gettreat #btn_block  #btnPrescriptions{
+	float:left;
+	width:120px;
+	height:40px;
+	font-size:20px;
+	color:#fff;
+	background-color:#1E90FF;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}
+#gettreat #btn_block #btnPrescriptions:hover{
+	background-color:#0079f2;
+}
+#gettreat #btn_block #btnMedicalRecords{
+	float:left;
+	margin-left:10px;
+	width:120px;
+	height:40px;
+	font-size:20px;
+	color:#fff;
+	background-color:#1E90FF;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}
+#gettreat #btn_block #btnMedicalRecords:hover{
+	background-color:#0079f2;
+}
+#gettreat #pagePrescriptions #search_bar{
+	float:right;
+	margin-right:20px;
+	width:350px;
+	height:40px;
+}
+#gettreat #pagePrescriptions #search_bar #search{
+	float:left;
+	width:280px;
+	height:35px;
+	margin-top:3px;
+}
+#gettreat #pagePrescriptions #search_bar #search_btn{
+	float:right;
+	width:65px;
+	height:35px;
+	margin-top:3px;
+	font-size:16px;
+	color:#fff;
+	background-color:#1E90FF;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}
+#gettreat #pagePrescriptions #search_bar #search_btn:hover{
+	background-color:#0079f2;
+}
+#gettreat #pagePrescriptions #recipeNo{
+	width:200px;
+    position:absolute;
+	top: 0px;
+    left: 0px;
+    padding: 5px 10px;
+    border-radius: 10px 0 10px 0;
+    color: #fff;
+    font-weight: bold;
+	background-color:#1E90FF;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;  
+}
+#gettreat #pagePrescriptions #info{
+	width:80%;
+    float:center;
+	margin-top:50px;
+}
+#gettreat #pageMedicalRecords #No{
+	width:250px;
+    float:left;
+    padding: 5px 10px;
+    border-radius: 10px 0 10px 0;
+    color: #fff;
+    font-weight: bold;
+	background-color:#1E90FF;
+}
+#gettreat #pageMedicalRecords #info{
+	width:80%;
+    float:center;
+	margin-top:50px;
+}
+#gettreat #pageMedicalRecords #treatNo{
+	width:200px;
+    position:absolute;
+	top: 0px;
+    left: 0px;
+    padding: 5px 10px;
+    border-radius: 10px 0 10px 0;
+    color: #fff;
+    font-weight: bold;
+	background-color:#1E90FF;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;  
+}
