@@ -1,0 +1,135 @@
+@CHARSET "UTF-8";
+#info_content{
+	width:995px;
+	height:380px;
+	border: 2px solid #D4D4D4;
+	margin-top:10px;
+}
+#info_content #info_block{
+	width:300px;
+	height:80px;
+	float:left;
+	font-size: 22px;
+	text-align: left;
+	margin-left:10px;
+	margin-top:10px;
+}
+#info_content #info_block div{
+	width:290px;
+	height:40px;
+}
+#info_content #info_block div input{
+	width:290px;
+	height:35px;
+	font-size: 22px;
+}
+#info_content #info_long_block{
+	width:600px;
+	height:80px;
+	float:left;
+	font-size: 22px;
+	text-align: left;
+	margin-left:10px;
+	margin-top:10px;
+}
+#info_content #info_long_block div{
+	width:600px;
+	height:40px;
+}
+#info_content #info_long_block div input{
+	width:600px;
+	height:35px;
+	font-size: 22px;
+}
+#record_card{
+	width:995px;
+	height:260px;
+	border: 2px solid #D4D4D4;
+	margin-top:10px;
+	position:relative;
+	border-radius:10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#record_date{
+	width:200px;
+    position:absolute;
+	top: 0px;
+    left: 0px;
+    padding: 5px 10px;
+    border-radius: 10px 0 10px 0;
+    color: #fff;
+    font-weight: bold;
+	background-color:#1E90FF;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;  
+}
+#record_card #info_long_block{
+	width:600px;
+	height:80px;
+	font-size: 22px;
+	text-align: left;
+	margin-left:10px;
+	margin-top:10px;
+}
+#record_card #info_long_block div{
+	width:600px;
+	height:40px;
+}
+#record_card #info_long_block div input{
+	width:900px;
+	height:35px;
+	font-size: 22px;
+}
+#record_card #save_btn{
+	width:100px;
+	height:40px;
+	font-size:20px;
+	color:#fff;
+	background-color:#1E90FF;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}
+#record_card #save_btn:hover{
+	background-color:#0079f2;
+}
+#add_btn{
+	margin-top:20px;
+}
+#add_btn button{
+	width:120px;
+	height:40px;
+	font-size:20px;
+	color:#fff;
+	background-color:#1E90FF;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}
+#add_btn button:hover{
+	background-color:#0079f2;
+}
+#select_div{
+	width:50%;
+	height:28px;
+	border:1px solid #ccc;
+}
+#select_div select{
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	margin: 0;
+	width: 100%;
+	font-family: inherit;
+	font-size: inherit;
+	cursor: inherit;
+	line-height: inherit;
+}
+#long_block{
+	width:600px;
+	height:80px;
+	font-size: 22px;
+	text-align: left;
+	margin-left:10px;
+	margin-top:10px;
+}

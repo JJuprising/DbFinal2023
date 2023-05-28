@@ -9,11 +9,50 @@
 	src="__ROOT__/public/static/js/jquery-1.8.3.min.js">
 </script>
 
+<script type="text/javascript">
+
+function postInfo(){
+
+	
+	var ward = $("#ward").val()
+	var bed = $("#bed").val()
+
+
+	 $.ajax({
+		  url: 'dealDepartdoc',
+		  method: 'POST', // 根据需要选择请求方法，如 POST 或 GET
+		  //dataType:'json',
+		  data: { 
+			  wardNo:ward,
+			  bedNo:bed
+		  }, 
+		  success: function(response) {
+		    // 处理成功响应
+		    console.log('数据已成功传输到 Controller');
+		    console.log('响应数据:', response);
+		    alert("已保存")
+		    
+		  },
+		  error: function(xhr, status, error) {
+		    // 处理错误响应
+		    console.error('发生错误:', error);
+		    alert("保存失败，请不要重复提交")
+		  }
+		}); 
+	//location.href='{:url('index/index')}'
+	
+}
+
+</script>
+
+
 </head>
 
 <body>
 
 <center>
+
+
 
 <div id="info_content">
 	<div id="info_block">
@@ -38,39 +77,39 @@
 	</div>
 	<div id="info_block">
 		<div>主治医生:</div>
-		<div><input type="text" name="DocNo" value="" disabled="disabled"></div>
+		<div><input type="text" name="DocNo" value="{$docInfo.docName}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>入院日期:</div>
-		<div><input type="text" name="indepartDate" value="" disabled="disabled"></div>
+		<div><input type="text" name="indepartDate" value="{$date}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>科室:</div>
-		<div><input type="text" name="office" value="" disabled="disabled"></div>
+		<div><input type="text" name="office" value="{$docInfo.officeNo}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>病房：</div>
 		<div id="select">
-			<select>
-			<option>病房1</option>
-			<option>病房2</option>
-			<option>病房3</option>
+			<select id="ward" >
+			{volist name="wards" id="ward"}
+			<option>{$ward}</option>
+			{/volist}
 			</select>
 		</div>
 	</div>
 	<div id="info_block">
 		<div>病床：</div>
 		<div id="select">
-			<select>
-				<option>病床1</option>
-				<option>病床2</option>
-				<option>病床3</option>
+			<select id="bed">
+				<option>001</option>
+				<option>002</option>
+				<option>003</option>
 			</select>
 		</div>
 	</div>
 </div>
 <div id="bottom_button">
-	<button id="save_btn">保存</button>
+	<button id="save_btn" onclick = "postInfo()">保存</button>
 </div>
 
 </center>

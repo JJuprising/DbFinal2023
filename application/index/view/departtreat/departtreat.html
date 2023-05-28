@@ -3,39 +3,46 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="__ROOT__/public/static/css/treat.css" rel="stylesheet" type="text/css">
+<link href="__ROOT__/public/static/css/departtreat.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
 </head>
 
 <body>
 <center>
 
-<div id="pat_content">
-	{volist name="patInfo" id="data"}
-		<div class="pat_div">
-			<a href="">
-			<img src="__ROOT__/public/static/image/User.png" border="0"/>
-			</a>
-			<div id="pat_title_div">
-				<a>{$data.patName}</a>
-				<a>{$data.sex}</a>
-				<!-- <a>{$data.patNo}</a> -->
+<div id="content">
+		{volist name="document" id="data"}
+		<div class="card">
+			<div href="">
+				<img id="userimage" src="__ROOT__/public/static/image/User.png" border="0"/>
 			</div>
-			<div id="pat_infm_div">电话：{$data.telephone}</div>
-			<div id="pat_infm_div">病案号：{$data.patNo}</div>
-			<div id="pat_infm_div">创建时间：{$data.bookingTime}</div>
-			
-			
-			<div id>
-				<div id="treat_div">
-				<a href="{:url('recipet/recipet')}?patNo={$data.patNo}">接诊</a>
+			<div id="pat_info">
+				<div id="title_div">
+					<a>{$data.patName}</a>
+					<a>{$data.sex}</a>
+				</div>
+				<div id="info_div">
+					<div id="left_div">
+						<div id="pat_infm_div">电话：{$data.telephone}</div>
+						<div id="pat_infm_div">病案号：{$data.patNo}</div>
+						<div id="pat_infm_div">入院时间：{$data.indepartDate}</div>
+					</div>
+					<div id="right_div">
+						<div id="pat_infm_div">病房号：{$data.wardNo}</div>
+						<div id="pat_infm_div">病床号：{$data.bedNo}</div>
+					</div>
+				</div>
+			</div>
+			<div id="btn_block">
+				<div id="record_div">
+					<a href="{:url('record/record')}?departNo={$data.departNo}">档案记录</a>
 				</div>					
 				<div id="infm_div">
-				<a href="">病人信息</a>
+					<a href="">病人信息</a>
 				</div>					
 			</div>
 		</div>
-	{/volist}
+		{/volist}
 		
 </div>
 

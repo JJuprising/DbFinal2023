@@ -5,11 +5,6 @@
 <td rowspan=2><img src="__ROOT__/public/static/pic/logo.jpg" style="width:250px; height:68px"> </td>
 <td style="font-size:24px; float:right; font-family:微软雅黑">{$Think.session.No}欢迎使用医院管理系统</td>
 <td style="text-align:right;"><img src="__ROOT__/public/static/image/ttel.jpg"></td>
-<!-- <td style="background:url('__ROOT__/public/static/image/topxmenubg.jpg'); font-size:x-small;text-align:center;">
-<a href="member.php" style="text-decoration:none;">我的帐户</a>|
-<a href="{:url('order/showorder')}" style="text-decoration:none;">我的订单</a>|
-<a href="{:url('cart/index')}" style="text-decoration:none;">购物车</a>|
-</td> -->
 </tr>
 
 <tr>
@@ -25,16 +20,16 @@
 </tr>
 
 <tr><td colspan=3 style="background-color:#1E90FF; font-size: small;text-align:center; width:999px;height:40px">
- <span style=" color:White;"> |</span> &nbsp; &nbsp; &nbsp;
+ <span style="color:White;">|</span> &nbsp; &nbsp; &nbsp;
  	<!-- 医生导航栏 -->
  	{if condition="$Think.session.job eq 'doctor'"}
- 	<a href="{:url('index/index')}" style="text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑"> 主页</span></a>
+ 	<a href="{:url('index/index')}" style="text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑;"> 主页</span></a>
     &nbsp;&nbsp;&nbsp; <span style=" color:White;"> |</span> &nbsp;&nbsp;&nbsp;
-    <a href="{:url('schedule/schedule')}"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑">排班</span></a>
+    <a href="{:url('schedule/schedule')}"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑;">排班</span></a>
      &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
-    <a href="{:url('treat/treat')}"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑">接诊</span></a>
+    <a href="{:url('treat/treat')}"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑;">接诊</span></a>
      &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
-	<a href="{:url('depart/depart')}"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑">住院</span></a>
+	<a href="{:url('departtreat/departtreat')}"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑;">住院</span></a>
      &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
  	{/if}
  	<!-- 病人导航栏 -->
