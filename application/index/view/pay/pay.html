@@ -21,20 +21,20 @@
     <div class="card">
             <div id="payNo">缴费单号: {$payment.paymentNo}</div>
             {if $payment.paymentState=='已缴费'}
-            <div class="status paid">已缴费 - {$payment.fee}</div>
+            <div class="status paid">已缴费 - ￥{$payment.fee}</div>
             {/if}
             {if $payment.paymentState=='待缴费'}
-            <div class="status pending">待缴费 - {$payment.fee}</div>
+            <div class="status pending">待缴费 - ￥{$payment.fee}</div>
             {/if}
             {if $payment.paymentState=='逾期未缴费'}
-            <div class="status overdue">逾期未缴费 - {$payment.fee}</div>
+            <div class="status overdue">逾期未缴费 - ￥{$payment.fee}</div>
             {/if}
             <div style="margin-top:30px;">缴费类型: 门诊部缴费</div>
             <div style="margin-top:10px;">缴费时间: {$payment.paymentDate}</div>
             <div class="card-details">
                 <h4>费用明细</h4>
-                <p>项目1: 诊疗费用</p>
-                <p>项目2: 药品费用</p>
+                <p>项目1: 诊疗费用 ￥50</p>
+                <p>项目2: 药品费用 ￥150</p>
             </div>
         </div>
     {/volist}

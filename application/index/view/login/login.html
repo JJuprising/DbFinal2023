@@ -27,7 +27,7 @@
 	<div style="float:right;margin-right:60px;">
 	<input type="radio" id="doctor" name="job" value="doctor"><label for="doctor" onclick="showNo('doctor')">医生</label>
 	<input type="radio" id="patient" name="job" value="patient"  checked onclick="showNo('patient')"><label for="patient">病人</label>
-	<input type="radio" id="administrator" name="job" value="administrator" onclick="showNo('administrator')"><label for="administrator">管理员</label>
+	<input type="radio" id="manage" name="job" value="manage" onclick="showNo('manage')"><label for="manage">管理员</label>
 	</div>
 	</td>
 
@@ -54,7 +54,7 @@ function showNo(jobType) {
   } else if (jobType == "patient") {
     NoLabel.innerHTML = "病案号：";
     document.getElementById("No").placeholder = "请输入病人病案号";
-  } else if (jobType == "administrator") {
+  } else if (jobType == "manage") {
     NoLabel.innerHTML = "管理员编号：";
     document.getElementById("No").placeholder = "请输入管理员编号";
   }

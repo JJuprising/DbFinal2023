@@ -310,3 +310,16 @@ VALUES
     ('20002', '特准护理，附生理指标监测、专人护理', 200.00);
 
 select * from aidplan;
+
+drop table if exists manage;
+Create table manage(
+    manNo char(10) NOT NULL,
+    manPassword char(80),
+    manName varchar(10),
+    sex char(2),
+    telephone char(13),
+    Primary Key(manNo)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+set names utf8;
+Delete from manage;
+insert into manage values("M202301001", md5('123456'),'赵明','男','13765876477');

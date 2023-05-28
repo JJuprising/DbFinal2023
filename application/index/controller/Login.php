@@ -41,8 +41,18 @@ class Login extends Controller
                 $this->error('密码错误');
             }
             session('No',$rs['patNo']);
-        }else if (input('post.job')=="administrator"){
+        }else if (input('post.job')=="manage"){
             //查询administrator表
+            $rs = db('manage')->where('manNo', input('post.No'))->find();
+            if(empty($rs)){
+                $this->error('账号错误');
+            }
+            //如果 工号 存在，则判断密码是否匹配
+            if($rs['manPassword'] != md5(input('post.Password'))){
+                $this->error('密码错误');
+            }
+            session('No',$rs['manNo']);
+            $this->redirect(url('manage/manage'));
         }
         
         //如果用户名和密码正确，则将登录的工号存入 session
