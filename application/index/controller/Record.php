@@ -10,6 +10,7 @@ class Record extends Controller
         $this->getRecordID();
         $this->getRecord();
         $this->getDepartInfo();
+        $this->getDocInfo();
         return $this->fetch();
     }
     public function getRecord(){
@@ -17,6 +18,10 @@ class Record extends Controller
         $rs = db('departrecord')->where('departNo',$departNo)->order('aidNo','desc')->select();
         if(!empty($rs)){
             $this->assign('departrecords',$rs);
+        }
+        $aidPlans = db('aidplan')->select();
+        if(!empty($aidPlans)){
+            $this->assign('aidPlans',$aidPlans);
         }
     }
     public function getRecordID(){
@@ -29,17 +34,39 @@ class Record extends Controller
             $max = $max['aidNo']+1;
         }
         $this->assign('aidNo',$max);
+        session('aidNo',$max);
     }
     
     public function getDepartInfo(){
-        $departNo = $_GET['departNo'];
-        if(!empty($patNo)){
-            $rs = db('departdocument')->where('departNo',$departNo)->find();
-            $records = db('departrecord')->where('departNo',$departNo)->order('aidNo','desc')->find();
-    
+        $departNo = $_GET['departNo'];  
+        if(!empty($departNo)){
+            $rs = db('departdocument')
+            ->alias('a')
+            ->join('patient b','a.patNo = b.patNo')
+            ->where('departNo',$departNo)
+            ->find();
             if(!empty($rs)){
-                $this->assign('departdocument',$rs);
+                $this->assign('data',$rs);
+                $records = db('departrecord')
+                ->alias('a')
+                ->join('aidplan c','a.aidPlan=c.planNo')
+                ->where('departNo',$departNo)->order('aidNo','asc')
+                ->select();
+                if(!empty($records)){
+                    $this->assign('records',$records);
+                }
             }
+        }
+    }
+    public function getDocInfo(){
+        if(Session::get('job')=='doctor'){
+            $docNo = Session::get('No');//医生编号
+        }
+        $docInfo = db('doctor')->where('docNo',$docNo)->find();
+        if(!empty($docInfo)){
+            //session('docInfo',$docInfo);
+            $this->assign('docInfo',$docInfo);
+            
         }
     }
     public function dealRecord($planNo,$patSymptom){
@@ -52,9 +79,16 @@ class Record extends Controller
             'patSymptom' => $patSymptom
         ];
          
-        db('departrecord')->insert($data);//插入数据
-        return 'success';
+        db('departrecord')->insert($data);//插入数据 
+        return $planNo;
     
+    }
+    public function outDepart(){
+        $departNo = Session::get('departNo');
+        db('departdocument')
+        ->where('departNo',$departNo)
+        ->where('outdepartDate',NULL)
+        ->setField('outdepartDate',date('Y-m-d'));
     }
 }
 
