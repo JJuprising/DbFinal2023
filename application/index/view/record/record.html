@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="__ROOT__/public/static/css/recipet.css" rel="stylesheet" type="text/css">
+<link href="__ROOT__/public/static/css/record.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
 <script type="text/javascript"
 	src="__ROOT__/public/static/js/jquery-1.8.3.min.js"></script>
@@ -43,10 +43,89 @@ function postInfo(){
 <body>
 
 <center>
-
-
-
-
+<div id="info_content">
+	<div id="info_block">
+		<div>姓名:</div>
+		<div><input type="text" name="patName" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_block">
+		<div>性别:</div>
+		<div><input type="text" name="sex" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_block">
+		<div>电话号码:</div>
+		<div><input type="text" name="telephone" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_block">
+		<div>病案号:</div>
+		<div><input type="text" name="patNo" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_long_block">
+		<div>住址:</div>
+		<div><input type="text" name="address" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_block">
+		<div>主治医生:</div>
+		<div><input type="text" name="DocNo" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_block">
+		<div>入院日期:</div>
+		<div><input type="text" name="indepartDate" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_block">
+		<div>科室:</div>
+		<div><input type="text" name="office" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_block">
+		<div>病房：</div>
+		<div><input type="text" name="ward" value="" disabled="disabled"></div>
+	</div>
+	<div id="info_block">
+		<div>病床：</div>
+		<div><input type="text" name="bed" value="" disabled="disabled"></div>
+	</div>
+</div>
+<!-- 一个card为一天的记录 -->
+<div id="record_card">
+	<div id="record_date">2023-05-28</div>
+	<div id="info_long_block" style="position:absolute;left:20px;top:35px;">
+		<div>病人状况:</div>
+		<div><textarea rows="3" cols="80" id = "symptom"></textarea></div>
+	</div>
+	<div id="long_block" style="position:absolute;left:20px;top:145px;">
+		<div>治疗方案:</div>
+		<div id="select_div">
+			<select>
+				<option>方案1</option>
+				<option>方案2</option>
+				<option>方案3</option>
+			</select>
+		</div>
+	</div>
+	<div style="position:absolute;right:10px;bottom:10px;"><button id="save_btn">保存</button></div>
+</div>
+<!-- 到这里为一个card -->
+<!-- 第二个card-->
+<div id="record_card">
+	<div id="record_date">2023-05-28</div>
+	<div id="info_long_block" style="position:absolute;left:20px;top:35px;">
+		<div>病人状况:</div>
+		<div><textarea rows="3" cols="80" id = "symptom"></textarea></div>
+	</div>
+	<div id="long_block" style="position:absolute;left:20px;top:145px;">
+		<div>治疗方案:</div>
+		<div id="select_div">
+			<select>
+				<option>方案1</option>
+				<option>方案2</option>
+				<option>方案3</option>
+			</select>
+		</div>
+	</div>
+	<div style="position:absolute;right:10px;bottom:10px;"><button id="save_btn">保存</button></div>
+</div>
+<!-- 到这里为第二个card -->
+<div id="add_btn"><button>添加记录</button></div>
 </center>
 
 </body>

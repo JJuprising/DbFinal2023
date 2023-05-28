@@ -22,7 +22,7 @@ class Record extends Controller
     public function getRecordID(){
         $departNo = $_GET['departNo'];
         session('departNo',$departNo);
-        $max = db('record')->where('departNo',$departNo)->order('aidNo','desc')->find();
+        $max = db('departrecord')->where('departNo',$departNo)->order('aidNo','desc')->find();
         if(empty($max)){
             $max = '001';
         }else{
