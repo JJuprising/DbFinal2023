@@ -10,16 +10,17 @@
 <script type="text/javascript">
 
 function postInfo(){
-	var symptom = $("#symptom").val()
-	var aidNo = $("#aidNo").val()
+	var symptom = $("textarea[name='symptom']").val()
+	var planNo = $("select[name='symptom']").val().match(/^\d+/)
+	planNo = planNo[0]
 	
 	$.ajax({
-		  url: 'dealRecipe',
+		  url: 'dealRecord',
 		  method: 'POST', // 根据需要选择请求方法，如 POST 或 GET
 		  //dataType:'json',
 		  data: { 
-			  aidNo: aidNo, 
-			  symptom: symptom
+			  planNo: planNo, 
+			  patSymptom: symptom
 		  }, 
 		  success: function(response) {
 		    // 处理成功响应
@@ -34,8 +35,21 @@ function postInfo(){
 		    alert("保存失败，请不要重复提交")
 		  }
 		});
+	$("#new_record_card").hide()
+	$("#add_btn").show()
 }
 
+function newRecord(){
+	$("#new_record_card").show()
+	$("#add_btn").hide()
+	
+}
+function outDepart(){
+	
+	
+	
+	location.href='{:url('departtreat/departtreat')}'
+}
 
 </script>
 </head>
@@ -46,86 +60,97 @@ function postInfo(){
 <div id="info_content">
 	<div id="info_block">
 		<div>姓名:</div>
-		<div><input type="text" name="patName" value="" disabled="disabled"></div>
+		<div><input type="text" name="patName" value="{$data.patName}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>性别:</div>
-		<div><input type="text" name="sex" value="" disabled="disabled"></div>
+		<div><input type="text" name="sex" value="{$data.sex}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>电话号码:</div>
-		<div><input type="text" name="telephone" value="" disabled="disabled"></div>
+		<div><input type="text" name="telephone" value="{$data.telephone}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>病案号:</div>
-		<div><input type="text" name="patNo" value="" disabled="disabled"></div>
+		<div><input type="text" name="patNo" value="{$data.patNo}" disabled="disabled"></div>
 	</div>
 	<div id="info_long_block">
 		<div>住址:</div>
-		<div><input type="text" name="address" value="" disabled="disabled"></div>
+		<div><input type="text" name="address" value="{$data.address}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>主治医生:</div>
-		<div><input type="text" name="DocNo" value="" disabled="disabled"></div>
+		<div><input type="text" name="DocNo" value="{$docInfo.docName}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>入院日期:</div>
-		<div><input type="text" name="indepartDate" value="" disabled="disabled"></div>
+		<div><input type="text" name="indepartDate" value="{$data.indepartDate}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>科室:</div>
-		<div><input type="text" name="office" value="" disabled="disabled"></div>
+		<div><input type="text" name="office" value="{$docInfo.officeNo}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>病房：</div>
-		<div><input type="text" name="ward" value="" disabled="disabled"></div>
+		<div><input type="text" name="ward" value="{$data.wardNo}" disabled="disabled"></div>
 	</div>
 	<div id="info_block">
 		<div>病床：</div>
-		<div><input type="text" name="bed" value="" disabled="disabled"></div>
+		<div><input type="text" name="bed" value="{$data.bedNo}" disabled="disabled"></div>
 	</div>
 </div>
 <!-- 一个card为一天的记录 -->
+{if $records != ''}
+
+{volist name="records" id="record"}
+			
 <div id="record_card">
-	<div id="record_date">2023-05-28</div>
+	<div id="record_date">{$record.aidNo}</div>
 	<div id="info_long_block" style="position:absolute;left:20px;top:35px;">
 		<div>病人状况:</div>
-		<div><textarea rows="3" cols="80" id = "symptom"></textarea></div>
+		<div><textarea rows="3" cols="80" id = "symptom" disabled="disabled">{$record.patSymptom}</textarea></div>
 	</div>
 	<div id="long_block" style="position:absolute;left:20px;top:145px;">
 		<div>治疗方案:</div>
 		<div id="select_div">
-			<select>
-				<option>方案1</option>
-				<option>方案2</option>
-				<option>方案3</option>
+			<select disabled="disabled">
+				<option>{$record.aidPlan}-{$record.description}</option>
 			</select>
 		</div>
 	</div>
-	<div style="position:absolute;right:10px;bottom:10px;"><button id="save_btn">保存</button></div>
+	<div style="position:absolute;right:10px;bottom:10px;"></div>
 </div>
+{/volist}
+{/if}
 <!-- 到这里为一个card -->
 <!-- 第二个card-->
-<div id="record_card">
-	<div id="record_date">2023-05-28</div>
-	<div id="info_long_block" style="position:absolute;left:20px;top:35px;">
-		<div>病人状况:</div>
-		<div><textarea rows="3" cols="80" id = "symptom"></textarea></div>
-	</div>
-	<div id="long_block" style="position:absolute;left:20px;top:145px;">
-		<div>治疗方案:</div>
-		<div id="select_div">
-			<select>
-				<option>方案1</option>
-				<option>方案2</option>
-				<option>方案3</option>
-			</select>
+
+<div id="new_record_card" style ="display:none">
+	<div id="record_card">
+		<div id="record_date">{$aidNo}</div>
+		<div id="info_long_block" style="position:absolute;left:20px;top:35px;">
+			<div>病人状况:</div>
+			<div><textarea rows="3" cols="80" id = "symptom" name="symptom"></textarea></div>
 		</div>
+		<div id="long_block" style="position:absolute;left:20px;top:145px;">
+			<div>治疗方案:</div>
+			<div id="select_div">
+				<select name="symptom">
+				{volist name="aidPlans" id="plan"}
+					<option>{$plan.planNo}-{$plan.description}</option>
+				{/volist}
+				</select>
+			</div>
+		</div>
+		<div style="position:absolute;right:10px;bottom:10px;"><button id="save_btn" onclick="postInfo()">保存</button></div>
 	</div>
-	<div style="position:absolute;right:10px;bottom:10px;"><button id="save_btn">保存</button></div>
 </div>
 <!-- 到这里为第二个card -->
-<div id="add_btn"><button>添加记录</button></div>
+<div id="add_btn">
+	<button onclick="newRecord()" id="add">添加记录</button>
+	<button onclick="outDepart()" id="out">出院</button>
+</div>
+
 </center>
 
 </body>
