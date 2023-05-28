@@ -140,20 +140,20 @@ drop table if exists departRecord;
 CREATE TABLE departRecord(
     departNo char(8) ,
     aidNo int(3) NOT NULL ,
-    aidPlan varchar(100) ,
+    aidPlan char(5) ,
     patSymptom varchar(100) 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from departRecord;
-insert into departRecord values('10000001',001,'医疗计划1','病人症状1');
-insert into departRecord values('10000001',002,'医疗计划2','病人症状1');
-insert into departRecord values('10000001',003,'医疗计划3','病人症状1');
-insert into departRecord values('10000001',004,'医疗计划4','病人症状1');
-insert into departRecord values('10000002',001,'医疗计划1','病人症状2');
-insert into departRecord values('10000002',002,'医疗计划2','病人症状2');
-insert into departRecord values('10000003',001,'医疗计划1','病人症状3');
-insert into departRecord values('10000003',002,'医疗计划2','病人症状3');
-insert into departRecord values('10000003',003,'医疗计划3','病人症状3');
+insert into departRecord values('10000001',001,'20002','长时间昏迷');
+insert into departRecord values('10000001',002,'20001','意识微弱');
+insert into departRecord values('10000001',003,'20001','意识微弱，有好转');
+insert into departRecord values('10000001',004,'10001','病人意识正常');
+insert into departRecord values('10000002',001,'20001','长时间高烧42度');
+insert into departRecord values('10000002',002,'10001','病人体温正常');
+insert into departRecord values('10000003',001,'10001','病人体温正常');
+insert into departRecord values('10000003',002,'10001','病人长时间胃胀气');
+insert into departRecord values('10000003',003,'10001','病人症状缓解');
 
 select * from departRecord;
 
@@ -293,3 +293,20 @@ VALUES
     ('1000002', '急性肠胃炎', 72.00, 'D202301001', 'P202205210003');
 
 select * from recipe;
+
+
+
+drop table if exists aidplan;
+CREATE TABLE aidplan (
+    planNo char(5) PRIMARY KEY,
+    description VARCHAR(100),
+    money float
+);
+
+INSERT INTO aidplan (planNo,description,money)
+VALUES
+    ('10001', '标准护理，附生理指标监测', 50.00),
+    ('20001', '特级护理，附生理指标监测', 100.00),
+    ('20002', '特准护理，附生理指标监测、专人护理', 200.00);
+
+select * from aidplan;

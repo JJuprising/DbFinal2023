@@ -68,6 +68,22 @@ class Depart extends Controller
         }
     }
     public function dealDepartdoc($wardNo,$bedNo){
+        $date = date('Y-m-d');
+        $departNo = Session::get('departNo');
+        $patInfo = Session::get("patInfo");
+        
+        $data = [
+            'departNo' => $departNo,
+            'patNo' => $patInfo['patNo'],
+            'indepartDate' => $date,
+            'outdepartDate' => NULL,
+            'wardNo' => $wardNo,
+            'bedNo' => $bedNo
+        ];
+         
+        db('departdocument')->insert($data);//插入数据
+        return 'success';
+        
         
     }
 }

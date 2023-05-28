@@ -11,68 +11,39 @@
 <center>
 
 <div id="content">
-		<!-- 一个card一个病人 -->
+		{volist name="document" id="data"}
 		<div class="card">
 			<div href="">
 				<img id="userimage" src="__ROOT__/public/static/image/User.png" border="0"/>
 			</div>
 			<div id="pat_info">
 				<div id="title_div">
-					<a>张三</a>
-					<a>男</a>
+					<a>{$data.patName}</a>
+					<a>{$data.sex}</a>
 				</div>
 				<div id="info_div">
 					<div id="left_div">
-						<div id="pat_infm_div">电话：</div>
-						<div id="pat_infm_div">病案号：</div>
-						<div id="pat_infm_div">入院时间：</div>
+						<div id="pat_infm_div">电话：{$data.telephone}</div>
+						<div id="pat_infm_div">病案号：{$data.patNo}</div>
+						<div id="pat_infm_div">入院时间：{$data.indepartDate}</div>
 					</div>
 					<div id="right_div">
-						<div id="pat_infm_div">病房号：</div>
-						<div id="pat_infm_div">病床号：</div>
+						<div id="pat_infm_div">病房号：{$data.wardNo}</div>
+						<div id="pat_infm_div">病床号：{$data.bedNo}</div>
 					</div>
 				</div>
 			</div>
 			<div id="btn_block">
 				<div id="record_div">
-					<a href="">档案记录</a>
+					<a href="{:url('record/record')}?patNo={$data.patNo}">档案记录</a>
 				</div>					
 				<div id="infm_div">
 					<a href="">病人信息</a>
 				</div>					
 			</div>
 		</div>
+		{/volist}
 		
-		<div class="card">
-			<div href="">
-				<img id="userimage" src="__ROOT__/public/static/image/User.png" border="0"/>
-			</div>
-			<div id="pat_info">
-				<div id="title_div">
-					<a>张三</a>
-					<a>男</a>
-				</div>
-				<div id="info_div">
-					<div id="left_div">
-						<div id="pat_infm_div">电话：</div>
-						<div id="pat_infm_div">病案号：</div>
-						<div id="pat_infm_div">入院时间：</div>
-					</div>
-					<div id="right_div">
-						<div id="pat_infm_div">病房号：</div>
-						<div id="pat_infm_div">病床号：</div>
-					</div>
-				</div>
-			</div>
-			<div id="btn_block">
-				<div id="record_div">
-					<a href="">档案记录</a>
-				</div>					
-				<div id="infm_div">
-					<a href="">病人信息</a>
-				</div>					
-			</div>
-		</div>	
 </div>
 
 </center>
