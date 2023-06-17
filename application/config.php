@@ -144,7 +144,7 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
-        '__ROOT__'    =>'/dbFinal2023',
+        '__ROOT__'    =>'/DbFinal2023',
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',
