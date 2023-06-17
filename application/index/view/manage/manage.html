@@ -40,7 +40,7 @@
 
 <div id="doctor-info-page" style="display: none;">
     <h2>医生信息</h2>
-    <form action="update_doctor_info.php" method="post">
+    <form action="{:url('manage/update_doctor_info')}" method="post">
         <div>
             <label for="doctor-id">医生工号：</label>
             <input type="text" name="doctor-id" id="doctor-id">
@@ -81,7 +81,11 @@
 
 <div id="office-info-page" style="display: none;">
     <h2>科室信息</h2>
-    <form action="update_department_info.php" method="post">
+    <form action="{:url('manage/update_department_info')}" method="post">
+    	<div>
+            <label for="department-id">科室号：</label>
+            <input type="text" name="department-id" id="department-id">
+        </div>
         <div>
             <label for="department-name">科室名称：</label>
             <input type="text" name="department-name" id="department-name">
