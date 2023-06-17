@@ -102,6 +102,33 @@ function postInfo(){
 	//location.href='{:url('index/index')}'
 	
 }
+function search(){
+	//console.log("Function search()")
+	var searchText = $("#search_text").val()
+	//console.log(searchText)
+	
+	var tableBody = $("#medtable")
+	tableBody.empty()
+	
+	var head = "<tr><th>编号</th><th>名称</th><th>价格</th><th>库存</th><th>操作</th></tr>"
+	tableBody.append(head)
+	
+	//遍历数组匹配字符
+	for (i = 0; i < medicInfoArray.length; i++) {
+		
+		var medicineNo = medicInfoArray[i].medicineNo
+		var medName = medicInfoArray[i].medName
+		
+		if(medicineNo.includes(searchText) || medName.includes(searchText)){
+			var row = "<tr><td>"+medicInfoArray[i].medicineNo+"</td>"
+			        + "<td>"+medicInfoArray[i].medName+"</td>"
+			        + "<td>"+medicInfoArray[i].price+"</td>"
+			        + "<td>"+medicInfoArray[i].medLeft+"</td>"
+			        + "<td><button id='add_btn' type='submit' onclick = 'add(\""+medicInfoArray[i].medicineNo+"\",1)'>添加</button></td></tr>";
+			tableBody.append(row)
+		}
+	}
+}
 </script>
 </head>
 
@@ -156,11 +183,11 @@ function postInfo(){
 	
 	<div id="recipet_right_block">
 		<div id="search_bar">
-			<input type="text" name="search" placeholder="输入药品名称">
-			<button>搜索</button>
+			<input id="search_text" type="text" name="search" placeholder="输入药品名称">
+			<button onclick = "search()">搜索</button>
 		</div>
 		<div>
-			<table>
+			<table id = "medtable">
 				<tr>
 					<th>编号</th>
 					<th>名称</th>
