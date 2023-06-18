@@ -1,0 +1,77 @@
+{include  file="./public/common/top.html"/}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>医院管理系统 - 添加药品</title>
+</head>
+<style>
+#med-add-page label {
+	display: block;
+	margin-bottom: 5px;
+}
+#med-add-page input[type="submit"] {
+	width:120px;
+	height:40px;
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius:5px;
+	margin-top:5px;
+	margin-bottom:10px;
+}
+#med-add-page input[type="submit"]:hover {
+	background-color: #45a049;
+}
+</style>
+<body>
+<center>
+	<div id="med-add-page">
+	<h2>添加药品</h2>
+		<form action="{:url('medmanage/submitMedicine')}" method="post" enctype="multipart/form-data">
+		<table>
+			<tr>
+				<td><label for="med-id">ID：</label></td>
+				<td><input type="text" name="medicineNo" value="YP202300" ></td>
+			</tr>
+			<tr>
+				<td><label for="med-name">名称：</label></td>
+				<td><input type="text" name="medName" value="维生素A" ></td>
+			</tr>
+			<tr>
+				<td><label for="med-name">价格：</label></td>
+				<td><input type="text" name="price" value="5" ></td>
+			</tr>
+			<tr>
+				<td><label for="med-name">库存：</label></td>
+				<td><input type="text" name="medLeft" value="200" ></td>
+			</tr>
+			<tr>
+				<td><label for="med-name">用法：</label></td>
+				<td><input type="text" name="medUsage" value="每次一片，一日三次" ></td>
+			</tr>
+			<tr>
+				<td><label for="med-name">描述：</label></td>
+				<td><input type="text" name="medDesc" value="无" ></td>
+			</tr>
+			<tr>
+				<td><label for="med-name">成分：</label></td>
+				<td><input type="text" name="medIngr" value="淀粉" ></td>
+			</tr>
+			<tr>
+				<td><label for="med-name">图片：</label></td>
+				<td><input type="file" name="file" ></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type=submit value="添加" ></td>
+			</tr>
+		</table>
+		</form>
+	</div>
+</center>>
+
+</body>
+</html>

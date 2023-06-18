@@ -10,16 +10,17 @@ Create table doctor(
     degree varchar(20),
     telephone char(13),
     officeNo varchar(3),
+    picturem varchar(30),
     Primary Key(docNo)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from doctor;
-insert into doctor values("D202301001", md5('123456'),'李四','男','主任医师','13765876477', '101');
-insert into doctor values("D202305001", md5('123456'),'王五','男','副主任医师','13458493871', '101');
-insert into doctor values("D202301002", md5('123456'),'李梅','女','主治医师','13675849582', '101');
-insert into doctor values("D202303001", md5('123456'),'王芳','女','主治医师','16685768948', '102');
-insert into doctor values("D202305002", md5('123456'),'刘强','男','副主任医师','13458295069', '102');
-insert into doctor values("D202303002", md5('123456'),'赵娟','女','主任医师','13908574832', '102');
+insert into doctor values("D202301001", md5('123456'),'李四','男','主任医师','13765876477', '101','D202301001.png');
+insert into doctor values("D202305001", md5('123456'),'王五','男','副主任医师','13458493871', '101','D202305001.jpg');
+insert into doctor values("D202301002", md5('123456'),'李梅','女','主治医师','13675849582', '101','D202301002.jpg');
+insert into doctor values("D202303001", md5('123456'),'王芳','女','主治医师','16685768948', '102','D202303001.jpg');
+insert into doctor values("D202305002", md5('123456'),'刘强','男','副主任医师','13458295069', '102','D202305002.png');
+insert into doctor values("D202303002", md5('123456'),'赵娟','女','主任医师','13908574832', '102','D202303002.jpg');
 
 select * from doctor;
 
@@ -51,16 +52,16 @@ Create table medicine(
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from medicine;
-insert into medicine values('YP202301', '阿司匹林', 2.5, 200, '口服，每次1片，每天3次','无','淀粉','medic.png');
-insert into medicine values('YP202302', '对乙酰氨基酚', 3.0, 150, '口服，每次1片，每天2次','无','淀粉','medic.png');
-insert into medicine values('YP202303', '维生素C片', 1.0, 300, '口服，每次1片，每天1次','无','淀粉','medic.png');
-insert into medicine values('YP202304', '罗红霉素', 12.0, 50, '口服，每次2片，每天3次','无','淀粉','medic.png');
-insert into medicine values('YP202305', '氯雷他定', 8.0, 100, '口服，每次1片，每天2次','无','淀粉','medic.png');
-insert into medicine values('YP202306', '葡萄糖注射液', 5.0, 80, '静脉注射，每次500毫升，每天1次','无','淀粉','medic.png');
-insert into medicine values('YP202307', '盐酸氨溴索胶囊', 6.0, 120, '口服，每次1-2粒，每天3次','无','淀粉','medic.png');
-insert into medicine values('YP202308', '头孢克洛', 15.0, 30, '静脉注射，每次1克，每天2次','无','淀粉','medic.png');
-insert into medicine values('YP202309', '氯化钠注射液', 2.0, 500, '静脉注射，每次500毫升，根据需要使用','无','淀粉','medic.png');
-insert into medicine values('YP202310', '头孢呋辛酯片', 10.0, 80, '口服，每次1片，每天2次','无','淀粉','medic.png');
+insert into medicine values('YP202301', '阿司匹林', 2.5, 200, '口服，每次1片，每天3次','无','淀粉','1.jpg');
+insert into medicine values('YP202302', '对乙酰氨基酚', 3.0, 150, '口服，每次1片，每天2次','无','淀粉','2.jpg');
+insert into medicine values('YP202303', '维生素C片', 1.0, 300, '口服，每次1片，每天1次','无','淀粉','3.jpg');
+insert into medicine values('YP202304', '罗红霉素', 12.0, 50, '口服，每次2片，每天3次','无','淀粉','4.jpg');
+insert into medicine values('YP202305', '氯雷他定', 8.0, 100, '口服，每次1片，每天2次','无','淀粉','5.jpg');
+insert into medicine values('YP202306', '葡萄糖注射液', 5.0, 80, '静脉注射，每次500毫升，每天1次','无','淀粉','6.jpg');
+insert into medicine values('YP202307', '盐酸氨溴索胶囊', 6.0, 120, '口服，每次1-2粒，每天3次','无','淀粉','7.jpg');
+insert into medicine values('YP202308', '头孢克洛', 15.0, 30, '静脉注射，每次1克，每天2次','无','淀粉','8.jpg');
+insert into medicine values('YP202309', '氯化钠注射液', 2.0, 500, '静脉注射，每次500毫升，根据需要使用','无','淀粉','9.jpg');
+insert into medicine values('YP202310', '头孢呋辛酯片', 10.0, 80, '口服，每次1片，每天2次','无','淀粉','10.jpg');
 
 select * from medicine;
 
@@ -103,19 +104,20 @@ CREATE TABLE patient(
     patName varchar(10) NOT NULL,
     sex char(2) CHECK(sex IN ('男','女')),
     telephone char(11),
-    address varchar(100) NOT NULL
+    address varchar(100) NOT NULL,
+    picturem varchar(30)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from patient;
-insert into patient values('P202205210001',md5('123456'),'杨开放','男','13966491259','广东省佛山市南海区华南师范大学南海校园');
-insert into patient values('P202205210002',md5('123456'),'林兰','女','13570963254','广东省佛山市顺德区大良街道顺德大学');
-insert into patient values('P202205210003',md5('123456'),'陈明','男','13876025692','广东省佛山市高明区东平街道高明学院');
-insert into patient values('P202205210004',md5('123456'),'黄艾琳','女','15827048963','广东省佛山市南海区桂城街道南海医学院');
-insert into patient values('P202205210005',md5('123456'),'张三','男','13123869574','广东省佛山市三水区大塘街道华南理工大学三水校区');
-insert into patient values('P202205210006',md5('123456'),'李四','女','13726954123','广东省佛山市南海区西樵街道西樵中学'); 
-insert into patient values('P202205210007',md5('123456'),'王五','男','15674839012','广东省佛山市顺德区培正街道培正高级中学'); 
-insert into patient values('P202205210008',md5('123456'),'赵六','女','13589632547','广东省佛山市高明区黄阁街道广东高明黄阁中学'); 
-insert into patient values('P202205210009',md5('123456'),'孙七','男','13986274591','广东省佛山市三水区梅林街道广东三水梅林街小学');
+insert into patient values('P202205210001',md5('123456'),'杨开放','男','13966491259','广东省佛山市南海区华南师范大学南海校园','1.jpg');
+insert into patient values('P202205210002',md5('123456'),'林兰','女','13570963254','广东省佛山市顺德区大良街道顺德大学','2.jpg');
+insert into patient values('P202205210003',md5('123456'),'陈明','男','13876025692','广东省佛山市高明区东平街道高明学院','3.jpg');
+insert into patient values('P202205210004',md5('123456'),'黄艾琳','女','15827048963','广东省佛山市南海区桂城街道南海医学院','4.jpg');
+insert into patient values('P202205210005',md5('123456'),'张三','男','13123869574','广东省佛山市三水区大塘街道华南理工大学三水校区','5.jpg');
+insert into patient values('P202205210006',md5('123456'),'李四','女','13726954123','广东省佛山市南海区西樵街道西樵中学','6.jpg'); 
+insert into patient values('P202205210007',md5('123456'),'王五','男','15674839012','广东省佛山市顺德区培正街道培正高级中学','7.jpg'); 
+insert into patient values('P202205210008',md5('123456'),'赵六','女','13589632547','广东省佛山市高明区黄阁街道广东高明黄阁中学','8.jpg'); 
+insert into patient values('P202205210009',md5('123456'),'孙七','男','13986274591','广东省佛山市三水区梅林街道广东三水梅林街小学','9.jpg');
 
 select * from patient;
 
@@ -165,21 +167,24 @@ drop table if exists payment;
 CREATE TABLE payment(
     paymentNo char(16) PRIMARY KEY,
     patNo char(13) NOT NULL,
+    docNo char(10),
     fee float NOT NULL ,
-    paymentState char(6) CHECK(paymentState IN ('已缴费','未缴费')),
+    paymentState char(12) CHECK(paymentState IN ('已缴费','待缴费','逾期未缴费')),
+    status char(6),
     paymentDate date
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from payment;
-insert into payment values('PM20220512000001','P202205210001',200.00,'已缴费','2022-05-12');
-insert into payment values('PM20220513000001','P202205210001',300.00,'已缴费','2022-05-13');
-insert into payment values('PM20220514000001','P202205210001',450.00,'已缴费','2022-05-14');
-insert into payment values('PM20220515000001','P202205210001',150.00,'已缴费','2022-05-15');
-insert into payment values('PM20220513000002','P202205210002',350.00,'已缴费','2022-05-13');
-insert into payment values('PM20220514000002','P202205210002',100.00,'已缴费','2022-05-14');
-insert into payment values('PM20220514000003','P202205210004',500.00,'已缴费','2022-05-14');
-insert into payment values('PM20220515000002','P202205210004',600.00,'已缴费','2022-05-15');
-insert into payment values('PM20220516000001','P202205210004',550.00,'未缴费',NULL);
+insert into payment values('PM20220512000001','P202205210001',"D202301001",200.00,'待缴费','未评价','2022-05-12');
+insert into payment values('PM20220513000001','P202205210001',"D202301001",300.00,'待缴费','未评价','2022-05-13');
+insert into payment values('PM20220514000001','P202205210001',"D202301001",450.00,'待缴费','未评价','2022-05-14');
+insert into payment values('PM20220515000001','P202205210001',"D202301001",150.00,'已缴费','未评价','2022-05-15');
+insert into payment values('PM20220513000002','P202205210002',"D202301001",350.00,'已缴费','未评价','2022-05-13');
+insert into payment values('PM20220514000002','P202205210002',"D202301001",100.00,'已缴费','未评价','2022-05-14');
+insert into payment values('PM20220514000003','P202205210004',"D202301001",500.00,'已缴费','未评价','2022-05-14');
+insert into payment values('PM20220515000002','P202205210004',"D202301001",600.00,'逾期未缴费','未评价','2022-05-15');
+insert into payment values('PM20220516000001','P202205210004',"D202301001",550.00,'逾期未缴费','未评价','2022-05-15');
+insert into payment values('PM20220616000001','P202205210004',"D202301001",550.00,'逾期未缴费','未评价','2022-05-15');
 
 select * from payment;
 

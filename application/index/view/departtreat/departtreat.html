@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="__ROOT__/public/static/css/departtreat.css" rel="stylesheet" type="text/css">
-<title>Insert title here</title>
+<title>医院管理系统 - 住院</title>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
 		{volist name="document" id="data"}
 		<div class="card">
 			<div href="">
-				<img id="userimage" src="__ROOT__/public/static/image/User.png" border="0"/>
+				<img id="userimage" src="__ROOT__/public/static/patimg/{$data.picturem}" border="0"/>
 			</div>
 			<div id="pat_info">
 				<div id="title_div">
@@ -38,7 +38,7 @@
 					<a href="{:url('record/record')}?departNo={$data.departNo}">档案记录</a>
 				</div>					
 				<div id="infm_div">
-					<a href="">病人信息</a>
+					<a href="{:url('treat/patinfo')}?patNo={$data.patNo}">病人信息</a>
 				</div>					
 			</div>
 		</div>

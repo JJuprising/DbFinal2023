@@ -3,7 +3,7 @@
 <html>
 <head>
 <link href="__ROOT__/public/static/css/gettreat.css" rel="stylesheet" type="text/css">
-<title>显示不同界面</title>
+<title>医院管理系统 - 就诊</title>
 </head>
 <body>
 <center>
@@ -55,6 +55,10 @@
 
 		<div class="page2" id="pageMedicalRecords">
 			<h2>就诊记录</h2>
+			<div style="float:right;margin-right:20px;width:350px;height:40px;">
+				<input style="float:left;width:280px;height:35px;margin-top:3px;" placeholder="输入就诊记录编号">
+				<button id="search_btn2">搜索</button>
+			</div>
 			<div class="medical-record-list">
 			{volist name="recipelist" id='recipelist'} 
 				<div class="card">

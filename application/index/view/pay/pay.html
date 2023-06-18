@@ -1,69 +1,79 @@
-{include  file="./public/common/top.html"/}
+{include file="./public/common/top.html"/}
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link href="__ROOT__/public/static/css/pay.css" rel="stylesheet" type="text/css">
-<title>Insert title here</title>
+<title>医院管理系统 - 缴费</title>
 </head>
 
 <body>
-<center>
+	<center>
 
-<!DOCTYPE html>
-<html>
+		<!DOCTYPE html>
+		<html>
 <head>
 <title>缴费界面</title>
+<script type="text/javascript" src="__ROOT__/public/static/js/jquery-1.4.2.js"></script>
+<script>
+//文档就绪事件开始
+$(function(){
+	$(".del").click(function(){	
+	//alert($(this).attr("id"));
+	//$(".del").parents("div").hide();
+	var orderID = $(this).attr("id");
+	$.post("{:url('pay/delete')}",{orderID:orderID},function(result){
+	//	alert(result);
+		if(result=='success'){
+			$(".del").parents("div").hide();
+			window.location.href = "{:url('pay/pay')}";
+		}
+	});
+	});
+});
+</script>
 </head>
 <body>
-    <div class="payment-list">
-    {volist name='payment' id='payment'}
-    <div class="card">
-            <div id="payNo">缴费单号: {$payment.paymentNo}</div>
-            {if $payment.paymentState=='已缴费'}
-            <div class="status paid">已缴费 - ￥{$payment.fee}</div>
-            {/if}
-            {if $payment.paymentState=='待缴费'}
-            <div class="status pending">待缴费 - ￥{$payment.fee}</div>
-            {/if}
-            {if $payment.paymentState=='逾期未缴费'}
-            <div class="status overdue">逾期未缴费 - ￥{$payment.fee}</div>
-            {/if}
-            <div style="margin-top:30px;">缴费类型: 门诊部缴费</div>
-            <div style="margin-top:10px;">缴费时间: {$payment.paymentDate}</div>
-            <div class="card-details">
-                <h4>费用明细</h4>
-                <p>项目1: 诊疗费用 ￥50</p>
-                <p>项目2: 药品费用 ￥150</p>
-            </div>
-        </div>
-    {/volist}
-        
-        <div class="card">
-            <div id="payNo">缴费单号: PAY002</div>
-            <div class="status pending">待缴费 - ￥200</div>
-            <div style="margin-top:30px;">缴费类型: 门诊部缴费</div>
-            <div style="margin-top:10px;">缴费时间:</div>
-            <div class="card-details">
-                <h4>费用明细</h4>
-                <p>项目1: 门诊挂号费</p>
-                <p>项目2: 诊疗费用</p>
-            </div>
-        </div>
-        <div class="card">
-            <div id="payNo">缴费单号: PAY003</div>
-            <div class="status overdue">逾期未缴费 - ￥100</div>
-            <div style="margin-top:30px;">缴费类型: 门诊部缴费</div>
-            <div style="margin-top:10px;">缴费时间:</div>
-            <div class="card-details">
-                <h4>费用明细</h4>
-                <p>项目1: 门诊挂号费</p>
-                <p>项目2: 诊疗费用</p>
-            </div>
-        </div>
-    </div>
-    
-    <script>
+	<div class="payment-list">
+		{volist name='payment' id='payment'}
+		<div class="card">
+			<div id="payNo">缴费单号: {$payment.paymentNo}</div>
+			{switch name="$payment.paymentState"} {case value="已缴费"}
+			<div class="status paid">已缴费 - ￥{$payment.fee}</div>
+			{/case} {case value="待缴费"}
+			<div class="status pending">待缴费 - ￥{$payment.fee}</div>
+			
+			
+			{/case} {case value='逾期未缴费'}
+			<div class="status overdue">逾期未缴费 - ￥{$payment.fee}</div>
+			{/case} {/switch}
+			<div style="margin-top: 30px;">缴费类型: 门诊部缴费</div>
+			<div style="margin-top: 10px;">缴费时间: {$payment.paymentDate}</div>
+			{if $payment.paymentState=="待缴费"}
+			<div>
+			<font color="red"></font>&nbsp;&nbsp; <a class="del"
+					href="javascript:void(0)" id="{$payment.paymentNo}"> <img
+					src="__ROOT__/public/static/image/sc.jpg" width="69" height="19" />
+				</a> &nbsp; <a href="{:url('pay/getpay')}?id={$payment.paymentNo}"> <img
+					src="__ROOT__/public/static/image/zx.jpg" width="69" height="19"></a>
+			</div>			
+			{/if}
+
+			{if $payment.paymentState=="已缴费" and $payment.status=="未评价"}
+			<a style="position:absolute; bottom:5px;right:5px;" href="{:url('pay/evaluate')}?docNo={$payment.docNo}&paymentNo={$payment.paymentNo}">评价</a>
+			{/if}
+			<div class="card-details">
+				<h4>费用明细</h4>
+				<p>项目1: 诊疗费用 ￥50</p>
+				<p>项目2: 药品费用 ￥150</p>
+			</div>
+		</div>
+		{/volist}
+
+	
+	</div>
+
+	<script>
         // 获取缴费单列表
         var paymentList = document.querySelector(".payment-list");
         
@@ -79,10 +89,10 @@
         });
     </script>
 </body>
-</html>
+		</html>
 
 
-</center>
+	</center>
 
 </body>
 
