@@ -1,0 +1,52 @@
+{include  file="./public/common/top.html"/}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<body>
+<center>
+<div id="doctor-info-page">
+    <h2>医生信息</h2>
+    <form action="{:url('manage/update_doctor_info')}" method="post">
+        <div>
+            <label for="doctor-id">医生工号：</label>
+            <input type="text" name="doctor-id" id="doctor-id">
+        </div>
+        <div>
+            <label for="doctor-password">密码：</label>
+            <input type="password" name="doctor-password" id="doctor-password">
+        </div>
+        <div>
+            <label for="doctor-name">医生姓名：</label>
+            <input type="text" name="doctor-name" id="doctor-name">
+        </div>
+        <div>
+            <label for="doctor-gender">性别：</label>
+            <select name="doctor-gender" id="doctor-gender">
+                <option value="male">男</option>
+                <option value="female">女</option>
+            </select>
+        </div>
+        <div>
+            <label for="doctor-title">职称：</label>
+            <input type="text" name="doctor-title" id="doctor-title">
+        </div>
+        <div>
+            <label for="doctor-phone">电话号码：</label>
+            <input type="text" name="doctor-phone" id="doctor-phone">
+        </div>
+        <div>
+            <label for="department-id">所属科室号：</label>
+            <input type="text" name="department-id" id="department-id">
+        </div>
+        <div>
+            <input type="submit" value="保存">
+        </div>
+    </form>
+</div>
+</center>
+</body>
+</html>

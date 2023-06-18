@@ -39,14 +39,7 @@ function deleteData(id) {
 <body>
 <center>
 
-<div class="top-navigation">
-    <button onclick="showHospitalInfo()">医院信息</button>
-    <button onclick="showDoctorInfo()">医生信息</button>
-    <button onclick="showDepartmentInfo()">科室信息</button>
-    <button onclick="showMedicineInfo()">药品信息</button>
-</div>
-
-<div id="hospital-info-page" style="display: none;">
+<div id="hospital-info-page">
     <h2>医院信息</h2>
     <form action="update_hospital_info.php" method="post" enctype="multipart/form-data">
         <div>
