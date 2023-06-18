@@ -52,16 +52,16 @@ Create table medicine(
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 set names utf8;
 Delete from medicine;
-insert into medicine values('YP202301', '阿司匹林', 2.5, 200, '口服，每次1片，每天3次','无','淀粉','medic.png');
-insert into medicine values('YP202302', '对乙酰氨基酚', 3.0, 150, '口服，每次1片，每天2次','无','淀粉','medic.png');
-insert into medicine values('YP202303', '维生素C片', 1.0, 300, '口服，每次1片，每天1次','无','淀粉','medic.png');
-insert into medicine values('YP202304', '罗红霉素', 12.0, 50, '口服，每次2片，每天3次','无','淀粉','medic.png');
-insert into medicine values('YP202305', '氯雷他定', 8.0, 100, '口服，每次1片，每天2次','无','淀粉','medic.png');
-insert into medicine values('YP202306', '葡萄糖注射液', 5.0, 80, '静脉注射，每次500毫升，每天1次','无','淀粉','medic.png');
-insert into medicine values('YP202307', '盐酸氨溴索胶囊', 6.0, 120, '口服，每次1-2粒，每天3次','无','淀粉','medic.png');
-insert into medicine values('YP202308', '头孢克洛', 15.0, 30, '静脉注射，每次1克，每天2次','无','淀粉','medic.png');
-insert into medicine values('YP202309', '氯化钠注射液', 2.0, 500, '静脉注射，每次500毫升，根据需要使用','无','淀粉','medic.png');
-insert into medicine values('YP202310', '头孢呋辛酯片', 10.0, 80, '口服，每次1片，每天2次','无','淀粉','medic.png');
+insert into medicine values('YP202301', '阿司匹林', 2.5, 200, '口服，每次1片，每天3次','无','淀粉','1.jpg');
+insert into medicine values('YP202302', '对乙酰氨基酚', 3.0, 150, '口服，每次1片，每天2次','无','淀粉','2.jpg');
+insert into medicine values('YP202303', '维生素C片', 1.0, 300, '口服，每次1片，每天1次','无','淀粉','3.jpg');
+insert into medicine values('YP202304', '罗红霉素', 12.0, 50, '口服，每次2片，每天3次','无','淀粉','4.jpg');
+insert into medicine values('YP202305', '氯雷他定', 8.0, 100, '口服，每次1片，每天2次','无','淀粉','5.jpg');
+insert into medicine values('YP202306', '葡萄糖注射液', 5.0, 80, '静脉注射，每次500毫升，每天1次','无','淀粉','6.jpg');
+insert into medicine values('YP202307', '盐酸氨溴索胶囊', 6.0, 120, '口服，每次1-2粒，每天3次','无','淀粉','7.jpg');
+insert into medicine values('YP202308', '头孢克洛', 15.0, 30, '静脉注射，每次1克，每天2次','无','淀粉','8.jpg');
+insert into medicine values('YP202309', '氯化钠注射液', 2.0, 500, '静脉注射，每次500毫升，根据需要使用','无','淀粉','9.jpg');
+insert into medicine values('YP202310', '头孢呋辛酯片', 10.0, 80, '口服，每次1片，每天2次','无','淀粉','10.jpg');
 
 select * from medicine;
 

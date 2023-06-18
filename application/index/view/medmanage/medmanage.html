@@ -41,7 +41,7 @@ function deleteData(id) {
 		{foreach $medicInfo as $medic}
 		<div class="prod_div">
 			<a href="{:url('recipet/detail')}?medicineNo={$medic.medicineNo}">
-			<img src="__ROOT__/public/static/picture/{$medic.medPic}" border="0"/>
+			<img src="__ROOT__/public/static/medimg/{$medic.medPic}" border="0"/>
 			</a>
 			<div id="prod_name_div">{$medic.medName}  还剩{$medic.medLeft}件</div>
 			<div id="prod_price_div">￥{$medic.price}元</div>
