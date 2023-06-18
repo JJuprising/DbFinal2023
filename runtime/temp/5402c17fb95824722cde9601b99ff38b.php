@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:66:"D:\AppServ\www\DbFinal2023/application/index\view\index\index.html";i:1684930085;s:24:"./public/common/top.html";i:1685276201;s:27:"./public/common/bottom.html";i:1685260531;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:66:"D:\AppServ\www\DbFinal2023/application/index\view\index\index.html";i:1684930085;s:24:"./public/common/top.html";i:1687084028;s:27:"./public/common/bottom.html";i:1685260531;}*/ ?>
 <meta charset="utf-8">
 <center>
 <table width=999px border=0>
@@ -45,8 +45,19 @@
      &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
  	<?php endif; ?>
  	<!-- 管理员导航栏 -->
- 	<?php if(\think\Session::get('job') == 'manage'): endif; if(\think\Session::get('job') == ''): ?>
- 	 	<a href="<?php echo url('index/index'); ?>" style="text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑"> 主页</span></a>
+ 	<?php if(\think\Session::get('job') == 'manage'): ?>
+ 	<a href="<?php echo url('index/index'); ?>" style="text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑"> 主页</span></a>
+    &nbsp;&nbsp;&nbsp; <span style=" color:White;"> |</span> &nbsp;&nbsp;&nbsp;
+ 	<a href="<?php echo url('manage/manage'); ?>" style="text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑"> 医院信息</span></a>
+    &nbsp;&nbsp;&nbsp; <span style=" color:White;"> |</span> &nbsp;&nbsp;&nbsp;
+    <a href="<?php echo url('docmanage/docmanage'); ?>"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑">医生信息</span></a>
+     &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
+    <a href="<?php echo url('officemanage/officemanage'); ?>"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑">科室信息</span></a>
+     &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
+    <a href="<?php echo url('medmanage/medmanage'); ?>"  style=" text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑">药品信息</span></a>
+     &nbsp; &nbsp; &nbsp; <span style=" color:White;"> |</span>&nbsp;&nbsp;&nbsp;
+ 	<?php endif; if(\think\Session::get('job') == ''): ?>
+	<a href="<?php echo url('index/index'); ?>" style="text-decoration:none;"><span style=" color:White; font-weight:bold; font-size:medium; font-family:微软雅黑"> 主页</span></a>
     &nbsp;&nbsp;&nbsp; <span style=" color:White;"> |</span> &nbsp;&nbsp;&nbsp;
  	<?php endif; ?>
 </td>

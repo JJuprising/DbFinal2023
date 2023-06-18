@@ -4,7 +4,7 @@ namespace app\index\controller;
 use think\Controller;
 use think\Db;
 use think\captcha\Captcha;
-
+use think\Url;
 
 class Login extends Controller
 {
