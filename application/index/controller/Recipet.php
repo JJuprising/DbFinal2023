@@ -40,6 +40,7 @@ class Recipet extends Controller
             $this->assign('medicInfo',$rs);
         }
     }
+ 
     
     public function dealRecipe($medicineList,$symptom){ 
         
