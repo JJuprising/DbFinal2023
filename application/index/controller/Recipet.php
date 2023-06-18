@@ -40,6 +40,7 @@ class Recipet extends Controller
             $this->assign('medicInfo',$rs);
         }
     }
+ 
     
     public function dealRecipe($medicineList,$symptom){ 
         
@@ -68,12 +69,12 @@ class Recipet extends Controller
              $money = 5;
              return 'No docInfo';
          }
-         
+         $paymoney=$money;//缴费单价格-总结
           foreach ($medicineList as $key =>$value){//键值对为 药品编号 - 数量
-             /* $medicine = db('medicine')->where('medicineNo',$key)->find();//算药品价格
-             if(!empty($medicine)){
-                 $money+=$medicine['price']*$value;
-             } */
+              $medicine = db('medicine')->where('medicineNo',$key)->find();//算药品价格
+              if(!empty($medicine)){
+                  $paymoney+=$medicine['price']*$value;
+              } 
              $data = [
                     'recipeNo' => $recipeNo,
                     'medicineNo' => $key,
@@ -91,6 +92,26 @@ class Recipet extends Controller
                  ];
          
          db('recipe')->insert($data);//插入数据
+         
+         //生成缴费单
+         $max = db('payment')->order('paymentNo','desc')->find();
+         if(empty($max)){
+             $max = '1000000';
+         }else{
+             $max = $max['paymentNo']+1;//获取最大缴费单号
+         }
+         
+         $paydata=[
+             'paymentNo'=>$max,
+             'patNo' => $patNo,
+             'docNo' => $docNo,
+             'fee'=>$paymoney,
+             'paymentState'=>'待缴费',
+             'status'=>'未评价',
+             'paymentDate'=>date('Y-m-d H:i:s')
+         ];
+         db('payment')->insert($paydata);//插入数据
+         
          return 'success'; 
     }
     public function detail(){

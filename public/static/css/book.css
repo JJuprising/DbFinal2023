@@ -133,3 +133,15 @@ body{
 #btn_block #cancel_btn:hover{
 	background-color:#0079f2;
 }
+
+#bottom_button #over_btn{
+	float:right;
+	width:120px;
+	height:40px;
+	font-size:20px;
+	color:#fff;
+	background-color:#FFA500;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}

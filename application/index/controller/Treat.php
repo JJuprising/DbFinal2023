@@ -17,7 +17,7 @@ class Treat extends Controller
         //return $this->fetch();
     }
     public function getPatientList(){
-        $bookingData = db('bookingform')->where('docNo',Session::get('No'))->select();
+        $bookingData = db('bookingform')->order('bookingTime','desc')->where('docNo',Session::get('No'))->select();
         if(!empty($bookingData)){
 //             session('bookingData',$bookingData);
 //             $this->assign('bookingData',$bookingData);
@@ -33,6 +33,20 @@ class Treat extends Controller
         }else{
             $this->error('bookingform表不存在');
         }
+    }
+    //病人详情页
+    public function patinfo(){
+        $patNo = $_GET['patNo'];
+        if(!empty($patNo)){
+            $rs = db('patient')->where('patNo',$patNo)->find();
+    
+            if(!empty($rs)){
+                $this->assign('patInfo',$rs);
+                session('patNo',$patNo);
+                session('patInfo',$rs);
+            }
+        }
+        return $this->fetch();
     }
 }
 
