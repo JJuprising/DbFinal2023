@@ -9,6 +9,10 @@
 	width:999px;
 	margin-top:70px;
 }
+.medical-record-list{
+	width:999px;
+	margin-top:70px;
+}
 .card {
 	width: 60%;
 	background-color: #fff;
@@ -105,9 +109,6 @@
 #gettreat #pagePrescriptions #search_bar #search_btn:hover{
 	background-color:#0079f2;
 }
-
-
-
 #gettreat #pagePrescriptions #recipeNo{
 	width:200px;
     position:absolute;
@@ -152,4 +153,19 @@
 	background-color:#1E90FF;
 	border-right:1px solid #ccc;
 	border-bottom:1px solid #ccc;  
+}
+#gettreat #pageMedicalRecords #search_btn2{
+	float:right;
+	width:65px;
+	height:35px;
+	margin-top:3px;
+	font-size:16px;
+	color:#fff;
+	background-color:#1E90FF;
+	border: none;
+	border-radius:10px;
+	cursor:pointer;
+}
+#gettreat #pageMedicalRecords #search_btn2:hover{
+	background-color:#0079f2;
 }
