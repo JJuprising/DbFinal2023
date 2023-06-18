@@ -37,7 +37,7 @@ class Medmanage extends Controller
             $info = $file->validate(['ext'=>'jpg,png'])->rule(function ($file) {
                 // 使用自定义的文件保存规则
                 return $file->getInfo('type').uniqid();
-            })->move(ROOT_PATH . 'public' . DS . 'static' . DS . 'picture',input('post.medicineNo'));
+            })->move(ROOT_PATH . 'public' . DS . 'static' . DS . 'medimg',input('post.medicineNo'));
     
             if ($info) {
                 $filename = $info->getSaveName();

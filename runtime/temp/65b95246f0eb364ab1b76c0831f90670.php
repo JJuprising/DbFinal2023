@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"D:\Tools\php\AppServ\www\DbFinal2023/application/index\view\index\index.html";i:1684928102;s:24:"./public/common/top.html";i:1687091606;s:27:"./public/common/bottom.html";i:1685260347;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:76:"D:\Tools\php\AppServ\www\DbFinal2023/application/index\view\index\index.html";i:1687097769;s:24:"./public/common/top.html";i:1687091606;s:27:"./public/common/bottom.html";i:1685260347;}*/ ?>
 <meta charset="utf-8">
 <center>
 <table width=999px border=0>
@@ -69,6 +69,7 @@
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
 	<link href="/DbFinal2023/public/static/css/index.css" rel="stylesheet" type="text/css">
+<title>医院管理系统 - 主页</title>
 </head>
 <body>
 <center>
