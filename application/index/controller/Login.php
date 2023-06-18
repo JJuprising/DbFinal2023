@@ -59,7 +59,7 @@ class Login extends Controller
                 $this->error('密码错误');
             }
             session('No',$rs['manNo']);
-            $this->redirect(url('manage/manage'));
+           // $this->redirect(url('manage/manage'));
         }
         
         //如果用户名和密码正确，则将登录的工号存入 session

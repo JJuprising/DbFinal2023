@@ -249,7 +249,7 @@ return [
         //	字体大小
         'fontSize'	=>	25,
         //	验证码长度（位数）
-        'length'	=>	3,
+        'length'	=>	4,
         //背景图
         'useImgBg'	=>	true,
         //横线
@@ -258,7 +258,12 @@ return [
         'codeSet' => "1",
         //噪点
         'useNoise' => false,
-        
+        //	字体大小
+        'fontSize'	=>	15,
+        //高度
+        'imageH' => 28,
+        //宽度
+        'imageW' => 100,
     ],
     
 ];

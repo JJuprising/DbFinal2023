@@ -5,79 +5,56 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script>
+function deleteData(id) {
+    if (confirm('确认删除该数据吗？')) {
+       	$.ajax({
+   		  url: 'deleteMedicine',
+  		  method: 'POST', // 根据需要选择请求方法，如 POST 或 GET
+  		  //dataType:'json',
+  		  data: { 
+  			  id: id, 
 
+  		  }, 
+  		  success: function(response) {
+  		    // 处理成功响应
+  		    console.log('响应数据:', response);
+  		    alert("已删除")
+  		  location.reload();
+  		    
+  		  },
+  		  error: function(xhr, status, error) {
+  		    // 处理错误响应
+  		    console.error('发生错误:', error);
+  		  }
+  		}); 
+    }
+}
+
+</script>
 <body>
 <center>
 <div id="medicine-info-page">
     <h2>药品信息</h2>
-    <table>
-        <tr>
-            <th>药品编号</th>
-            <th>药品名称</th>
-            <th>库存数量</th>
-            <th>用法</th>
-        </tr>
-        <tr>
-            <td>YP202301</td>
-            <td>阿司匹林</td>
-            <td>200</td>
-            <td>口服，每次1片，每天3次</td>
-        </tr>
-        <tr>
-            <td>YP202302</td>
-            <td>对乙酰氨基酚</td>
-            <td>150</td>
-            <td>口服，每次1片，每天2次</td>
-        </tr>
-        <tr>
-            <td>YP202303</td>
-            <td>维生素C片</td>
-            <td>300</td>
-            <td>口服，每次1片，每天1次</td>
-        </tr>
-        <tr>
-            <td>YP202304</td>
-            <td>罗红霉素</td>
-            <td>50</td>
-            <td>口服，每次2片，每天3次</td>
-        </tr>
-        <tr>
-            <td>YP202305</td>
-            <td>氯雷他定</td>
-            <td>100</td>
-            <td>口服，每次1片，每天2次</td>
-        </tr>
-        <tr>
-            <td>YP202306</td>
-            <td>葡萄糖注射液</td>
-            <td>80</td>
-            <td>静脉注射，每次500毫升，每天1次</td>
-        </tr>
-        <tr>
-            <td>YP202307</td>
-            <td>盐酸氨溴索胶囊</td>
-            <td>120</td>
-            <td>口服，每次1-2粒，每天3次</td>
-        </tr>
-        <tr>
-            <td>YP202308</td>
-            <td>头孢克洛</td>
-            <td>30</td>
-            <td>静脉注射，每次1克，每天2次</td>
-        </tr>
-        <tr>
-            <td>YP202309</td>
-            <td>氯化钠注射液</td>
-            <td>500</td>
-            <td>静脉注射，每次500毫升，根据需要使用</td>
-        </tr>
-        <tr>
-            <td>YP202310</td>
-            <td>头孢呋辛酯片</td>
-            <td>80</td>
-            <td>口服，每次1片，每天2次</td>
-        </tr>
-    </table>
+    <a href='{:url('manage/newmedicine')}'>添加药品</a>
+    <div id="prod_content">
+		{foreach $medicInfo as $medic}
+		<div class="prod_div">
+			<a href="{:url('recipet/detail')}?medicineNo={$medic.medicineNo}">
+			<img src="__ROOT__/public/static/picture/{$medic.medPic}" border="0"/>
+			</a>
+			<div id="prod_name_div">{$medic.medName}  还剩{$medic.medLeft}件</div>
+			<div id="prod_price_div">￥{$medic.price}元</div>
+			<div>
+				<div id="gotocart_div">
+				<a href='{:url('recipet/detail')}?medicineNo={$medic.medicineNo}'>查看</a>
+				<a onclick="deleteData('{$medic.medicineNo}')">删除</a>
+				</div>					
+								
+				</div>
+		</div>
+		{/foreach}
+	</div>
 </div>
 </center>
 </body>

@@ -5,46 +5,83 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style>
+#doctor-info-page label {
+	display: block;
+	margin-bottom: 5px;
+}
 
+#doctor-info-page input[type="submit"] {
+	width:120px;
+	height:40px;
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius:5px;
+	margin-top:5px;
+	margin-bottom:10px;
+}
+
+#doctor-info-page input[type="submit"]:hover {
+	background-color: #45a049;
+}
+.select{
+	appearance: none;
+	background-color: transparent;
+	border: 1px solid #000;
+	margin: 0;
+	width: 100%;
+	font-family: inherit;
+	font-size: inherit;
+	cursor: inherit;
+	line-height: inherit;
+}
+</style>
 <body>
 <center>
 <div id="doctor-info-page">
     <h2>医生信息</h2>
     <form action="{:url('manage/update_doctor_info')}" method="post">
-        <div>
-            <label for="doctor-id">医生工号：</label>
-            <input type="text" name="doctor-id" id="doctor-id">
-        </div>
-        <div>
-            <label for="doctor-password">密码：</label>
-            <input type="password" name="doctor-password" id="doctor-password">
-        </div>
-        <div>
-            <label for="doctor-name">医生姓名：</label>
-            <input type="text" name="doctor-name" id="doctor-name">
-        </div>
-        <div>
-            <label for="doctor-gender">性别：</label>
-            <select name="doctor-gender" id="doctor-gender">
-                <option value="male">男</option>
-                <option value="female">女</option>
-            </select>
-        </div>
-        <div>
-            <label for="doctor-title">职称：</label>
-            <input type="text" name="doctor-title" id="doctor-title">
-        </div>
-        <div>
-            <label for="doctor-phone">电话号码：</label>
-            <input type="text" name="doctor-phone" id="doctor-phone">
-        </div>
-        <div>
-            <label for="department-id">所属科室号：</label>
-            <input type="text" name="department-id" id="department-id">
-        </div>
-        <div>
-            <input type="submit" value="保存">
-        </div>
+    	<table>
+    		<tr>
+    			<td><label for="doctor-id">医生工号：</label></td>
+    			<td><input type="text" name="doctor-id" id="doctor-id"></td>
+    		</tr>
+    		<tr>
+    			<td><label for="doctor-password">密码：</label></td>
+    			<td><input type="password" name="doctor-password" id="doctor-password"></td>
+    		</tr>
+    		<tr>
+    			<td><label for="doctor-name">医生姓名：</label></td>
+    			<td><input type="text" name="doctor-name" id="doctor-name"></td>
+    		</tr>
+    		<tr>
+    			<td><label for="doctor-gender">性别：</label></td>
+    			<td><select class="select" name="doctor-gender" id="doctor-gender">
+                	<option value="male">男</option>
+                	<option value="female">女</option>
+            		</select>
+            	</td>
+    		</tr>
+    		<tr>
+    			<td><label for="doctor-title">职称：</label></td>
+    			<td><input type="text" name="doctor-title" id="doctor-title"></td>
+    		</tr>
+    		<tr>
+    			<td><label for="doctor-phone">电话号码：</label></td>
+    			<td><input type="text" name="doctor-phone" id="doctor-phone"></td>
+    		</tr>
+    		<tr>
+    			<td><label for="department-id">所属科室号：</label></td>
+    			<td><input type="text" name="department-id" id="department-id"></td>
+    		</tr>
+    		<tr>
+			<td></td>
+			<td><input type="submit" value="保存"></td>
+			</tr>
+    	</table>
     </form>
 </div>
 </center>
