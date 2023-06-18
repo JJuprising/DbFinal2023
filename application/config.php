@@ -242,4 +242,28 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+    //验证码配置
+    'captcha'		=>	[
+        //中文
+        'useZh'	=> false,
+        //	字体大小
+        'fontSize'	=>	25,
+        //	验证码长度（位数）
+        'length'	=>	4,
+        //背景图
+        'useImgBg'	=>	true,
+        //横线
+        'useCurve' => false,
+        //字符集合
+        'codeSet' => "1",
+        //噪点
+        'useNoise' => false,
+        //	字体大小
+        'fontSize'	=>	15,
+        //高度
+        'imageH' => 28,
+        //宽度
+        'imageW' => 100,
+    ],
+    
 ];

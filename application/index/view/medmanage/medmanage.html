@@ -1,0 +1,61 @@
+{include  file="./public/common/top.html"/}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+function deleteData(id) {
+    if (confirm('确认删除该数据吗？')) {
+       	$.ajax({
+   		  url: 'deleteMedicine',
+  		  method: 'POST', // 根据需要选择请求方法，如 POST 或 GET
+  		  //dataType:'json',
+  		  data: { 
+  			  id: id, 
+
+  		  }, 
+  		  success: function(response) {
+  		    // 处理成功响应
+  		    console.log('响应数据:', response);
+  		    alert("已删除")
+  		  location.reload();
+  		    
+  		  },
+  		  error: function(xhr, status, error) {
+  		    // 处理错误响应
+  		    console.error('发生错误:', error);
+  		  }
+  		}); 
+    }
+}
+
+</script>
+<body>
+<center>
+<div id="medicine-info-page">
+    <h2>药品信息</h2>
+    <a href='{:url('manage/newmedicine')}'>添加药品</a>
+    <div id="prod_content">
+		{foreach $medicInfo as $medic}
+		<div class="prod_div">
+			<a href="{:url('recipet/detail')}?medicineNo={$medic.medicineNo}">
+			<img src="__ROOT__/public/static/picture/{$medic.medPic}" border="0"/>
+			</a>
+			<div id="prod_name_div">{$medic.medName}  还剩{$medic.medLeft}件</div>
+			<div id="prod_price_div">￥{$medic.price}元</div>
+			<div>
+				<div id="gotocart_div">
+				<a href='{:url('recipet/detail')}?medicineNo={$medic.medicineNo}'>查看</a>
+				<a onclick="deleteData('{$medic.medicineNo}')">删除</a>
+				</div>					
+								
+				</div>
+		</div>
+		{/foreach}
+	</div>
+</div>
+</center>
+</body>
+</html>

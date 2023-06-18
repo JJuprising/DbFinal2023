@@ -5,218 +5,56 @@
 <meta charset="UTF-8">
 <title>欢迎进入管理员页面</title>
 </head>
+<style>
+#hospital-info-page label {
+	display: block;
+	margin-bottom: 5px;
+}
 
+#hospital-info-page input[type="submit"] {
+	width:120px;
+	height:40px;
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius:5px;
+	margin-top:5px;
+	margin-bottom:10px;
+}
+
+#hospital-info-page input[type="submit"]:hover {
+	background-color: #45a049;
+}
+</style>
 <body>
 <center>
 
-<div class="top-navigation">
-    <button onclick="showHospitalInfo()">医院信息</button>
-    <button onclick="showDoctorInfo()">医生信息</button>
-    <button onclick="showDepartmentInfo()">科室信息</button>
-    <button onclick="showMedicineInfo()">药品信息</button>
-</div>
-
-<div id="hospital-info-page" style="display: none;">
+<div id="hospital-info-page">
     <h2>医院信息</h2>
     <form action="update_hospital_info.php" method="post" enctype="multipart/form-data">
-        <div>
-            <label for="logo">医院Logo：</label>
-            <input type="file" name="logo" id="logo">
-        </div>
-        <div>
-            <label for="hospital-name">医院名称：</label>
-            <input type="text" name="hospital-name" id="hospital-name">
-        </div>
-        <div>
-            <label for="hospital-website">医院网址：</label>
-            <input type="text" name="hospital-website" id="hospital-website">
-        </div>
-        <div>
-            <input type="submit" value="保存">
-        </div>
+    	<table>
+    		<tr>
+    			<td><label for="logo">医院Logo：</label></td>
+    			<td><input type="file" name="logo" id="logo"></td>
+    		</tr>
+    		<tr>
+    			<td><label for="hospital-name">医院名称：</label></td>
+    			<td><input type="text" name="hospital-name" id="hospital-name"></td>
+    		</tr>
+    		<tr>
+    			<td><label for="hospital-website">医院网址：</label></td>
+    			<td><input type="text" name="hospital-website" id="hospital-website"></td>
+    		</tr>
+    		<tr>
+			<td></td>
+			<td><input type="submit" value="保存"></td>
+			</tr>
+    	</table>
     </form>
 </div>
-
-
-<div id="doctor-info-page" style="display: none;">
-    <h2>医生信息</h2>
-    <form action="{:url('manage/update_doctor_info')}" method="post">
-        <div>
-            <label for="doctor-id">医生工号：</label>
-            <input type="text" name="doctor-id" id="doctor-id">
-        </div>
-        <div>
-            <label for="doctor-password">密码：</label>
-            <input type="password" name="doctor-password" id="doctor-password">
-        </div>
-        <div>
-            <label for="doctor-name">医生姓名：</label>
-            <input type="text" name="doctor-name" id="doctor-name">
-        </div>
-        <div>
-            <label for="doctor-gender">性别：</label>
-            <select name="doctor-gender" id="doctor-gender">
-                <option value="male">男</option>
-                <option value="female">女</option>
-            </select>
-        </div>
-        <div>
-            <label for="doctor-title">职称：</label>
-            <input type="text" name="doctor-title" id="doctor-title">
-        </div>
-        <div>
-            <label for="doctor-phone">电话号码：</label>
-            <input type="text" name="doctor-phone" id="doctor-phone">
-        </div>
-        <div>
-            <label for="department-id">所属科室号：</label>
-            <input type="text" name="department-id" id="department-id">
-        </div>
-        <div>
-            <input type="submit" value="保存">
-        </div>
-    </form>
-</div>
-
-
-<div id="office-info-page" style="display: none;">
-    <h2>科室信息</h2>
-    <form action="{:url('manage/update_department_info')}" method="post">
-    	<div>
-            <label for="department-id">科室号：</label>
-            <input type="text" name="department-id" id="department-id">
-        </div>
-        <div>
-            <label for="department-name">科室名称：</label>
-            <input type="text" name="department-name" id="department-name">
-        </div>
-        <div>
-            <label for="department-doctor">负责医师：</label>
-            <input type="text" name="department-doctor" id="department-doctor">
-        </div>
-        <div>
-            <label for="department-location">科室位置：</label>
-            <input type="text" name="department-location" id="department-location">
-        </div>
-        <div>
-            <input type="submit" value="保存">
-        </div>
-    </form>
-</div>
-
-
-<div id="medicine-info-page" style="display: none;">
-    <h2>药品信息</h2>
-    <table>
-        <tr>
-            <th>药品编号</th>
-            <th>药品名称</th>
-            <th>库存数量</th>
-            <th>用法</th>
-        </tr>
-        <tr>
-            <td>YP202301</td>
-            <td>阿司匹林</td>
-            <td>200</td>
-            <td>口服，每次1片，每天3次</td>
-        </tr>
-        <tr>
-            <td>YP202302</td>
-            <td>对乙酰氨基酚</td>
-            <td>150</td>
-            <td>口服，每次1片，每天2次</td>
-        </tr>
-        <tr>
-            <td>YP202303</td>
-            <td>维生素C片</td>
-            <td>300</td>
-            <td>口服，每次1片，每天1次</td>
-        </tr>
-        <tr>
-            <td>YP202304</td>
-            <td>罗红霉素</td>
-            <td>50</td>
-            <td>口服，每次2片，每天3次</td>
-        </tr>
-        <tr>
-            <td>YP202305</td>
-            <td>氯雷他定</td>
-            <td>100</td>
-            <td>口服，每次1片，每天2次</td>
-        </tr>
-        <tr>
-            <td>YP202306</td>
-            <td>葡萄糖注射液</td>
-            <td>80</td>
-            <td>静脉注射，每次500毫升，每天1次</td>
-        </tr>
-        <tr>
-            <td>YP202307</td>
-            <td>盐酸氨溴索胶囊</td>
-            <td>120</td>
-            <td>口服，每次1-2粒，每天3次</td>
-        </tr>
-        <tr>
-            <td>YP202308</td>
-            <td>头孢克洛</td>
-            <td>30</td>
-            <td>静脉注射，每次1克，每天2次</td>
-        </tr>
-        <tr>
-            <td>YP202309</td>
-            <td>氯化钠注射液</td>
-            <td>500</td>
-            <td>静脉注射，每次500毫升，根据需要使用</td>
-        </tr>
-        <tr>
-            <td>YP202310</td>
-            <td>头孢呋辛酯片</td>
-            <td>80</td>
-            <td>口服，每次1片，每天2次</td>
-        </tr>
-    </table>
-</div>
-
-
-
-
-
 
 </center>
-
 </body>
-<script type="text/javascript">
-function showHospitalInfo() {
-    // 隐藏其他页面，显示医院信息页面
-    document.getElementById("hospital-info-page").style.display = "block";
-    document.getElementById("doctor-info-page").style.display = "none";
-    document.getElementById("office-info-page").style.display = "none";
-    document.getElementById("medicine-info-page").style.display = "none";
-}
-
-function showDoctorInfo() {
-    // 隐藏其他页面，显示医生信息页面
-    document.getElementById("hospital-info-page").style.display = "none";
-    document.getElementById("doctor-info-page").style.display = "block";
-    document.getElementById("office-info-page").style.display = "none";
-    document.getElementById("medicine-info-page").style.display = "none";
-}
-
-function showDepartmentInfo(){
-	// 隐藏其他页面，显示医生信息页面
-    document.getElementById("hospital-info-page").style.display = "none";
-    document.getElementById("doctor-info-page").style.display = "none";
-    document.getElementById("office-info-page").style.display = "block";
-    document.getElementById("medicine-info-page").style.display = "none";
-}
-
-function showMedicineInfo(){
-	// 隐藏其他页面，显示医生信息页面
-    document.getElementById("hospital-info-page").style.display = "none";
-    document.getElementById("doctor-info-page").style.display = "none";
-    document.getElementById("office-info-page").style.display = "none";
-    document.getElementById("medicine-info-page").style.display = "block";
-}
-
-</script>
 </html>
