@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <title>药品详情</title>
+    <link href="__ROOT__/public/static/css/StyleIndex.css" rel="Stylesheet" type="text/css" /></head>
+
+</head>
+<center>
+ <table style='width:830px;border-width:1px;border-style:dotted;align:center;'>
+     <tr>
+        <td rowspan=7 width=200>
+         <img src="__ROOT__/public/static/picture/{$medicineDetail.medPic}"></td>
+        <td colspan=2 align=center><div style='font-weight:bold;font-size:medium;height:40px;line-height:40px;color:#000066;text-align:center;border-width:1px;  border-style:solid;border-color:red;'>
+           {$medicineDetail.medName}</div></td>          	
+     </tr>
+     <tr>
+       <td width=200><font size=6>成分：</font></td>
+       <td><font size=6>{$medicineDetail.medIngr}</font></td> 
+     </tr>
+     <tr>
+     	<td width=200><font size=6>用法：</font></td>
+     	<td><font size=6>{$medicineDetail.medUsage}</font></td>
+     </tr>
+
+     <tr>
+     	<td width=200><font size=6>说明：</font></td>
+     	<td><font size=6>{$medicineDetail.medDesc}</font></td>
+     </tr>
+     <tr>
+     	<td colspan=2><div style='text-align:left;font-size: medium; color: #000066;'>
+     	价格：<font size=6 color=red><b>￥{$medicineDetail.price}</b></font></div>
+     	</td>
+     </tr>
+
+
+ </table>
+
+
+</center>
+</html>

@@ -12,13 +12,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/top-think/framework/zipball/ab826da071a7a47116a7f1d01f72228d6bcf212a",
             "reference": "ab826da071a7a47116a7f1d01f72228d6bcf212a",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "php": ">=5.4.0",
@@ -60,35 +54,33 @@
     },
     {
         "name": "topthink/think-captcha",
-        "version": "v1.0.7",
-        "version_normalized": "1.0.7.0",
+        "version": "v1.0.8",
+        "version_normalized": "1.0.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/top-think/think-captcha.git",
-            "reference": "0c55455df26a1626a60d0dc35d2d89002b741d44"
+            "reference": "1d64363c814c92f6086c4fa5e3223fe7e23db09d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/top-think/think-captcha/zipball/0c55455df26a1626a60d0dc35d2d89002b741d44",
-            "reference": "0c55455df26a1626a60d0dc35d2d89002b741d44",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "url": "https://api.github.com/repos/top-think/think-captcha/zipball/1d64363c814c92f6086c4fa5e3223fe7e23db09d",
+            "reference": "1d64363c814c92f6086c4fa5e3223fe7e23db09d",
+            "shasum": ""
         },
-        "time": "2016-07-06T01:47:11+00:00",
+        "require": {
+            "topthink/framework": "~5.0.0",
+            "topthink/think-installer": ">=1.0.10"
+        },
+        "time": "2019-01-28T04:48:36+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "psr-4": {
-                "think\\captcha\\": "src/"
-            },
             "files": [
                 "src/helper.php"
-            ]
+            ],
+            "psr-4": {
+                "think\\captcha\\": "src/"
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -115,13 +107,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/top-think/think-helper/zipball/0c99dc625b0d2d4124e1b6ca15a3ad6f0125963f",
             "reference": "0c99dc625b0d2d4124e1b6ca15a3ad6f0125963f",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "time": "2017-04-05T07:15:37+00:00",
         "type": "library",
@@ -159,13 +145,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/top-think/think-image/zipball/8586cf47f117481c6d415b20f7dedf62e79d5512",
             "reference": "8586cf47f117481c6d415b20f7dedf62e79d5512",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "ext-gd": "*"
@@ -207,13 +187,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/top-think/think-installer/zipball/1be326e68f63de4e95977ed50f46ae75f017556d",
             "reference": "1be326e68f63de4e95977ed50f46ae75f017556d",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "composer-plugin-api": "^1.0"
@@ -256,13 +230,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/top-think/think-migration/zipball/8e489f8d38a39876690c0e00fcf9a54ae92c4d3d",
             "reference": "8e489f8d38a39876690c0e00fcf9a54ae92c4d3d",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require-dev": {
             "topthink/framework": "^5.0"
@@ -303,13 +271,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/top-think/think-mongo/zipball/657cc79bd5f090a58b0cc83776073dd69c83a3d1",
             "reference": "657cc79bd5f090a58b0cc83776073dd69c83a3d1",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "time": "2018-06-03T01:51:27+00:00",
         "type": "library",
@@ -345,13 +307,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/top-think/think-oracle/zipball/89a049e876167030b489322f691aed00799fd68f",
             "reference": "89a049e876167030b489322f691aed00799fd68f",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "topthink/framework": "~5.0.17"
@@ -375,7 +331,8 @@
                 "email": "liu21st@gmail.com"
             }
         ],
-        "description": "Oracle driver for thinkphp5"
+        "description": "Oracle driver for thinkphp5",
+        "abandoned": true
     },
     {
         "name": "topthink/think-queue",
@@ -390,13 +347,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/top-think/think-queue/zipball/465320c9cb7811df22d4ff8f29f58ead7d104348",
             "reference": "465320c9cb7811df22d4ff8f29f58ead7d104348",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "topthink/think-helper": ">=1.0.4",
@@ -443,13 +394,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/top-think/think-worker/zipball/b609ff5e38dbb7194aab027d2b2c6b31a7ed1bd1",
             "reference": "b609ff5e38dbb7194aab027d2b2c6b31a7ed1bd1",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "workerman/workerman": "^3.3.0"
@@ -488,13 +433,7 @@
             "type": "zip",
             "url": "https://api.github.com/repos/walkor/Workerman/zipball/6d70996b2b4ec94000e807246aca0e861c9601d8",
             "reference": "6d70996b2b4ec94000e807246aca0e861c9601d8",
-            "shasum": "",
-            "mirrors": [
-                {
-                    "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
-                    "preferred": true
-                }
-            ]
+            "shasum": ""
         },
         "require": {
             "php": ">=5.3"

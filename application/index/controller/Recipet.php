@@ -93,6 +93,12 @@ class Recipet extends Controller
          db('recipe')->insert($data);//插入数据
          return 'success'; 
     }
-
+    public function detail(){
+        $medicineNo = $_GET['medicineNo'];
+        $rs = db('medicine')->where('medicineNo',$medicineNo)->find();
+        $this->assign('medicineDetail',$rs);
+        
+        return $this->fetch();
+    }
 }
 

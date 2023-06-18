@@ -172,7 +172,7 @@ function postInfo(){
 				<tr>
 <!-- 				<form action="{:url('Recipet/addCart')}" method="post">
 					<input type=text name="No" id="No" value="{$data.medicineNo}" style="display: none;" > -->
-					<td>{$data.medicineNo}</td>
+					<td><a href="{:url('recipet/detail')}?medicineNo={$data.medicineNo}" target='_blank'>{$data.medicineNo}</a></td>
 					<td>{$data.medName}</td>
 					<td>{$data.price}</td>
 					<td>{$data.medLeft}</td>
