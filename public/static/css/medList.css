@@ -1,0 +1,87 @@
+@charset "utf-8";
+#medicine-info-page{
+	width:999px;
+}
+#medicine-info-page #add_med{
+	width:120px;
+	height:40px;
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	text-decoration: none;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius:5px;
+	margin-top:15px;
+	margin-bottom:15px;
+}
+#medicine-info-page #add_med:hover{
+	background-color: #45a049;
+}
+#prod_content{
+	width:999px;
+}
+#prod_content .prod_div{
+	width:222px;
+	height:347px;
+	border: 1px solid #D4D4D4;
+	margin-top:15px;
+	margin-left:20px;
+	float:left;
+}
+
+#prod_content .prod_div img{
+	height: 218px;
+    width: 222px;
+	width:100%; 
+}
+#prod_content #prod_name_div{
+	font-size:16px;
+	margin-top:8px;
+	text-align: center;
+}
+#prod_content #prod_price_div{
+	font-size:20px;
+	margin-top:22px;
+	text-align: center;
+	color:#CC0000;
+	
+}
+#prod_content #look_div{
+	float:left;
+	width:110px;
+	height:35px;
+	margin-top:15px;
+	text-align: center;
+	line-height:35px;
+	border-top: 1px solid #D4D4D4;
+	border-right: 1px solid #D4D4D4;
+}
+#look_div a{
+	display: block;
+	color:#666666;
+	text-decoration: none;
+}
+#look_div a:hover{
+	background-color: #FF0000;
+	color:#fff;
+} 
+#prod_content #delete_div{
+	float:right;
+	width:110px;
+	height:35px;
+	margin-top:15px;
+	text-align: center;
+	line-height:35px;
+	border-top: 1px solid #D4D4D4;
+	border-left: 1px solid #D4D4D4;
+}
+#delete_div a{
+	display: block;
+	color:#666666;
+	text-decoration: none;
+}
+#delete_div a:hover{
+	background-color: #FF0000;
+	color:#fff;
+} 

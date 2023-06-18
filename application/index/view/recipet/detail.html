@@ -1,13 +1,71 @@
+{include  file="./public/common/top.html"/}
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
 <head>
-    <title>药品详情</title>
+    <title>医院管理系统 - 药品详情</title>
     <link href="__ROOT__/public/static/css/StyleIndex.css" rel="Stylesheet" type="text/css" /></head>
 
 </head>
+<style>
+#medcontent{
+	width:999px;
+}
+#medcard img{
+	height: 100%;
+    width: 25%; 
+	margin-left:15px;
+	float:left;
+}
+#medcard{
+	width:80%;
+	height:200px;
+	position:relative;
+	border: 2px solid #D4D4D4;
+	margin-top:15px;
+	margin-right:25px;
+	margin-left:25px;
+	float:center;
+	border-radius:5px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#medcard div{
+	width:50%;
+	float:left;
+	text-align:left;
+	margin-top:10px;
+	margin-left:40px;
+}
+#medcard #medname{
+	color:#fff;
+	text-align:center;
+	font-size:24px;
+	background-color:#1E90FF;
+	border-radius: 5px;
+}
+#medcard #medprice{
+	width:80px;
+	color:red;
+	text-align:right;
+	font-size:28px;
+	position:absolute;
+	bottom:0px;
+	right:0px;
+}
+</style>
 <center>
- <table style='width:830px;border-width:1px;border-style:dotted;align:center;'>
+<div id="medcontent">
+<div id="medcard">
+	<a><img src="__ROOT__/public/static/picture/{$medicineDetail.medPic}"></a>
+	<div id="medname">{$medicineDetail.medName}</div>
+	<div>成分：{$medicineDetail.medIngr}</div>
+	<div>用法：{$medicineDetail.medUsage}</div>
+	<div>说明：{$medicineDetail.medDesc}</div>
+	<div id="medprice">{$medicineDetail.price}￥</div>
+</div>
+</div>
+
+<!--  <table style='width:830px;border-width:1px;border-style:dotted;align:center;'>
      <tr>
         <td rowspan=7 width=200>
          <img src="__ROOT__/public/static/picture/{$medicineDetail.medPic}"></td>
@@ -32,9 +90,7 @@
      	价格：<font size=6 color=red><b>￥{$medicineDetail.price}</b></font></div>
      	</td>
      </tr>
-
-
- </table>
+ </table> -->
 
 
 </center>
