@@ -1,0 +1,103 @@
+{include file="./public/common/top.html"/}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="__ROOT__/public/static/css/patinfo.css" rel="stylesheet"
+	type="text/css">
+<title>Insert title here</title>
+</head>
+
+<body>
+	<center>
+			<div id="info_content">
+
+				<div id="info_block">
+					<div>患者姓名:</div>
+					<div>
+						<input type="text" name="patName" value="{$patInfo.patName}"
+							disabled="disabled">
+					</div>
+				</div>
+				<div id="info_block">
+					<div>病案号:</div>
+					<div>
+						<input type="text" name="patNo" value="{$patInfo.patNo}"
+							disabled="disabled">
+					</div>
+				</div>
+				<div id="info_block">
+					<div>性别:</div>
+					<div>
+						<input type="text" name="sex" value="{$patInfo.sex}"
+							disabled="disabled">
+					</div>
+				</div>
+				<div id="info_img">
+					<img src="__ROOT__/public/static/image/User.png" border="0"/>
+				</div>
+				<div id="info_block">
+					<div>手机号码:</div>
+					<div>
+						<input type="text" name="telephone" value="{$patInfo.telephone}"
+							disabled="disabled">
+					</div>
+				</div>
+				<div id="info_long_block">
+					<div>住址:</div>
+					<div>
+						<input type="text" name="address" value="{$patInfo.address}"
+							disabled="disabled">
+					</div>
+				</div>
+			</div>
+			<div id="btn_block">
+		<button id="cancel_btn" onclick="location.href='{:url('treat/treat')}'">返回</button>
+	</div>
+
+	</center> 
+
+</body>
+<script>
+// 医生数据
+var doctors = [
+    { id: 'D202301001', departmentId: "101", name: "李四" },
+    { id: 'D202305001', departmentId: "101", name: "王五" },
+    { id: 'D202301002', departmentId: "101", name: "李梅" },
+    { id: 'D202303001', departmentId: "102", name: "王芳" },
+    { id: 'D202305002', departmentId: "102", name: "刘强" },
+    { id: 'D202303002', departmentId: "102", name: "赵娟" },
+    // 其他医生数据
+  ];
+
+// 监听科室选择事件
+var departmentSelect = document.getElementById("office");
+var doctorSelect = document.getElementById("doctor");
+
+departmentSelect.addEventListener("change", function() {
+  // 清空医生选项
+  doctorSelect.innerHTML = "";
+
+  // 获取选择的科室ID
+  var selectedDepartmentId = departmentSelect.value;
+
+  // 根据科室ID筛选医生数据
+  var filteredDoctors = doctors.filter(function(doctor) {
+    return doctor.departmentId === selectedDepartmentId;
+  });
+
+  // 动态生成医生选项
+  filteredDoctors.forEach(function(doctor) {
+    var option = document.createElement("option");
+    option.value = doctor.id;
+    option.textContent = doctor.name;
+    doctorSelect.appendChild(option);
+  });
+});
+
+//显示挂号单号
+function showbookNo(){
+	
+}
+</script>
+</html>
